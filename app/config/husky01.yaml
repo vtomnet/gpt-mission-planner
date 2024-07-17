@@ -1,0 +1,8 @@
+# OpenAI API token
+token: "~/.gpt/token.env"
+# schema per 1872.1-2024 + farm layout
+schema: "./app/resources/schema.xsd"
+farm_layout: "./app/resources/reza_small.geojson"
+# who to send this too?
+host: 127.0.0.1
+port: 12345

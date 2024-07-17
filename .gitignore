@@ -1,0 +1,9 @@
+
+# MAC Cache
+**.DS_Store**
+# Python Cache
+**__pycache__**
+# output file from sandbox runs of GPT
+output.txt
+# all GPT outputs
+app/gpt_outputs/
