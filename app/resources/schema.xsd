@@ -34,21 +34,21 @@
     <!-- Complex type for takeThermalPicture -->
     <xs:complexType name="takeThermalPictureType">
         <xs:sequence>
-            <xs:element name="PictureQuality" type="xs:string"/>
+            <xs:element name="numberOfPictures" type="xs:integer"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- Complex type for takeAmbientTemperature -->
     <xs:complexType name="takeAmbientTemperatureType">
         <xs:sequence>
-            <xs:element name="Unit" type="xs:string"/>
+            <xs:element name="numberOfSamples" type="xs:integer"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- Complex type for takeCO2Reading -->
     <xs:complexType name="takeCO2ReadingType">
         <xs:sequence>
-            <xs:element name="Unit" type="xs:string"/>
+            <xs:element name="numberOfSamples" type="xs:integer"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -173,6 +173,8 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- TODO: really unused for now are the below complexTypes. -->
+
     <!-- Complex type for Outcome -->
     <xs:complexType name="OutcomeType">
         <xs:sequence>
@@ -201,5 +203,7 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
+
+    <!-- TODO: really unused for now are the above complexTypes. -->
 
 </xs:schema>

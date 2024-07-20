@@ -1,5 +1,6 @@
 openai
 python-dotenv
 lxml
+lxml-stubs
 click
 PyYAML

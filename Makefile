@@ -20,4 +20,4 @@ run:
 	python3 ./app/mission_planner.py
 
 server:
-	nc -l 0.0.0.0 12345
+	python3 ./ros/mission_planner.py

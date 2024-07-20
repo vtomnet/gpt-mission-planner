@@ -1,0 +1,8 @@
+logging: DEBUG
+log_directory: "./ros/.temp/"
+# schema per 1872.1-2024 + farm layout
+schema: "./app/resources/schema.xsd"
+farm_layout: "./app/resources/reza_small.geojson"
+# where to set the TCP server
+host: 0.0.0.0
+port: 12345
