@@ -11,10 +11,13 @@ class GPTInterface:
         logger: logging.Logger,
         token_path: str,
         max_tokens: int = 2000,
+        temperature: float = 0.2
     ):
         self.logger: logging.Logger = logger
         # max number of tokens that GPT will respond with, almost 1:1 with words to token
         self.max_tokens: int = max_tokens
+        # creativity of ChatGPT
+        self.temperature: float = temperature
         # loading in secret API token from your env file
         load_dotenv(token_path)
         # binding GPT client
@@ -30,7 +33,7 @@ class GPTInterface:
                 "role": "system",
                 "content": "You are a mission planner that generates XML mission plans based on robotic task representation. \
                             When asked to generate a mission, create an XML file conformant to the known schema and use the GeoJSON file to provide references in the mission plan for things such as GPS location, tree type, etc. \
-                            It must be syntactically correct and validate using an XML linter.",
+                            It must be syntactically correct and validate using an XML linter. Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging.",
             },
             # context
             {
@@ -73,7 +76,7 @@ class GPTInterface:
         message.append({"role": "user", "content": prompt})
 
         completion: ChatCompletion = self.client.chat.completions.create(
-            model="gpt-4o", messages=message, max_tokens=self.max_tokens
+            model="gpt-4o", messages=message, max_tokens=self.max_tokens, temperature=self.temperature
         )
 
         response: str = completion.choices[0].message.content

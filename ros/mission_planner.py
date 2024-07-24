@@ -1,4 +1,5 @@
 import logging
+import os
 
 import click
 import yaml
@@ -28,7 +29,7 @@ class MissionPlanner:
         self._configure_network(host, port)
 
     def run(self) -> None:
-        temp_xml_path: str = self.nic.receive_file()
+        bytes_received, temp_xml_path = self.nic.receive_file()
         ret, e = self.decoder.validate_output(temp_xml_path)
         if ret:
             self.logger.debug(e)
@@ -36,6 +37,18 @@ class MissionPlanner:
             self.decoder.decode_xml_mp(temp_xml_path)
         else:
             self.logger.error(e)
+
+        # if you got the MP
+        if bytes_received > 0:
+            self.logger.debug("Mission plan received successfully...")
+        # if you actually didn't receive anything
+        else:
+            os.remove(temp_xml_path)
+            self.logger.debug("Mission plan not received...")
+
+        # TODO: find a break point to exit gracefully  
+        # receive one message at a time
+        self.nic.close_socket()
 
     def _configure_network(self, host: str, port: int) -> None:
         self.nic: NetworkInterface = NetworkInterface(

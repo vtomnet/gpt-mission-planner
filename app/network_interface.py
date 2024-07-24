@@ -6,10 +6,15 @@ class NetworkInterface:
     def __init__(self, logger: logging.Logger, host="127.0.0.1", port=12345):
         self.logger: logging.Logger = logger
         # connect to server as client
+        self.host: str = host
+        self.port: int = port
         self.client_socket: socket.socket = socket.socket(
             socket.AF_INET, socket.SOCK_STREAM
         )
-        self.client_socket.connect((host, port))
+        self.client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+    def init_socket(self) -> None:
+        self.client_socket.connect((self.host, self.port))
 
     def send_file(self, file_path):
         bytes_sent: int = 0

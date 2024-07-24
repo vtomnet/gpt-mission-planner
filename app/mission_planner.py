@@ -17,6 +17,8 @@ class MissionPlanner:
         schema_path: str,
         farm_layout: str,
         max_retries: int,
+        max_tokens: int, 
+        temperature: float,
         log_directory: str,
         logger: logging.Logger,
     ):
@@ -30,12 +32,14 @@ class MissionPlanner:
         # max number of times that GPT can try and fix the mission plan
         self.max_retries: int = max_retries
         # init gpt interface
-        self.gpt: GPTInterface = GPTInterface(self.logger, token_path)
+        self.gpt: GPTInterface = GPTInterface(self.logger, token_path, max_tokens, temperature)
         self.gpt.init_context(self.schema_path, self.farm_layout)
 
     def configure_network(self, host: str, port: int) -> None:
         # network interface
         self.nic: NetworkInterface = NetworkInterface(self.logger, host, port)
+        # start connection to ROS agent
+        self.nic.init_socket()
 
     def parse_xml(self, mp_out: str) -> str:
         xml_response: str = mp_out.split("```xml\n")[1]
@@ -75,6 +79,7 @@ class MissionPlanner:
 
     def run(self):
         while True:
+            # ask user for their mission plan
             mp_input: str = input("Enter the specifications for your mission plan: ")
             mp_out: str = self.gpt.ask_gpt(mp_input, True)
             mp_out = self.parse_xml(mp_out)
@@ -101,6 +106,9 @@ class MissionPlanner:
                 # TODO: send off mission plan to TCP client
                 self.nic.send_file(output_path)
                 self.logger.debug("Successful mission plan generation...")
+            
+        # TODO: decide how the reuse flow works
+        self.nic.close_socket()
 
 
 @click.command()
@@ -123,6 +131,8 @@ def main(config: str):
             config_yaml["schema"],
             config_yaml["farm_layout"],
             config_yaml["max_retries"],
+            config_yaml["max_tokens"],
+            config_yaml["temperature"],
             config_yaml["log_directory"],
             logger,
         )

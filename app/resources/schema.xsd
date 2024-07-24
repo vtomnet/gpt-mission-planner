@@ -109,13 +109,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Complex type for Parameters -->
-    <xs:complexType name="ActionType">
-        <xs:sequence>
-            <xs:element name="Action" minOccurs="0" maxOccurs="1" type="robotActions"/>
-        </xs:sequence>
-    </xs:complexType>
-
     <!-- Simple type for Condition Types -->
     <xs:simpleType name="stateTypes">
         <xs:restriction base="xs:string">
@@ -150,7 +143,7 @@
                         <xs:element name="TaskID" type="xs:string"/>
                         <xs:element name="TaskDescription" type="xs:string"/>
                         <xs:element name="StateVariables" type="StateVariablesType" minOccurs="0"/>
-                        <xs:element name="Action" type="ActionType" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="Action" type="robotActions" minOccurs="0" maxOccurs="1"/>
                         <xs:element name="Parameters" type="ParametersType"/>
                         <xs:element name="Preconditions" type="PreconditionsType" minOccurs="0"/>
                     </xs:sequence>

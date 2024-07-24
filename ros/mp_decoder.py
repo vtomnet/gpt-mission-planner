@@ -4,20 +4,7 @@ from enum import Enum
 
 from lxml import etree
 
-from tasking import Task, GoToLocation, ActionType, TakePicture
-
-
-# This defines the tag types throughout the schema document
-class ElementTags(str, Enum):
-    ACTION = "Action"
-    ACTIONTYPE = "ActionType"
-    ATOMICTASKS = "AtomicTasks"
-    CONTROLCONSTRUCT = "ControlConstruct"
-    PARAMETERS = "Parameters"
-    PRECONDITION = "Precondition"
-    PRECONDITIONS = "Preconditions"
-    SEQUENCE = "Sequence"
-    TASKID = "TaskID"
+from tasking import Task, GoToLocation, ActionType, TakePicture, ElementTags
 
 
 class MPDecoder:
@@ -73,9 +60,9 @@ class MPDecoder:
         Helper function to create Task objects based on XML mission
         """
         # find <AtomicTasks> from root
-        atomic_tasks = root.find(self.namespace + ElementTags.ATOMICTASKS)
+        atomic_tasks: etree._Element = root.find(self.namespace + ElementTags.ATOMICTASKS)
         # find the <AtomicTask> in the list that matches the current task
-        task = self._find_child(atomic_tasks, self.namespace + ElementTags.TASKID, task_name)
+        task: etree._Element = self._find_child(atomic_tasks, self.namespace + ElementTags.TASKID, task_name)
 
         # <Action>
         #   <Action>
@@ -83,18 +70,19 @@ class MPDecoder:
         #       ...
         action_type: str = (
             task.find(self.namespace + ElementTags.ACTION)
-            .find(self.namespace + ElementTags.ACTION)
             .find(self.namespace + ElementTags.ACTIONTYPE)
             .text
         )
 
         # ultimately this will become a waypoint for the waypoint follower node
         if action_type == ActionType.MOVETOLOCATION:
-            self.logger.debug(f"Added AtomicTask: {action_type}")
-            return GoToLocation(0, 0)
+            # we assume this isn't None since we parsed it previously
+            lat, long = GoToLocation.parse_lat_long(task.find(self.namespace + ElementTags.ACTION), self.namespace)
+            self.logger.debug(f"Added AtomicTask: {action_type}, lat/long: {lat, long}")
+            return GoToLocation(lat, long)
         elif action_type == ActionType.TAKETHERMALPICTURE:
             self.logger.debug(f"Added AtomicTask: {action_type}")
-            # TODO: parse number of pictures
+            # TODO: parse number of pictures, if relevant
             return TakePicture(1)
         else:
             self.logger.error(f"Unsupported ActionType: {action_type}")

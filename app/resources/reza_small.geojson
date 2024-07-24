@@ -6,7 +6,7 @@
     {
       "type": "Feature",
       "geometry": {
-        "type": "Point",
+        "type": "Landmark",
         "coordinates": [37.266444, -120.4201616]
       },
       "properties": {
@@ -96,7 +96,7 @@
     {
         "type": "Feature",
         "geometry": {
-          "type": "Point",
+          "type": "Landmark",
           "coordinates": [37.2660953, -120.4201552]
         },
         "properties": {

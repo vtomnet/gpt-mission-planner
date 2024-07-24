@@ -3,6 +3,7 @@ logging: DEBUG
 token: "~/.gpt/token.env"
 # max number of retries to get a valid mission plan from ChatGPT
 max_retries: 1
+max_tokens: 2000
 # schema per 1872.1-2024 + farm layout
 log_directory: "./app/gpt_outputs/"
 schema: "./app/resources/schema.xsd"

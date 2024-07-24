@@ -2,6 +2,7 @@ import socket
 import logging
 import tempfile
 import os
+from typing import Tuple
 
 
 class NetworkInterface:
@@ -24,24 +25,22 @@ class NetworkInterface:
         # creating logging directory
         os.makedirs(self.log_directory, exist_ok=True)
 
-    def receive_file(self) -> str:
+    def receive_file(self) -> Tuple[int, str]:
         self.logger.debug(f"Waiting for client to connect to port {self.port}...")
         self.server_socket, addr = self.server_socket.accept()
         self.logger.debug(f"Connection from {addr}")
+        bytes_written: int = 0
 
         with tempfile.NamedTemporaryFile(dir=self.log_directory, delete=False, mode="wb") as temp_file:
             self.current_mission_file = temp_file.name
             while True:
                 chunk = self.server_socket.recv(self.max_rcv_bytes)
-                if not chunk:
+                if len(chunk) == 0:
                     break
                 temp_file.write(chunk)
+                bytes_written += len(chunk)
 
-        self.logger.debug("File received successfully.")
-        # receive one message at a time
-        self.close_socket()
-
-        return self.current_mission_file
+        return bytes_written, self.current_mission_file
 
     def send_acknowledgement(self):
         pass

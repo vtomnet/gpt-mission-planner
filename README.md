@@ -22,7 +22,6 @@ From within the Docker container, execute `make run` to request your first missi
 
 ## Current Process
 Currently, this doesn't connect to a robot to feed in the mission plan that comes out of GPT.
-To access the mission plan, simply install `netcat` on your host running this Docker container to view the XML plan.
 ```bash
 make server
 ```
@@ -31,6 +30,21 @@ Make sure to run this **first** before running the mission planner (`make run`).
 This will kick off a `netcat` server to receive the mission plan intended to be sent to the robot.
 
 ## Example Execution:
+On the host machine running a listening server. Make sure the IP/port matches the YAML config file IP/port:
+```bash
+$ make server
+python3 ./ros/mission_planner.py
+DEBUG:root:Server listening on 0.0.0.0:12345
+DEBUG:root:Waiting for client to connect to port 12345...
+DEBUG:root:Connection from ('127.0.0.1', 57856)
+DEBUG:root:File received successfully.
+DEBUG:root:XML is valid.
+DEBUG:root:Added AtomicTask: moveToLocation
+DEBUG:root:Added AtomicTask: takeThermalPicture
+DEBUG:root:Added AtomicTask: moveToLocation
+DEBUG:root:Added AtomicTask: takeThermalPicture
+```
+
 ```bash
 $ make build
 docker build . -t gpt-mission-planner --target local
@@ -54,13 +68,4 @@ root@linuxkit-965cbccc7c1e:/gpt-mission-planner# make run
 python3 ./app/mission_planner.py
 Enter the specifications for your mission plan: Take a thermal picture of every other tree on the farm.
 File sent successfully.
-```
-
-On the host machine running the listening server:
-```bash
-$ make server
-nc -l 0.0.0.0 12345
-<?xml version="1.0" encoding="UTF-8"?>
-<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
-...
 ```

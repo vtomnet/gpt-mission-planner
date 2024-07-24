@@ -1,17 +1,17 @@
-FROM python:3.11 as builder
+FROM python:3.11 AS builder
 
 # install requirements through pip
 COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt
 
-FROM python:3.11 as base
+FROM python:3.11 AS base
 
 RUN apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common build-essential wget netcat-traditional
 
 # For more information, please refer to https://aka.ms/vscode-docker-python
 # This is particularly for debugging using VSCode
-FROM builder as dev
+FROM builder AS dev
 
 WORKDIR /gpt-mission-planner
 COPY . /gpt-mission-planner
@@ -31,7 +31,7 @@ USER appuser
 # CMD ["python", "orienteering/orienteering.py"]
 
 # image for running with a GPU: LINUX ONLY
-FROM base as local
+FROM base AS local
 
 # copy over all python files from builder stage and add location to path
 COPY --from=builder /usr/local /usr/local
