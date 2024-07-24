@@ -20,4 +20,4 @@ run:
 	python3 ./app/mission_planner.py
 
 server:
-	python3 ./ros/mission_planner.py
+	ros2 run husky_mission_planner husky_mission_planner

@@ -1,4 +1,8 @@
+# log level
 logging: DEBUG
+# ROS2 node name
+node_name: 'husky_mission_planner'
+# temp file log directory -> stores mission plans
 log_directory: "./ros/.temp/"
 # schema per 1872.1-2024 + farm layout
 schema: "./app/resources/schema.xsd"

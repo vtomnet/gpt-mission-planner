@@ -10,11 +10,11 @@ NOTE: if running on Mac, ensure you have network mode enabled for this to work. 
 If working in Linux, will work on any version.
 
 ```bash
-make build
+$ make build
 ```
 
 ```bash
-make bash
+$ make bash
 ```
 
 The above two commands will start the build and bash process of the Docker environment to execute your GPT Mission Planner.
@@ -23,17 +23,20 @@ From within the Docker container, execute `make run` to request your first missi
 ## Current Process
 Currently, this doesn't connect to a robot to feed in the mission plan that comes out of GPT.
 ```bash
-make server
+$ colcon build
+$ make server
+ros2 run husky_mission_planner husky_mission_planner
+DEBUG:root:Server listening on 0.0.0.0:12345
+DEBUG:root:Waiting for client to connect to port 12345...
+...
 ```
 Make sure to run this **first** before running the mission planner (`make run`). 
-
-This will kick off a `netcat` server to receive the mission plan intended to be sent to the robot.
 
 ## Example Execution:
 On the host machine running a listening server. Make sure the IP/port matches the YAML config file IP/port:
 ```bash
 $ make server
-python3 ./ros/mission_planner.py
+ros2 run husky_mission_planner husky_mission_planner
 DEBUG:root:Server listening on 0.0.0.0:12345
 DEBUG:root:Waiting for client to connect to port 12345...
 DEBUG:root:Connection from ('127.0.0.1', 57856)

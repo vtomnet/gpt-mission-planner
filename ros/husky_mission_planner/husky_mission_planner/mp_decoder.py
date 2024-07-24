@@ -4,7 +4,7 @@ from enum import Enum
 
 from lxml import etree
 
-from tasking import Task, GoToLocation, ActionType, TakePicture, ElementTags
+from .tasking import Task, GoToLocation, ActionType, TakePicture, ElementTags
 
 
 class MPDecoder:
