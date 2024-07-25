@@ -24,6 +24,7 @@ From within the Docker container, execute `make run` to request your first missi
 Currently, this doesn't connect to a robot to feed in the mission plan that comes out of GPT.
 ```bash
 $ colcon build
+$ source install/setup.zsh
 $ make server
 ros2 run husky_mission_planner husky_mission_planner
 DEBUG:root:Server listening on 0.0.0.0:12345
@@ -39,22 +40,12 @@ $ make server
 ros2 run husky_mission_planner husky_mission_planner
 DEBUG:root:Server listening on 0.0.0.0:12345
 DEBUG:root:Waiting for client to connect to port 12345...
-DEBUG:root:Connection from ('127.0.0.1', 57856)
-DEBUG:root:File received successfully.
-DEBUG:root:XML is valid.
-DEBUG:root:Added AtomicTask: moveToLocation
-DEBUG:root:Added AtomicTask: takeThermalPicture
-DEBUG:root:Added AtomicTask: moveToLocation
-DEBUG:root:Added AtomicTask: takeThermalPicture
 ```
 
 ```bash
 $ make build
 docker build . -t gpt-mission-planner --target local
-[+] Building 14.2s (11/11) FINISHED                                                                                                                            docker:desktop-linux
- => [internal] load build definition from Dockerfile                                                                                                                           0.0s
- => => transferring dockerfile: 1.47kB                                                                                                                                         0.0s
- => [internal] load .dockerignore         
+...    
 ...
 
 $ make bash
@@ -72,3 +63,15 @@ python3 ./app/mission_planner.py
 Enter the specifications for your mission plan: Take a thermal picture of every other tree on the farm.
 File sent successfully.
 ```
+
+Lastly, since this the ROS2 node hosts a service that holds the mission task messages, you can query the parsed tasks via a service call:
+```bash
+$ ros2 service call /husky/mission_tasking husky_mission_planner_interfaces/srv/Task "{}"
+requester: making request: husky_mission_planner_interfaces.srv.Task_Request()
+
+response:
+husky_mission_planner_interfaces.srv.Task_Response(waypoints=[husky_mission_planner_interfaces.msg.Waypoint(lat=37.266406, lon=-120.4201625, take_picture=True), husky_mission_planner_interfaces.msg.Waypoint(lat=37.266139, lon=-120.4201578, take_picture=True)])
+```
+
+This ultimately will be connected to another node who will ask the mission planner if it has a list of tasks to execute.
+This call will most likely block until populated.
