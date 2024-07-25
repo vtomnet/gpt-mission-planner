@@ -9,9 +9,12 @@ The enums below are based on string values found in the schema.xsd
 # This defines the tag types throughout the schema document
 class ElementTags(str, Enum):
     ACTION = "Action"
+    ACTIONSEQUENCE = "ActionSequence"
     ACTIONTYPE = "ActionType"
     ATOMICTASKS = "AtomicTasks"
-    CONTROLCONSTRUCT = "ControlConstruct"
+    CONDITONAL = "Conditional"
+    CONDITIONALACTIONS = "ConditionalActions"
+    CONDITIONALEXPRESSION = "ConditionalExpression"
     PARAMETERS = "Parameters"
     PRECONDITION = "Precondition"
     PRECONDITIONS = "Preconditions"

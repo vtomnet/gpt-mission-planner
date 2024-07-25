@@ -1,6 +1,5 @@
 from typing import Tuple
 import logging
-from enum import Enum
 
 from lxml import etree
 
@@ -41,19 +40,22 @@ class MPDecoder:
         root: etree._Element = mp.getroot()
         # getting default ns with None (xmlns)
         self.namespace = "{" + root.nsmap[None] + "}"
-        # find <ControlConstruct>
-        cc: etree._Element = root.find(self.namespace + ElementTags.CONTROLCONSTRUCT)
-        # find the <Sequence> within <ControlConstruct>
-        tasks: etree._Element = cc.find(self.namespace + ElementTags.SEQUENCE)
+        # find <ActionSequence>
+        action_sequence: etree._Element = root.find(self.namespace + ElementTags.ACTIONSEQUENCE)
 
         # iterate over all children to find all the tasks sequenced
-        for child in tasks:
+        for child in action_sequence:
             if child is None:
                 continue
-            # names of tasks to identify with atomic descriptions
-            task: Task = self._create_task(root, child.text)
-            if task is not None:
-                self.task_list.append(task)
+            if child.tag == ElementTags.TASKID:
+                # names of tasks to identify with atomic descriptions
+                task: Task = self._create_task(root, child.text)
+                if task is not None:
+                    self.task_list.append(task)
+            elif child.tag == ElementTags.CONDITIONALACTIONS:
+                # TODO: add logic to parse out conditional actions and how to represent in ROS service
+                self.logger.info(f"Received ConditionalAction... {child.find(self.namespace + ElementTags.CONDITONAL).find(self.namespace + ElementTags.CONDITIONALEXPRESSION)}")}")
+                pass
 
     def _create_task(self, root: etree._Element, task_name: str) -> Task:
         """

@@ -172,7 +172,7 @@
     <xs:complexType name="SequencedActionType">
         <xs:sequence>
             <xs:element name="TaskID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-            <xs:element name="Actions" type="ConditionalActionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="ConditionalActions" type="ConditionalActionType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
