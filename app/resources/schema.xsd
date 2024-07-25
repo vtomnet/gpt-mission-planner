@@ -14,7 +14,7 @@
                 <xs:element name="Parameters" type="ParametersType"/> -->
                 <xs:element name="Preconditions" type="PreconditionsType"/>
                 <xs:element name="AtomicTasks" type="AtomicTasksType"/>
-                <xs:element name="ControlConstruct" type="ControlConstructType"/>
+                <xs:element name="ActionSequence" type="SequencedActionType"/>
                 <xs:element name="Outcome" type="OutcomeType"/>
                 <xs:element name="Exits" type="ExitsType"/>
             </xs:sequence>
@@ -152,21 +152,31 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Complex type for Control Construct -->
-    <xs:complexType name="ControlConstructType">
+    <!-- Conditional type -->
+     <!-- TODO: update this to incorporate the precondition type, maybe, or add a new type for conditionals -->
+    <xs:complexType name="ConditionalType">
         <xs:sequence>
-            <xs:element name="ConstructType" type="xs:string"/>
-            <xs:element name="Sequence">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="TaskID" type="xs:string" maxOccurs="unbounded"/>
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <xs:element name="ConditionalExpression" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
-    <!-- TODO: really unused for now are the below complexTypes. -->
+    <!-- ConditionalAction type -->
+    <xs:complexType name="ConditionalActionType">
+        <xs:sequence>
+            <xs:element name="Conditional" type="ConditionalType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="ActionSequence" type="SequencedActionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Full sequence of actions + conditional complexType for behavior tree -->
+    <xs:complexType name="SequencedActionType">
+        <xs:sequence>
+            <xs:element name="TaskID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Actions" type="ConditionalActionType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- TODO: unused for now are the below complexTypes. -->
 
     <!-- Complex type for Outcome -->
     <xs:complexType name="OutcomeType">

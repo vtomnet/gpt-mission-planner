@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TaskTemplate xmlns="https://robotics.ucmerced.edu/task">
     <CompositeTaskInformation>
-        <TaskID>OrchardInspection</TaskID>
-        <TaskDescription>Take thermal pictures of pistachio trees at the northern and southern ends of the orchard</TaskDescription>
+        <TaskID>Mission001</TaskID>
+        <TaskDescription>take picture of north most tree. if green, go to end. if yellow, take picture of south most tree then end.</TaskDescription>
     </CompositeTaskInformation>
     <Preconditions>
         <Precondition>
@@ -11,8 +11,8 @@
     </Preconditions>
     <AtomicTasks>
         <AtomicTask>
-            <TaskID>MoveToNorthPistachio</TaskID>
-            <TaskDescription>Move to the northernmost pistachio tree</TaskDescription>
+            <TaskID>Task001</TaskID>
+            <TaskDescription>Move to northmost tree</TaskDescription>
             <Action>
                 <ActionType>moveToLocation</ActionType>
                 <moveToLocation>
@@ -20,32 +20,22 @@
                     <Longitude>-120.4201625</Longitude>
                 </moveToLocation>
             </Action>
-            <Parameters>
-                <Parameter>
-                    <VariableName>Speed</VariableName>
-                    <VariableValue>Normal</VariableValue>
-                </Parameter>
-            </Parameters>
+            <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>TakePictureNorthPistachio</TaskID>
-            <TaskDescription>Take thermal picture of the northernmost pistachio tree</TaskDescription>
+            <TaskID>Task002</TaskID>
+            <TaskDescription>Take picture of northmost tree</TaskDescription>
             <Action>
                 <ActionType>takeThermalPicture</ActionType>
                 <takeThermalPicture>
                     <numberOfPictures>1</numberOfPictures>
                 </takeThermalPicture>
             </Action>
-            <Parameters>
-                <Parameter>
-                    <VariableName>Resolution</VariableName>
-                    <VariableValue>High</VariableValue>
-                </Parameter>
-            </Parameters>
+            <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>MoveToSouthPistachio</TaskID>
-            <TaskDescription>Move to the southernmost pistachio tree</TaskDescription>
+            <TaskID>Task003</TaskID>
+            <TaskDescription>Move to southmost tree</TaskDescription>
             <Action>
                 <ActionType>moveToLocation</ActionType>
                 <moveToLocation>
@@ -53,45 +43,64 @@
                     <Longitude>-120.4201578</Longitude>
                 </moveToLocation>
             </Action>
-            <Parameters>
-                <Parameter>
-                    <VariableName>Speed</VariableName>
-                    <VariableValue>Normal</VariableValue>
-                </Parameter>
-            </Parameters>
+            <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>TakePictureSouthPistachio</TaskID>
-            <TaskDescription>Take thermal picture of the southernmost pistachio tree</TaskDescription>
+            <TaskID>Task004</TaskID>
+            <TaskDescription>Take picture of southmost tree</TaskDescription>
             <Action>
                 <ActionType>takeThermalPicture</ActionType>
                 <takeThermalPicture>
                     <numberOfPictures>1</numberOfPictures>
                 </takeThermalPicture>
             </Action>
-            <Parameters>
-                <Parameter>
-                    <VariableName>Resolution</VariableName>
-                    <VariableValue>High</VariableValue>
-                </Parameter>
-            </Parameters>
+            <Parameters/>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Task005</TaskID>
+            <TaskDescription>Move to end point</TaskDescription>
+            <Action>
+                <ActionType>moveToLocation</ActionType>
+                <moveToLocation>
+                    <Latitude>37.2660953</Latitude>
+                    <Longitude>-120.4201552</Longitude>
+                </moveToLocation>
+            </Action>
+            <Parameters/>
         </AtomicTask>
     </AtomicTasks>
-    <ControlConstruct>
-        <ConstructType>Sequence</ConstructType>
-        <Sequence>
-            <TaskID>MoveToNorthPistachio</TaskID>
-            <TaskID>TakePictureNorthPistachio</TaskID>
-            <TaskID>MoveToSouthPistachio</TaskID>
-            <TaskID>TakePictureSouthPistachio</TaskID>
-        </Sequence>
-    </ControlConstruct>
+    <ActionSequence>
+        <TaskID>Task001</TaskID>
+        <Actions>
+            <Conditional>
+                <ConditionalExpression>color == 'green'</ConditionalExpression>
+            </Conditional>
+            <ActionSequence>
+                <TaskID>Task005</TaskID>
+                <Actions/>
+            </ActionSequence>
+        </Actions>
+        <Actions>
+            <Conditional>
+                <ConditionalExpression>color == 'yellow'</ConditionalExpression>
+            </Conditional>
+            <ActionSequence>
+                <TaskID>Task003</TaskID>
+                <TaskID>Task004</TaskID>
+                <TaskID>Task005</TaskID>
+                <Actions/>
+            </ActionSequence>
+        </Actions>
+    </ActionSequence>
     <Outcome>
         <State>atEndPoint</State>
     </Outcome>
     <Exits>
         <Exit>
             <Type>nominal</Type>
+        </Exit>
+        <Exit>
+            <Type>faulted</Type>
         </Exit>
     </Exits>
 </TaskTemplate>
