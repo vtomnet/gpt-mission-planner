@@ -41,20 +41,24 @@ class MPDecoder:
         # getting default ns with None (xmlns)
         self.namespace = "{" + root.nsmap[None] + "}"
         # find <ActionSequence>
-        action_sequence: etree._Element = root.find(self.namespace + ElementTags.ACTIONSEQUENCE)
+        action_sequence: etree._Element = root.find(
+            self.namespace + ElementTags.ACTIONSEQUENCE
+        )
 
         # iterate over all children to find all the tasks sequenced
         for child in action_sequence:
             if child is None:
                 continue
-            if child.tag == ElementTags.TASKID:
+            if child.tag == self.namespace + ElementTags.TASKID:
                 # names of tasks to identify with atomic descriptions
                 task: Task = self._create_task(root, child.text)
                 if task is not None:
                     self.task_list.append(task)
-            elif child.tag == ElementTags.CONDITIONALACTIONS:
+            elif child.tag == self.namespace + ElementTags.CONDITIONALACTIONS:
                 # TODO: add logic to parse out conditional actions and how to represent in ROS service
-                self.logger.info(f"Received ConditionalAction... {child.find(self.namespace + ElementTags.CONDITONAL).find(self.namespace + ElementTags.CONDITIONALEXPRESSION)}")}")
+                self.logger.debug(
+                    f"Received ConditionalAction... {child.find(self.namespace + ElementTags.CONDITONAL).find(self.namespace + ElementTags.CONDITIONALEXPRESSION)}"
+                )
                 pass
 
     def _create_task(self, root: etree._Element, task_name: str) -> Task:
@@ -62,9 +66,13 @@ class MPDecoder:
         Helper function to create Task objects based on XML mission
         """
         # find <AtomicTasks> from root
-        atomic_tasks: etree._Element = root.find(self.namespace + ElementTags.ATOMICTASKS)
+        atomic_tasks: etree._Element = root.find(
+            self.namespace + ElementTags.ATOMICTASKS
+        )
         # find the <AtomicTask> in the list that matches the current task
-        task: etree._Element = self._find_child(atomic_tasks, self.namespace + ElementTags.TASKID, task_name)
+        task: etree._Element = self._find_child(
+            atomic_tasks, self.namespace + ElementTags.TASKID, task_name
+        )
 
         # <Action>
         #   <Action>
@@ -79,7 +87,9 @@ class MPDecoder:
         # ultimately this will become a waypoint for the waypoint follower node
         if action_type == ActionType.MOVETOLOCATION:
             # we assume this isn't None since we parsed it previously
-            lat, long = GoToLocation.parse_lat_long(task.find(self.namespace + ElementTags.ACTION), self.namespace)
+            lat, long = GoToLocation.parse_lat_long(
+                task.find(self.namespace + ElementTags.ACTION), self.namespace
+            )
             self.logger.debug(f"Added AtomicTask: {action_type}, lat/long: {lat, long}")
             return GoToLocation(lat, long)
         elif action_type == ActionType.TAKETHERMALPICTURE:
@@ -96,7 +106,7 @@ class MPDecoder:
         root : current Element
         tag_name: tag name you're searching for text in
         text: text you're searching for
-        
+
         <root>
             <tag_name>text</tag_name>
         </root>

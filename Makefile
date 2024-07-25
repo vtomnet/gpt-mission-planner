@@ -1,3 +1,5 @@
+SHELL := /bin/zsh
+
 CONTAINER_NAME := gpt-mission-planner
 REPO_NAME := gpt-mission-planner
 
@@ -20,4 +22,4 @@ run:
 	python3 ./app/mission_planner.py
 
 server:
-	ros2 run husky_mission_planner husky_mission_planner
+	source install/setup.zsh && ros2 run husky_mission_planner husky_mission_planner
