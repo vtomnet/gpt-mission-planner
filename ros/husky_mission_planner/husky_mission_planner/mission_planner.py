@@ -19,6 +19,7 @@ class MissionPlanner(Node):
         self,
         logger: logging.Logger,
         name: str,
+        service_name: str,
         schema_path: str,
         farm_layout: str,
         log_directory: str,
@@ -39,7 +40,7 @@ class MissionPlanner(Node):
 
         self.mission_tasks: list[Waypoint] = []
         self.task_client = self.create_service(
-            Task, "husky/mission_tasking", self.send_mission_tasks_callback
+            Task, service_name, self.send_mission_tasks_callback
         )
 
         self.run()
@@ -121,6 +122,7 @@ def main(config: str):
             mp = MissionPlanner(
                 logger,
                 config_yaml["node_name"],
+                config_yaml["service_name"],
                 config_yaml["schema"],
                 config_yaml["farm_layout"],
                 config_yaml["log_directory"],

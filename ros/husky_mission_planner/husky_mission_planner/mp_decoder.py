@@ -100,10 +100,10 @@ class MPDecoder:
             self.logger.error(f"Unsupported ActionType: {action_type}")
             return None
 
-    def _find_child(self, root: etree._Element, tag_name: str, text: str):
+    def _find_child(self, parent: etree._Element, tag_name: str, text: str):
         """
         Helper function to find a child based on interior text:
-        root : current Element
+        parent : current Element
         tag_name: tag name you're searching for text in
         text: text you're searching for
 
@@ -111,7 +111,7 @@ class MPDecoder:
             <tag_name>text</tag_name>
         </root>
         """
-        for c in root:
+        for c in parent:
             if c is None:
                 continue
             task_id = c.find(tag_name)
