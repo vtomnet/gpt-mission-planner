@@ -16,14 +16,19 @@ class NetworkInterface:
         # Current mission file
         self.current_mission_file: str = None
 
+        # creating logging directory
+        os.makedirs(self.log_directory, exist_ok=True)
+
+    def init_socket(self):
         self.server_socket: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.server_socket.bind((self.host, self.port))
         self.server_socket.listen(1)
         self.logger.debug(f"Server listening on {self.host}:{self.port}")
 
-        # creating logging directory
-        os.makedirs(self.log_directory, exist_ok=True)
+    def close_socket(self):
+        self.server_socket.close()
+        self.logger.debug(f"Server closed on {self.host}:{self.port}")
 
     def receive_file(self) -> Tuple[int, str]:
         self.logger.debug(f"Waiting for client to connect to port {self.port}...")
@@ -44,6 +49,3 @@ class NetworkInterface:
 
     def send_acknowledgement(self):
         pass
-
-    def close_socket(self):
-        self.server_socket.close()

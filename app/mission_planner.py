@@ -1,6 +1,7 @@
 from typing import Tuple
 import logging
 import tempfile
+import os
 
 import click
 from lxml import etree

@@ -43,7 +43,14 @@ class MissionPlanner(Node):
             Task, service_name, self.send_mission_tasks_callback
         )
 
-        self.run()
+        while True:
+            self.nic.init_socket()
+            ret: bool = self.run()
+            self.nic.close_socket()
+            if ret is True:
+                break
+
+        raise SystemExit
 
     def send_mission_tasks_callback(self, request, response):
         self.logger.info("Mission task list request received...")
@@ -51,11 +58,11 @@ class MissionPlanner(Node):
 
         return response
 
-    def run(self) -> None:
+    def run(self) -> bool:
         bytes_received, temp_xml_path = self.nic.receive_file()
         if bytes_received == 0:
             self.logger.warn("No mission plan was received over TCP...")
-            return
+            return False
 
         ret, e = self.decoder.validate_output(temp_xml_path)
         if ret:
@@ -71,27 +78,25 @@ class MissionPlanner(Node):
             self.logger.debug("Mission plan received successfully...")
             for i in range(len(self.decoder.task_list)):
                 if isinstance(self.decoder.task_list[i], GoToLocation):
-                    if isinstance(self.decoder.task_list[i + 1], TakePicture):
-                        wp: Waypoint = Waypoint()
+                    wp: Waypoint = Waypoint()
+                    # TODO: update logic for connection between tasks
+                    if i == len(self.decoder.task_list) - 1:
+                        wp.take_picture = False
+                    elif isinstance(self.decoder.task_list[i + 1], TakePicture):
                         wp.lat = self.decoder.task_list[i].lat
                         wp.lon = self.decoder.task_list[i].lon
-                        # TODO: fix this
                         if self.decoder.task_list[i + 1].number_of_pictures > 0:
                             wp.take_picture = True
                         else:
                             wp.take_picture = False
-                        self.mission_tasks.append(wp)
+                    self.mission_tasks.append(wp)
         # if you actually didn't receive anything
         else:
             os.remove(temp_xml_path)
             self.logger.debug("Mission plan not received...")
+            return False
 
-        # TODO: I think we want this to just run indefinitely since the node has the mission tasks
-        #       must wait until someone requests them, but we don't know who
-        # receive one message at a time
-        # self.nic.close_socket()
-
-        # raise SystemExit
+        return ret
 
     def _configure_network(self, host: str, port: int) -> None:
         self.nic: NetworkInterface = NetworkInterface(
@@ -105,7 +110,7 @@ class MissionPlanner(Node):
     default="./ros/husky_mission_planner/husky_mission_planner/config/husky01.yaml",
     help="YAML config file",
 )
-def main(config: str):
+def main(config: str) -> None:
     try:
         # Initialize ROS Client Libraries (RCL) for Python:
         rclpy.init()

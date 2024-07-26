@@ -32,14 +32,17 @@ class GPTInterface:
             {
                 "role": "system",
                 "content": "You are a mission planner that generates XML mission plans based on robotic task representation. \
-                            When asked to generate a mission, create an XML file conformant to the known schema and use the GeoJSON file to provide references in the mission plan for things such as GPS location, tree type, etc. \
-                            It must be syntactically correct and validate using an XML linter. Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging.",
+                            When asked to generate a mission, create an XML file conformant to the known schema and \
+                            use the GeoJSON file to provide references in the mission plan for things such as GPS location, tree type, etc. \
+                            Remember, you're making a mission plan for a robot on wheels. In order to accomplish most actions, you must first drive to the location. \
+                            Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging.",
             },
             # context
             {
                 "role": "user",
-                "content": "This is the schema for which you must generate mission plan XML documents:"
-                + self.schema,
+                "content": "This is the schema for which you must generate mission plan XML documents. \
+                            The mission must be syntactically correct and validate using an XML linter.: "
+                            + self.schema,
             },
             {
                 "role": "assistant",
@@ -47,12 +50,13 @@ class GPTInterface:
             },
             {
                 "role": "user",
-                "content": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:"
-                + self.farm_layout,
+                "content": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard: "
+                            + self.farm_layout,
             },
             {
                 "role": "assistant",
-                "content": "Thank you for providing the GeoJSON file. I'll assist you in creating the XML file for your robotic mission plan when you provide your mission.",
+                "content": "Thank you for providing the GeoJSON file. \
+                            I'll assist you in creating the XML file for your robotic mission plan when you provide your mission.",
             },
             # TODO: add context of farm layout so that machine can generate XML with relevant state information
         ]

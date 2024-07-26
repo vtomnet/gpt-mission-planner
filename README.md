@@ -10,7 +10,7 @@ NOTE: if running on Mac, ensure you have network mode enabled for this to work. 
 If working in Linux, will work on any version.
 
 ```bash
-$ make build
+$ make build-image
 ```
 
 ```bash
@@ -43,7 +43,7 @@ DEBUG:root:Waiting for client to connect to port 12345...
 ```
 
 ```bash
-$ make build
+$ make build-image
 docker build . -t gpt-mission-planner --target local
 ...    
 ...

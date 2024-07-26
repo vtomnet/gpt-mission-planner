@@ -43,7 +43,7 @@ class MPDecoder:
         # find <ActionSequence>
         action_sequence: etree._Element = root.find(
             self.namespace + ElementTags.ACTIONSEQUENCE
-        )
+        ).find(self.namespace + ElementTags.SEQUENCE)
 
         # iterate over all children to find all the tasks sequenced
         for child in action_sequence:
@@ -60,6 +60,8 @@ class MPDecoder:
                     f"Received ConditionalAction... {child.find(self.namespace + ElementTags.CONDITONAL).find(self.namespace + ElementTags.CONDITIONALEXPRESSION)}"
                 )
                 pass
+            else:
+                self.logger.error(f"Found unknown element tag: {child.tag}")
 
     def _create_task(self, root: etree._Element, task_name: str) -> Task:
         """

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TaskTemplate xmlns="https://robotics.ucmerced.edu/task" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task">
     <CompositeTaskInformation>
         <TaskID>Mission001</TaskID>
-        <TaskDescription>take picture of north most tree. if green, go to end. if yellow, take picture of south most tree then end.</TaskDescription>
+        <TaskDescription>go to the north most pistachio tree and take a picture. if the leaves are green, take a picture of the tree next to it. if the leaves are yellow, take a picture of 2 tree next to it. finally, go to the end.</TaskDescription>
     </CompositeTaskInformation>
     <Preconditions>
         <Precondition>
@@ -11,8 +11,8 @@
     </Preconditions>
     <AtomicTasks>
         <AtomicTask>
-            <TaskID>MoveToNorthMostTree</TaskID>
-            <TaskDescription>Move to the north-most tree</TaskDescription>
+            <TaskID>MoveToNorthMostPistachio</TaskID>
+            <TaskDescription>Move to the northmost pistachio tree</TaskDescription>
             <Action>
                 <ActionType>moveToLocation</ActionType>
                 <moveToLocation>
@@ -23,8 +23,8 @@
             <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>TakePictureNorthMostTree</TaskID>
-            <TaskDescription>Take a thermal picture of the north-most tree</TaskDescription>
+            <TaskID>TakePictureAtNorthMostPistachio</TaskID>
+            <TaskDescription>Take a thermal picture at the northmost pistachio tree</TaskDescription>
             <Action>
                 <ActionType>takeThermalPicture</ActionType>
                 <takeThermalPicture>
@@ -34,20 +34,43 @@
             <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>MoveToSouthMostTree</TaskID>
-            <TaskDescription>Move to the south-most tree</TaskDescription>
+            <TaskID>MoveToNextTree</TaskID>
+            <TaskDescription>Move to the next tree</TaskDescription>
             <Action>
                 <ActionType>moveToLocation</ActionType>
                 <moveToLocation>
-                    <Latitude>37.266139</Latitude>
-                    <Longitude>-120.4201578</Longitude>
+                    <Latitude>37.2663688</Latitude>
+                    <Longitude>-120.4201605</Longitude>
                 </moveToLocation>
             </Action>
             <Parameters/>
         </AtomicTask>
         <AtomicTask>
-            <TaskID>TakePictureSouthMostTree</TaskID>
-            <TaskDescription>Take a thermal picture of the south-most tree</TaskDescription>
+            <TaskID>TakePictureAtNextTree</TaskID>
+            <TaskDescription>Take a thermal picture at the next tree</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+            <Parameters/>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>MoveToSecondNextTree</TaskID>
+            <TaskDescription>Move to the second next tree</TaskDescription>
+            <Action>
+                <ActionType>moveToLocation</ActionType>
+                <moveToLocation>
+                    <Latitude>37.2663281</Latitude>
+                    <Longitude>-120.4201611</Longitude>
+                </moveToLocation>
+            </Action>
+            <Parameters/>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureAtSecondNextTree</TaskID>
+            <TaskDescription>Take a thermal picture at the second next tree</TaskDescription>
             <Action>
                 <ActionType>takeThermalPicture</ActionType>
                 <takeThermalPicture>
@@ -70,26 +93,31 @@
         </AtomicTask>
     </AtomicTasks>
     <ActionSequence>
-        <TaskID>MoveToNorthMostTree</TaskID>
-        <TaskID>TakePictureNorthMostTree</TaskID>
-        <ConditionalActions>
-            <Conditional>
-                <ConditionalExpression>treeColor == 'green'</ConditionalExpression>
-            </Conditional>
-            <ActionSequence>
-                <TaskID>MoveToEnd</TaskID>
-            </ActionSequence>
-        </ConditionalActions>
-        <ConditionalActions>
-            <Conditional>
-                <ConditionalExpression>treeColor == 'yellow'</ConditionalExpression>
-            </Conditional>
-            <ActionSequence>
-                <TaskID>MoveToSouthMostTree</TaskID>
-                <TaskID>TakePictureSouthMostTree</TaskID>
-                <TaskID>MoveToEnd</TaskID>
-            </ActionSequence>
-        </ConditionalActions>
+        <Sequence>
+            <TaskID>MoveToNorthMostPistachio</TaskID>
+            <TaskID>TakePictureAtNorthMostPistachio</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <ConditionalExpression>leaves are green</ConditionalExpression>
+                </Conditional>
+                <Sequence>
+                    <TaskID>MoveToNextTree</TaskID>
+                    <TaskID>TakePictureAtNextTree</TaskID>
+                </Sequence>
+            </ConditionalActions>
+            <ConditionalActions>
+                <Conditional>
+                    <ConditionalExpression>leaves are yellow</ConditionalExpression>
+                </Conditional>
+                <Sequence>
+                    <TaskID>MoveToNextTree</TaskID>
+                    <TaskID>TakePictureAtNextTree</TaskID>
+                    <TaskID>MoveToSecondNextTree</TaskID>
+                    <TaskID>TakePictureAtSecondNextTree</TaskID>
+                </Sequence>
+            </ConditionalActions>
+            <TaskID>MoveToEnd</TaskID>
+        </Sequence>
     </ActionSequence>
     <Outcome>
         <State>atEndPoint</State>

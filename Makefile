@@ -1,16 +1,12 @@
-SHELL := /bin/zsh
-
 CONTAINER_NAME := gpt-mission-planner
 REPO_NAME := gpt-mission-planner
 
-build: 
-	docker build . -t ${CONTAINER_NAME} --target local
-
-build-train: 
-	docker build . -t ${CONTAINER_NAME}-train --target train
+build-image: 
+	docker build --build-arg UID=$(shell id -u) --build-arg GID=$(shell id -g) . -t ${CONTAINER_NAME} --target local
 
 bash:
 	docker run -it --rm \
+	--user $(shell id -u):$(shell id -g) \
 	-v ./Makefile:/${REPO_NAME}/Makefile:Z \
 	-v ./app/:/${REPO_NAME}/app:Z \
 	--env-file ~/.gpt/token.env \
@@ -22,4 +18,4 @@ run:
 	python3 ./app/mission_planner.py
 
 server:
-	source install/setup.zsh && ros2 run husky_mission_planner husky_mission_planner
+	/bin/zsh -c "source install/setup.zsh && ros2 run husky_mission_planner husky_mission_planner"

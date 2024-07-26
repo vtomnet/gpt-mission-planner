@@ -14,7 +14,7 @@
                 <xs:element name="Parameters" type="ParametersType"/> -->
                 <xs:element name="Preconditions" type="PreconditionsType"/>
                 <xs:element name="AtomicTasks" type="AtomicTasksType"/>
-                <xs:element name="ActionSequence" type="SequencedActionType"/>
+                <xs:element name="ActionSequence" type="ActionSequenceType"/>
                 <xs:element name="Outcome" type="OutcomeType"/>
                 <xs:element name="Exits" type="ExitsType"/>
             </xs:sequence>
@@ -161,20 +161,28 @@
     </xs:complexType>
 
     <!-- ConditionalAction type -->
-    <xs:complexType name="ConditionalActionType">
+    <xs:complexType name="ConditionalActionsType">
         <xs:sequence>
             <xs:element name="Conditional" type="ConditionalType" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="ActionSequence" type="SequencedActionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="Sequence" type="ConditionalSequenceType" minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
     <!-- Full sequence of actions + conditional complexType for behavior tree -->
-    <xs:complexType name="SequencedActionType">
+    <xs:complexType name="ConditionalSequenceType">
         <xs:sequence>
-            <xs:element name="TaskID" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-            <xs:element name="ConditionalActions" type="ConditionalActionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element name="TaskID" type="xs:string"/>
+                <xs:element name="ConditionalActions" type="ConditionalActionsType"/>
+            </xs:choice>
         </xs:sequence>
     </xs:complexType>
+
+    <xs:complexType name="ActionSequenceType">
+        <xs:sequence>
+            <xs:element name="Sequence" type="ConditionalSequenceType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>    
 
     <!-- TODO: unused for now are the below complexTypes. -->
 
