@@ -18,4 +18,4 @@ run:
 	python3 ./app/mission_planner.py
 
 server:
-	/bin/zsh -c "source install/setup.zsh && ros2 run husky_mission_planner husky_mission_planner"
+	nc -l 0.0.0.0 12345

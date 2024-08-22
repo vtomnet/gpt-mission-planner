@@ -11,7 +11,7 @@ class GPTInterface:
         logger: logging.Logger,
         token_path: str,
         max_tokens: int = 2000,
-        temperature: float = 0.2
+        temperature: float = 0.2,
     ):
         self.logger: logging.Logger = logger
         # max number of tokens that GPT will respond with, almost 1:1 with words to token
@@ -31,18 +31,20 @@ class GPTInterface:
         self.context: list = [
             {
                 "role": "system",
-                "content": "You are a mission planner that generates XML mission plans based on robotic task representation. \
+                "content": "You are a mission planner that generates navigational XML mission plans based on robotic task representation. \
                             When asked to generate a mission, create an XML file conformant to the known schema and \
                             use the GeoJSON file to provide references in the mission plan for things such as GPS location, tree type, etc. \
-                            Remember, you're making a mission plan for a robot on wheels. In order to accomplish most actions, you must first drive to the location. \
-                            Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging.",
+                            In order to accomplish most actions, you must first drive to the location. \
+                            Therefore, tasks should almost always require driving to a tree and then doing an action unless doing multiple actions at the same tree. \
+                            Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging. \
+                            If possible, comment the total estimated haversine distance traveled from start to end somewhere in the Outcome, but don't show how you computed it.",
             },
             # context
             {
                 "role": "user",
                 "content": "This is the schema for which you must generate mission plan XML documents. \
-                            The mission must be syntactically correct and validate using an XML linter.: "
-                            + self.schema,
+                            The mission must be syntactically correct and validate using an XML linter: "
+                + self.schema,
             },
             {
                 "role": "assistant",
@@ -51,7 +53,7 @@ class GPTInterface:
             {
                 "role": "user",
                 "content": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard: "
-                            + self.farm_layout,
+                + self.farm_layout,
             },
             {
                 "role": "assistant",
@@ -80,7 +82,10 @@ class GPTInterface:
         message.append({"role": "user", "content": prompt})
 
         completion: ChatCompletion = self.client.chat.completions.create(
-            model="gpt-4o", messages=message, max_tokens=self.max_tokens, temperature=self.temperature
+            model="gpt-4o",
+            messages=message,
+            max_tokens=self.max_tokens,
+            temperature=self.temperature,
         )
 
         response: str = completion.choices[0].message.content

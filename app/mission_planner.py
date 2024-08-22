@@ -83,6 +83,7 @@ class MissionPlanner:
             # ask user for their mission plan
             mp_input: str = input("Enter the specifications for your mission plan: ")
             mp_out: str = self.gpt.ask_gpt(mp_input, True)
+            self.logger.debug(mp_out)
             mp_out = self.parse_xml(mp_out)
             output_path = self.write_out_xml(mp_out)
             self.logger.debug(f"GPT output written to {output_path}...")

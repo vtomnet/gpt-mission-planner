@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Generated Points</name>
+<description>Points from provided coordinates</description><Placemark> <name>0</name> <description>Action: 0, Reward: 0.0</description> <Point> <coordinates>-120.4230387929148, 37.36634196419961, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>1</name> <description>Action: 0, Reward: 0.025926231827891333</description> <Point> <coordinates>-120.42306941938712, 37.36632474947185, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>2</name> <description>Action: 0, Reward: 0.5496624778787091</description> <Point> <coordinates>-120.42301942690013, 37.36633836108107, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>3</name> <description>Action: 0, Reward: 0.4353223926182769</description> <Point> <coordinates>-120.42303901341123, 37.3662851037939, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>4</name> <description>Action: 0, Reward: 0.42036780208748903</description> <Point> <coordinates>-120.42303613105398, 37.36629619692893, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>5</name> <description>Action: 0, Reward: 0.3303348210038741</description> <Point> <coordinates>-120.42304877055014, 37.36631729287223, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>6</name> <description>Action: 0, Reward: 0.2046486340378425</description> <Point> <coordinates>-120.42300339788383, 37.3663012146631, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>7</name> <description>Action: 0, Reward: 0.6192709663506637</description> <Point> <coordinates>-120.42302845807947, 37.36627374034075, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>8</name> <description>Action: 0, Reward: 0.29965467367452314</description> <Point> <coordinates>-120.42307269436259, 37.36635918480204, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>9</name> <description>Action: 0, Reward: 0.26682727510286663</description> <Point> <coordinates>-120.42301361600242, 37.36630907289641, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>10</name> <description>Action: 0, Reward: 0.6211338327692949</description> <Point> <coordinates>-120.42298366135134, 37.366314065094826, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>11</name> <description>Action: 0, Reward: 0.5291420942770391</description> <Point> <coordinates>-120.4230366268668, 37.366298957860444, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>12</name> <description>Action: 0, Reward: 0.13457994534493356</description> <Point> <coordinates>-120.422992879031, 37.36629225508121, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>13</name> <description>Action: 0, Reward: 0.5135781212657464</description> <Point> <coordinates>-120.42305430162966, 37.366305051822785, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>14</name> <description>Action: 0, Reward: 0.18443986564691528</description> <Point> <coordinates>-120.42302748569055, 37.36634457958844, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>15</name> <description>Action: 0, Reward: 0.7853351478166735</description> <Point> <coordinates>-120.42304352865926, 37.36633634415822, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>16</name> <description>Action: 0, Reward: 0.8539752926394888</description> <Point> <coordinates>-120.42304359238578, 37.366304126326604, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>17</name> <description>Action: 0, Reward: 0.4942368373819278</description> <Point> <coordinates>-120.4230063835413, 37.366270315789286, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>18</name> <description>Action: 0, Reward: 0.846561485357468</description> <Point> <coordinates>-120.42303115067187, 37.366341540452005, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>19</name> <description>Action: 0, Reward: 0.079645477009061</description> <Point> <coordinates>-120.42298560381147, 37.36629296553462, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>20</name> <description>Action: 0, Reward: 0.505246090121704</description> <Point> <coordinates>-120.42303084167644, 37.36632218432607, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>21</name> <description>Action: 0, Reward: 0.06528650438687811</description> <Point> <coordinates>-120.42308469386673, 37.366273152538206, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>22</name> <description>Action: 0, Reward: 0.42812232759738944</description> <Point> <coordinates>-120.42305066332925, 37.366329782116836, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>23</name> <description>Action: 0, Reward: 0.09653091566061256</description> <Point> <coordinates>-120.42299684792441, 37.36630385632191, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>24</name> <description>Action: 0, Reward: 0.12715997170127746</description> <Point> <coordinates>-120.42304666702529, 37.366314814544545, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>25</name> <description>Action: 0, Reward: 0.5967453089785958</description> <Point> <coordinates>-120.42308968696308, 37.366308347914995, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>26</name> <description>Action: 0, Reward: 0.22601200060423587</description> <Point> <coordinates>-120.4230650668763, 37.366302040778486, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>27</name> <description>Action: 0, Reward: 0.10694568430998297</description> <Point> <coordinates>-120.42308476141001, 37.36632050259792, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>28</name> <description>Action: 0, Reward: 0.2203062070705597</description> <Point> <coordinates>-120.4229789105747, 37.36635621712853, 0</coordinates> </Point> </Placemark>
+<Placemark> <name>29</name> <description>Action: 0, Reward: 0.34982628500329926</description> <Point> <coordinates>-120.42298418679002, 37.36627882157656, 0</coordinates> </Point> </Placemark>
+</Document>
+</kml>
