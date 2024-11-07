@@ -21,7 +21,7 @@ The above two commands will start the build and bash process of the Docker envir
 From within the Docker container, execute `make run` to request your first mission plan.
 
 ## Current Process
-Currently, this doesn't connect to a robot to feed in the mission plan that comes out of GPT.
+This can connect to AgBot over TCP, but running it standalone to debug mission plans can be done as follows:
 ```bash
 $ make server
 nc -l 0.0.0.0 12345
