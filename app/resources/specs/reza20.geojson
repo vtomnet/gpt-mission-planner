@@ -1,0 +1,207 @@
+
+{ 
+"type": "FeatureCollection",
+"features": [
+    
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4203310803755, 37.26644394454138]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202818941467, 37.26644335129713]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202351388289, 37.26644397131992]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4201826654081, 37.26644392937983]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4203290201385, 37.26640669086454]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202743882239, 37.26640926243329]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202298741191, 37.26640615724074]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4201831941228, 37.26640649057831]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4203310270102, 37.26636444581548]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202770123827, 37.26636652552635]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202296028626, 37.26636737688695]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42018184744, 37.2663747793375]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4203306152119, 37.26633214824227]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202789709627, 37.26633365254765]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202296943396, 37.26633460515335]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4201836822006, 37.26633392771398]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4203303959279, 37.26629098853629]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202785753391, 37.26629303071079]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4202316551368, 37.26629497058414]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4201831510803, 37.26629569261521]
+      },
+      "properties": {
+        "marker-symbol": "pistachio-tree"
+      }
+    }  
+  ]
+}
