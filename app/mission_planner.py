@@ -17,7 +17,7 @@ class MissionPlanner:
         schema_path: str,
         farm_layout: str,
         max_retries: int,
-        max_tokens: int, 
+        max_tokens: int,
         temperature: float,
         log_directory: str,
         logger: logging.Logger,
@@ -32,7 +32,9 @@ class MissionPlanner:
         # max number of times that GPT can try and fix the mission plan
         self.max_retries: int = max_retries
         # init gpt interface
-        self.gpt: GPTInterface = GPTInterface(self.logger, token_path, max_tokens, temperature)
+        self.gpt: GPTInterface = GPTInterface(
+            self.logger, token_path, max_tokens, temperature
+        )
         self.gpt.init_context(self.schema_path, self.farm_layout)
 
     def configure_network(self, host: str, port: int) -> None:
@@ -41,7 +43,9 @@ class MissionPlanner:
         # start connection to ROS agent
         self.nic.init_socket()
 
-    def parse_xml(self, mp_out: str) -> str:
+    def parse_xml(self, mp_out: str | None) -> str:
+        assert isinstance(mp_out, str)
+
         xml_response: str = mp_out.split("```xml\n")[1]
         xml_response = xml_response.split("```")[0]
 
@@ -49,11 +53,13 @@ class MissionPlanner:
 
     def write_out_xml(self, mp_out: str) -> str:
         # Create a temporary file in the specified directory
-        with tempfile.NamedTemporaryFile(dir=self.log_directory, delete=False, mode="w") as temp_file:
+        with tempfile.NamedTemporaryFile(
+            dir=self.log_directory, delete=False, mode="w"
+        ) as temp_file:
             temp_file.write(mp_out)
             # name of temp file output
             temp_file_name = temp_file.name
-        
+
         return temp_file_name
 
     def validate_output(self, xml_file: str) -> Tuple[bool, str]:
@@ -64,8 +70,8 @@ class MissionPlanner:
             schema = etree.XMLSchema(schema_root)
 
             # Parse the XML file
-            with open(xml_file, 'rb') as xml_file:
-                xml_doc = etree.parse(xml_file)
+            with open(xml_file, "rb") as fp:
+                xml_doc = etree.parse(fp)
 
             # Validate the XML file against the XSD schema
             schema.assertValid(xml_doc)
@@ -77,11 +83,11 @@ class MissionPlanner:
         except Exception as e:
             return False, "An error occurred: " + str(e)
 
-    def run(self):
+    def run(self) -> None:
         while True:
             # ask user for their mission plan
             mp_input: str = input("Enter the specifications for your mission plan: ")
-            mp_out: str = self.gpt.ask_gpt(mp_input, True)
+            mp_out: str | None = self.gpt.ask_gpt(mp_input, True)
             self.logger.debug(mp_out)
             mp_out = self.parse_xml(mp_out)
             output_path = self.write_out_xml(mp_out)
@@ -91,7 +97,9 @@ class MissionPlanner:
             if not ret:
                 retry: int = 0
                 while not ret and retry < self.max_retries:
-                    self.logger.debug(f"Retrying after failed to validate GPT mission plan: {e}")
+                    self.logger.debug(
+                        f"Retrying after failed to validate GPT mission plan: {e}"
+                    )
                     mp_out = self.gpt.ask_gpt(e, True)
                     mp_out = self.parse_xml(mp_out)
                     output_path = self.write_out_xml(mp_out)
@@ -107,7 +115,7 @@ class MissionPlanner:
                 # TODO: send off mission plan to TCP client
                 self.nic.send_file(output_path)
                 self.logger.debug("Successful mission plan generation...")
-            
+
         # TODO: decide how the reuse flow works
         self.nic.close_socket()
 
@@ -120,7 +128,7 @@ class MissionPlanner:
 )
 def main(config: str):
     with open(config, "r") as file:
-        config_yaml: yaml.Node = yaml.safe_load(file)
+        config_yaml: dict = yaml.safe_load(file)
 
     try:
         # configure logger
