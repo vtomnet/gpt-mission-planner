@@ -2,7 +2,7 @@ CONTAINER_NAME := gpt-mission-planner
 REPO_NAME := gpt-mission-planner
 
 repo-init:
-	python3.11 -m pip install black pre-commit mypy && \
+	python3 -m pip install pre-commit && \
 	pre-commit install
 
 build-image:
