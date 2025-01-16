@@ -15,18 +15,21 @@ class MissionPlanner:
         self,
         token_path: str,
         schema_path: str,
-        farm_layout: str,
+        context_files: list[str],
         max_retries: int,
         max_tokens: int,
         temperature: float,
         log_directory: str,
         logger: logging.Logger,
+        debug: bool,
     ):
         # logger instance
         self.logger: logging.Logger = logger
+        # debug mode
+        self.debug: bool = debug
         # set schema and farm file paths
         self.schema_path: str = schema_path
-        self.farm_layout: str = farm_layout
+        self.context_files: list[str] = context_files
         # logging GPT output folder
         self.log_directory: str = log_directory
         # max number of times that GPT can try and fix the mission plan
@@ -35,7 +38,7 @@ class MissionPlanner:
         self.gpt: GPTInterface = GPTInterface(
             self.logger, token_path, max_tokens, temperature
         )
-        self.gpt.init_context(self.schema_path, self.farm_layout)
+        self.gpt.init_context(self.schema_path, self.context_files)
 
     def configure_network(self, host: str, port: int) -> None:
         # network interface
@@ -51,7 +54,9 @@ class MissionPlanner:
 
         return xml_response
 
-    def write_out_xml(self, mp_out: str) -> str:
+    def write_out_file(self, mp_out: str | None) -> str:
+        assert isinstance(mp_out, str)
+
         # Create a temporary file in the specified directory
         with tempfile.NamedTemporaryFile(
             dir=self.log_directory, delete=False, mode="w"
@@ -88,9 +93,11 @@ class MissionPlanner:
             # ask user for their mission plan
             mp_input: str = input("Enter the specifications for your mission plan: ")
             mp_out: str | None = self.gpt.ask_gpt(mp_input, True)
+            if self.debug:
+                self.write_out_file(mp_out)
             self.logger.debug(mp_out)
             mp_out = self.parse_xml(mp_out)
-            output_path = self.write_out_xml(mp_out)
+            output_path = self.write_out_file(mp_out)
             self.logger.debug(f"GPT output written to {output_path}...")
             ret, e = self.validate_output(output_path)
 
@@ -102,7 +109,7 @@ class MissionPlanner:
                     )
                     mp_out = self.gpt.ask_gpt(e, True)
                     mp_out = self.parse_xml(mp_out)
-                    output_path = self.write_out_xml(mp_out)
+                    output_path = self.write_out_file(mp_out)
                     self.logger.debug(f"Temp GPT output written to {output_path}...")
                     ret, e = self.validate_output(output_path)
                     retry += 1
@@ -130,20 +137,28 @@ def main(config: str):
     with open(config, "r") as file:
         config_yaml: dict = yaml.safe_load(file)
 
+    context_files: list[str] = []
+
     try:
         # configure logger
         logging.basicConfig(level=logging._nameToLevel[config_yaml["logging"]])
         logger: logging.Logger = logging.getLogger()
 
+        if "context_files" in config_yaml:
+            context_files = config_yaml["context_files"]
+        else:
+            logger.info("No additional context files found. Proceeding...")
+
         mp: MissionPlanner = MissionPlanner(
             config_yaml["token"],
             config_yaml["schema"],
-            config_yaml["farm_layout"],
+            context_files,
             config_yaml["max_retries"],
             config_yaml["max_tokens"],
             config_yaml["temperature"],
             config_yaml["log_directory"],
             logger,
+            config_yaml["debug"],
         )
         mp.configure_network(config_yaml["host"], int(config_yaml["port"]))
     except yaml.YAMLError as exc:

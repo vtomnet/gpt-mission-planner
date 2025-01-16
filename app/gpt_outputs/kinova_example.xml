@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task">
+    <CompositeTaskInformation>
+        <TaskID>Task001</TaskID>
+        <TaskDescription>could you turn around and look for the red cup? if you don't find it, turn back around</TaskDescription>
+    </CompositeTaskInformation>
+    <AtomicTasks>
+        <!-- Atomic Task 1: Turn Around -->
+        <AtomicTask>
+            <TaskID>Task001.1</TaskID>
+            <TaskDescription>Turn around 180 degrees</TaskDescription>
+            <Action>
+                <ActionType>goToPosition</ActionType>
+                <goToPosition>
+                    <x>0.0</x>
+                    <y>0.0</y>
+                    <z>0.0</z>
+                    <roll>0.0</roll>
+                    <pitch>0.0</pitch>
+                    <yaw>3.1416</yaw> <!-- 180 degrees in radians -->
+                </goToPosition>
+            </Action>
+            <Parameters>
+                <!-- Add any necessary parameters here -->
+            </Parameters>
+        </AtomicTask>
+
+        <!-- Atomic Task 2: Look for the Red Cup -->
+        <AtomicTask>
+            <TaskID>Task001.2</TaskID>
+            <TaskDescription>Identify the red cup</TaskDescription>
+            <Action>
+                <ActionType>identifyObject</ActionType>
+                <identifyObject>
+                    <objectName>cup</objectName>
+                    <objectColor>red</objectColor>
+                </identifyObject>
+            </Action>
+            <Parameters>
+                <!-- Add any necessary parameters here -->
+            </Parameters>
+        </AtomicTask>
+
+        <!-- Atomic Task 3: Turn Back if Not Found -->
+        <AtomicTask>
+            <TaskID>Task001.3</TaskID>
+            <TaskDescription>Turn back around if red cup not found</TaskDescription>
+            <Action>
+                <ActionType>goToPosition</ActionType>
+                <goToPosition>
+                    <x>0.0</x>
+                    <y>0.0</y>
+                    <z>0.0</z>
+                    <roll>0.0</roll>
+                    <pitch>0.0</pitch>
+                    <yaw>-3.1416</yaw> <!-- -180 degrees in radians to turn back -->
+                </goToPosition>
+            </Action>
+            <Parameters>
+                <!-- Add any necessary parameters here -->
+            </Parameters>
+        </AtomicTask>
+    </AtomicTasks>
+    <ActionSequence>
+        <Sequence>
+            <TaskID>Task001.1</TaskID>
+            <TaskID>Task001.2</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <ReturnStatus>false</ReturnStatus> <!-- Condition: Red cup not found -->
+                </Conditional>
+                <Sequence>
+                    <TaskID>Task001.3</TaskID>
+                </Sequence>
+            </ConditionalActions>
+        </Sequence>
+    </ActionSequence>
+    <!-- Optional Outcome and Exits can be added here if needed -->
+</TaskTemplate>
