@@ -24,10 +24,10 @@ ANTHROPIC_API_KEY=<my_token_here>
 ```
 
 ### Docker
-NOTE: if running on Mac, ensure you have network mode enabled for this to work. This capability is only available on version 4.29+ of Docker Desktop.
-If working in Linux, will work on any version.
 
 On arm macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
+
+On linux, you may need to install `netcat-openbsd`.
 
 ```bash
 $ make build-image
