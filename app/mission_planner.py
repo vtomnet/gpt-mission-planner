@@ -153,7 +153,7 @@ class MissionPlanner:
                         continue
                     self.ltl_valid = True
                 # preliminary check, but can be improved to be more thorough
-                if ltl_task_count != xml_task_count:
+                if self.ltl and ltl_task_count != xml_task_count:
                     reconsider: str = (
                         f"You and another agent generated a different number of tasks for this mission. Reconsider and give me another answer."
                     )
@@ -209,7 +209,8 @@ class MissionPlanner:
 
             # clear before new query
             self.gpt.reset_context(self.gpt.initial_context_length)
-            self.pml_gpt.reset_context(self.pml_gpt.initial_context_length)
+            if self.ltl:
+                self.pml_gpt.reset_context(self.pml_gpt.initial_context_length)
 
         # TODO: decide how the reuse flow works
         self.nic.close_socket()
