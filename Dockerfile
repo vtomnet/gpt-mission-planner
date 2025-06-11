@@ -1,13 +1,14 @@
+ARG PYTHON_IMAGE=python:3.11-bookworm
 ARG BUILD_SPOT=false
 ARG SPOT_VERSION=2.13.1
 
-FROM python:3.11 AS builder
+FROM ${PYTHON_IMAGE} AS builder
 
 # install requirements through pip
 COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt
 
-FROM python:3.11 AS base
+FROM ${PYTHON_IMAGE} AS base
 
 ARG BUILD_SPOT
 ARG SPOT_VERSION

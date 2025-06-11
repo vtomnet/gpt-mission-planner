@@ -39,4 +39,4 @@ run:
 	python3 ./app/mission_planner.py --config ${CONFIG}
 
 server:
-	nc -l 0.0.0.0 12346
+	while true; do nc -l 0.0.0.0 12346; done
