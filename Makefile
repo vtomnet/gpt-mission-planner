@@ -30,7 +30,7 @@ bash:
 		--platform=$(PLATFORM) \
 		-v ./Makefile:/${REPO_NAME}/Makefile:Z \
 		-v ./app/:/${REPO_NAME}/app:Z \
-		--env-file ~/.gpt/token.env \
+		--env-file .env \
 		--net=host \
 		${CONTAINER_NAME} \
 		/bin/bash

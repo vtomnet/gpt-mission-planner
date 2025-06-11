@@ -17,9 +17,10 @@ make repo-init
 
 ## How To Run GPT Mission Planner
 ### GPT Token
-Create a file at `~/.gpt/token.env` and add your token in environment variable structure:
+Create a `.env` file and add your API tokens:
 ```bash
 OPENAI_API_KEY=<my_token_here>
+ANTHROPIC_API_KEY=<my_token_here>
 ```
 
 ### Docker
@@ -66,7 +67,7 @@ $ make bash
 docker run -it --rm \
         -v ./Makefile:/gpt-mission-planner/Makefile:Z \
         -v ./app/:/gpt-mission-planner/app:Z \
-        --env-file ~/.gpt/token.env \
+        --env-file .env \
         --net=host \
         gpt-mission-planner \
         /bin/bash
