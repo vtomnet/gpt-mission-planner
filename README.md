@@ -25,7 +25,7 @@ ANTHROPIC_API_KEY=<my_token_here>
 
 ### Docker
 
-On arm macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
+On ARM Macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
 
 On linux, you may need to install `netcat-openbsd`.
 
