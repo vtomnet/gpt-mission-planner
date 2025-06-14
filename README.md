@@ -78,4 +78,4 @@ File sent successfully.
 
 ### Graphical UI
 
-A web+mobile app implementation of this program is under development at [](https://github.com/thomasm6m6/mpui/).
+A web+mobile app implementation of this program is under development at https://github.com/thomasm6m6/mpui/.
