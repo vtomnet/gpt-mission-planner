@@ -31,6 +31,27 @@ RUN if test "$BUILD_SPOT" = "true"; then \
 
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
+ARG BUILD_SPOT
+ARG SPOT_VERSION
+
+ENV MAKEFLAGS="-j4"
+
+RUN apt-get update && apt-get install -y spin
+
+RUN if test "$BUILD_SPOT" = "true"; then \
+        echo "Building SPOT from source..." && \
+        curl -O https://www.lrde.epita.fr/dload/spot/spot-${SPOT_VERSION}.tar.gz && \
+        tar xzf spot-${SPOT_VERSION}.tar.gz && cd spot-${SPOT_VERSION} && \
+        ./configure && make && make install; \
+    else \
+        curl -o - https://www.lrde.epita.fr/repo/debian.gpg | apt-key add - && \
+        echo 'deb http://www.lrde.epita.fr/repo/debian/ stable/' >> /etc/apt/sources.list && \
+        apt-get update && \
+        apt-get install -y spot libspot-dev python3-spot; \
+    fi
+
+ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
 # top line is general software dev tools, second is for spin, third is for spot
 RUN apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common build-essential wget netcat-openbsd vim \

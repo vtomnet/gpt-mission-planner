@@ -29,6 +29,8 @@ On ARM Macs, SPOT will be built from source. If necessary, you can force buildin
 
 On linux, you may need to install `netcat-openbsd`.
 
+On arm macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
+
 ```bash
 $ make build-image
 ```
