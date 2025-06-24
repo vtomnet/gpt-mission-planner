@@ -1,6 +1,6 @@
 logging: DEBUG
-# OpenAI API token
-token: "~/.gpt/token.env"
+# API tokens
+token: ".env"
 # max number of retries to get a valid mission plan from ChatGPT
 max_retries: 2
 max_tokens: 4000
@@ -12,9 +12,9 @@ schema:
 context_files:
   - "./app/resources/context/wheeled_bots/reza20.geojson"
 # who to send this too?
-host: 127.0.0.1
+host: host.docker.internal
 port: 12346
 # LTL generation?
-ltl: True
-promela_template: "./app/resources/specs/promela_template.txt"
-spin_path: "/Users/marcos/Desktop/spin"
+ltl: False
+promela_template: "./app/resources/context/wheeled_bots/promela_template.txt"
+spin_path: "/usr/bin/spin"

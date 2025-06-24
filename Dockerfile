@@ -1,13 +1,35 @@
+ARG PYTHON_IMAGE=python:3.11-bookworm
 ARG BUILD_SPOT=false
 ARG SPOT_VERSION=2.13.1
 
-FROM python:3.11 AS builder
+FROM ${PYTHON_IMAGE} AS builder
 
 # install requirements through pip
 COPY requirements.txt /requirements.txt
 RUN python -m pip install -r /requirements.txt
 
-FROM python:3.11 AS base
+FROM ${PYTHON_IMAGE} AS base
+
+ARG BUILD_SPOT
+ARG SPOT_VERSION
+
+ENV MAKEFLAGS="-j4"
+
+RUN apt-get update && apt-get install -y spin
+
+RUN if test "$BUILD_SPOT" = "true"; then \
+        echo "Building SPOT from source..." && \
+        curl -O https://www.lrde.epita.fr/dload/spot/spot-${SPOT_VERSION}.tar.gz && \
+        tar xzf spot-${SPOT_VERSION}.tar.gz && cd spot-${SPOT_VERSION} && \
+        ./configure && make && make install; \
+    else \
+        curl -o - https://www.lrde.epita.fr/repo/debian.gpg | apt-key add - && \
+        echo 'deb http://www.lrde.epita.fr/repo/debian/ stable/' >> /etc/apt/sources.list && \
+        apt-get update && \
+        apt-get install -y spot libspot-dev python3-spot; \
+    fi
+
+ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 
 ARG BUILD_SPOT
 ARG SPOT_VERSION

@@ -21,3 +21,4 @@ app/gpt_outputs/
 **.temp**
 # visualizing aut files
 out.html
+.env

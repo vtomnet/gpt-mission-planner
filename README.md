@@ -17,14 +17,17 @@ make repo-init
 
 ## How To Run GPT Mission Planner
 ### GPT Token
-Create a file at `~/.gpt/token.env` and add your token in environment variable structure:
+Create a `.env` file and add your API tokens:
 ```bash
 OPENAI_API_KEY=<my_token_here>
+ANTHROPIC_API_KEY=<my_token_here>
 ```
 
 ### Docker
-NOTE: if running on Mac, ensure you have network mode enabled for this to work. This capability is only available on version 4.29+ of Docker Desktop.
-If working in Linux, will work on any version.
+
+On ARM Macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
+
+On linux, you may need to install `netcat-openbsd`.
 
 On arm macs, SPOT will be built from source. If necessary, you can force building SPOT from source on x86/64 by running `make build-image BUILD_SPOT=true`.
 
@@ -66,7 +69,7 @@ $ make bash
 docker run -it --rm \
         -v ./Makefile:/gpt-mission-planner/Makefile:Z \
         -v ./app/:/gpt-mission-planner/app:Z \
-        --env-file ~/.gpt/token.env \
+        --env-file .env \
         --net=host \
         gpt-mission-planner \
         /bin/bash
