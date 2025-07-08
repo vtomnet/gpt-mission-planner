@@ -20,20 +20,19 @@ ARG SPIN_FILE
 
 ENV MAKEFLAGS=-j4
 
-RUN if test "$ENABLE_VERIFICATION" = true; then \
-  # why?
-  apt install byacc flex graphviz \
+RUN set -e; if test "$ENABLE_VERIFICATION" = true; then \
+  apt install byacc flex graphviz; \
   curl -Lo- https://github.com/nimble-code/Spin/archive/refs/tags/version-${SPIN_VERSION}.tar.gz | \
-  tar -xOzf- Spin-version-${SPIN_VERSION}/Bin/${SPIN_FILE}.gz | gunzip >/usr/local/bin/spin && \
-  spin -V && \
+  tar -xOzf- Spin-version-${SPIN_VERSION}/Bin/${SPIN_FILE}.gz | gunzip >/usr/local/bin/spin; \
+  chmod 0755 /usr/local/bin/spin; spin -V; \
   if test "$BUILD_SPOT" = true; then \
-    echo "Building SPOT from source..." && \
+    echo "Building SPOT from source..."; \
     curl -Lo- https://www.lrde.epita.fr/dload/spot/spot-${SPOT_VERSION}.tar.gz | \
-    tar -xzf- && cd spot-${SPOT_VERSION} && ./configure && make && make install; \
+    tar -xzf-; cd spot-${SPOT_VERSION}; ./configure; make; make install; \
   else \
-    curl -o- https://www.lrde.epita.fr/repo/debian.gpg | apt-key add - && \
+    curl -o- https://www.lrde.epita.fr/repo/debian.gpg | apt-key add -; \
     echo 'deb http://www.lrde.epita.fr/repo/debian/ stable/' >> /etc/apt/sources.list && \
-    apt-get update && apt-get install -y spot libspot-dev python3-spot; \
+    apt-get update; apt-get install -y spot libspot-dev python3-spot; \
   fi; \
 fi
 
@@ -45,7 +44,7 @@ RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   software-properties-common build-essential wget netcat-openbsd vim
 
 # SPOT package is installed into python3 folder, not python3.11
-# ENV PYTHONPATH="/usr/lib/python3/dist-packages:$PYTHONPATH"
+ENV PYTHONPATH="/usr/lib/python3/dist-packages"
 
 # For more information, please refer to https://aka.ms/vscode-docker-python
 # This is particularly for debugging using VSCode
