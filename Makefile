@@ -5,14 +5,12 @@ CONFIG := ./app/config/localhost.yaml
 # set PLATFORM to linux/arm64 on silicon mac, otherwise linux/amd64
 ARCH := $(shell uname -m)
 PLATFORM := linux/amd64
-ifeq ($(ARCH),arm64)
+ENABLE_VERIFICATION ?= true
+BUILD_SPOT ?= false
+ifneq (,$(filter $(ARCH),arm64 aarch64))
 	PLATFORM := linux/arm64
-endif
-
-# use prebuilt SPOT on x86 and x64, otherwise build from source
-BUILD_SPOT ?= true
-ifneq ($(filter $(ARCH),x86_64 i386),)
-	BUILD_SPOT := false
+	ENABLE_VERIFICATION := false
+	CONFIG := ./app/config/localhost_mac.yaml
 endif
 
 repo-init:
@@ -23,6 +21,7 @@ repo-init:
 build-image:
 	docker buildx build --load \
 		--platform=$(PLATFORM) \
+		--build-arg ENABLE_VERIFICATION=$(ENABLE_VERIFICATION) \
 		--build-arg BUILD_SPOT=$(BUILD_SPOT) \
 		. -t ${CONTAINER_NAME} --target local
 
