@@ -4,6 +4,7 @@ from typing import Tuple, Any
 
 import click
 import yaml
+import spot
 
 from gpt_interface import LLMInterface
 from network_interface import NetworkInterface
@@ -18,6 +19,11 @@ from utils.xml_utils import (
     count_xml_tasks,
 )
 from promela_compiler import PromelaCompiler
+from utils.spot_utils import (
+    generate_accepting_run_string,
+    count_ltl_tasks,
+    regex_spin_to_spot,
+)
 
 
 LTL_KEY: str = "ltl"
@@ -96,8 +102,6 @@ class MissionPlanner:
             # spin binary location
             self.spin_path: str = spin_path
             # configure spot
-            import spot
-
             spot.setup()
 
     def configure_network(self, host: str, port: int) -> None:
@@ -237,8 +241,6 @@ class MissionPlanner:
         return ret, xml, task_count
 
     def _generate_ltl(self, prompt: str) -> Tuple[str, int]:
-        from utils.spot_utils import count_ltl_tasks
-
         task_count: int = 0
         # use second GPT agent to generate LTL
         ltl_out: str | None = self.pml_gpt.ask_gpt(prompt, True)
@@ -254,9 +256,6 @@ class MissionPlanner:
 
     def _convert_to_spot(self, ltl: str) -> Any:
         """Custom Spot helper function for decoding LTL with error handling"""
-        import spot
-        from utils.spot_utils import regex_spin_to_spot
-
         spot_out: str = regex_spin_to_spot(ltl)
 
         aut = spot.translate(spot_out)
@@ -334,8 +333,6 @@ class MissionPlanner:
         return ret, e
 
     def _spot_verification(self, mission_query: str) -> Tuple[bool, str]:
-        from utils.spot_utils import generate_accepting_run_string
-
         ret: bool = False
         e: str | None = ""
 
@@ -430,20 +427,14 @@ class MissionPlanner:
     default="./app/config/localhost.yaml",
     help="YAML config file",
 )
-@click.option(
-    "--verify",
-    is_flag=True,
-    default=False,
-    help="Enable formal verification with Spot.",
-)
-def main(config: str, verify: bool):
+def main(config: str):
     with open(config, "r") as file:
         config_yaml: dict = yaml.safe_load(file)
 
     context_files: list[str] = []
 
     # don't generate/check LTL by default
-    ltl: bool = verify
+    ltl: bool = False
     pml_template_path: str = ""
     spin_path: str = ""
 
@@ -464,20 +455,17 @@ def main(config: str, verify: bool):
             logger.info("No additional context files found. Proceeding...")
 
         # if user specifies config key -> optional keys
-        if ltl:
-            if (
-                PROMELA_TEMPLATE_KEY not in config_yaml
-                or SPIN_PATH_KEY not in config_yaml
-            ):
-                logger.error(
-                    f"Verification requires '{PROMELA_TEMPLATE_KEY}' and '{SPIN_PATH_KEY}' in config."
-                )
-                return
+        if (
+            LTL_KEY in config_yaml
+            and PROMELA_TEMPLATE_KEY in config_yaml
+            and SPIN_PATH_KEY in config_yaml
+        ):
+            ltl = config_yaml[LTL_KEY]
             pml_template_path = config_yaml[PROMELA_TEMPLATE_KEY]
             spin_path = config_yaml[SPIN_PATH_KEY]
         else:
             logger.warning(
-                "No --verify flag provided. Proceeding without formal verification..."
+                "No spin configuration found. Proceeding without formal verification..."
             )
 
         mp: MissionPlanner = MissionPlanner(
