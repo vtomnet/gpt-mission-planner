@@ -1,14 +1,12 @@
-
 {
-"_comment" : "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:",
-"type": "FeatureCollection",
-"features": [
-
+  "_comment": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:",
+  "type": "FeatureCollection",
+  "features": [
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266444, -120.4201616]
+        "coordinates": [-120.4201616, 37.266444]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -18,7 +16,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266406, -120.4201625]
+        "coordinates": [-120.4201625, 37.266406]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -28,7 +26,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663688, -120.4201605]
+        "coordinates": [-120.4201605, 37.2663688]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -38,7 +36,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663281, -120.4201611]
+        "coordinates": [-120.4201611, 37.2663281]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -48,7 +46,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662902, -120.4201626]
+        "coordinates": [-120.4201626, 37.2662902]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -58,7 +56,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662552, -120.4201615]
+        "coordinates": [-120.4201615, 37.2662552]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -68,7 +66,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662116, -120.4201602]
+        "coordinates": [-120.4201602, 37.2662116]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -78,7 +76,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661725, -120.4201546]
+        "coordinates": [-120.4201546, 37.2661725]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -88,7 +86,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266139, -120.4201578]
+        "coordinates": [-120.4201578, 37.266139]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -98,7 +96,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660953, -120.4201552]
+        "coordinates": [-120.4201552, 37.2660953]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -108,7 +106,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660565, -120.4201522]
+        "coordinates": [-120.4201522, 37.2660565]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -118,7 +116,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660204, -120.420153]
+        "coordinates": [-120.420153, 37.2660204]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -128,7 +126,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659773, -120.4201542]
+        "coordinates": [-120.4201542, 37.2659773]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -138,7 +136,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265942, -120.4201526]
+        "coordinates": [-120.4201526, 37.265942]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -148,7 +146,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658719, -120.4201551]
+        "coordinates": [-120.4201551, 37.2658719]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -158,7 +156,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658251, -120.4201553]
+        "coordinates": [-120.4201553, 37.2658251]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -168,7 +166,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657878, -120.4201516]
+        "coordinates": [-120.4201516, 37.2657878]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -178,7 +176,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657689, -120.4201672]
+        "coordinates": [-120.4201672, 37.2657689]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -188,7 +186,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657668, -120.4201975]
+        "coordinates": [-120.4201975, 37.2657668]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -198,7 +196,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265798, -120.4202109]
+        "coordinates": [-120.4202109, 37.265798]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -208,7 +206,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658315, -120.420208]
+        "coordinates": [-120.420208, 37.2658315]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -218,7 +216,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658724, -120.420205]
+        "coordinates": [-120.420205, 37.2658724]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -228,7 +226,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659089, -120.4202077]
+        "coordinates": [-120.4202077, 37.2659089]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -238,7 +236,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659501, -120.4202097]
+        "coordinates": [-120.4202097, 37.2659501]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -248,7 +246,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659872, -120.4202166]
+        "coordinates": [-120.4202166, 37.2659872]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -258,7 +256,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660261, -120.4202178]
+        "coordinates": [-120.4202178, 37.2660261]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -268,7 +266,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660664, -120.4202105]
+        "coordinates": [-120.4202105, 37.2660664]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -278,7 +276,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661044, -120.4202116]
+        "coordinates": [-120.4202116, 37.2661044]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -288,7 +286,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661448, -120.4202106]
+        "coordinates": [-120.4202106, 37.2661448]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -298,7 +296,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661805, -120.4202019]
+        "coordinates": [-120.4202019, 37.2661805]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -308,7 +306,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662182, -120.4202074]
+        "coordinates": [-120.4202074, 37.2662182]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -318,7 +316,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662569, -120.4202057]
+        "coordinates": [-120.4202057, 37.2662569]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -328,7 +326,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662932, -120.4202071]
+        "coordinates": [-120.4202071, 37.2662932]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -338,7 +336,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663372, -120.4202088]
+        "coordinates": [-120.4202088, 37.2663372]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -348,7 +346,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663726, -120.4202104]
+        "coordinates": [-120.4202104, 37.2663726]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -358,7 +356,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664114, -120.42021]
+        "coordinates": [-120.42021, 37.2664114]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -368,7 +366,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664432, -120.4202085]
+        "coordinates": [-120.4202085, 37.2664432]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -378,7 +376,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266472, -120.4202092]
+        "coordinates": [-120.4202092, 37.266472]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -388,7 +386,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664871, -120.4202397]
+        "coordinates": [-120.4202397, 37.2664871]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -398,7 +396,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664854, -120.4202625]
+        "coordinates": [-120.4202625, 37.2664854]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -408,7 +406,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664405, -120.4202613]
+        "coordinates": [-120.4202613, 37.2664405]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -418,7 +416,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664037, -120.4202517]
+        "coordinates": [-120.4202517, 37.2664037]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -428,7 +426,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663622, -120.4202493]
+        "coordinates": [-120.4202493, 37.2663622]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -438,7 +436,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663265, -120.4202537]
+        "coordinates": [-120.4202537, 37.2663265]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -448,7 +446,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662887, -120.4202565]
+        "coordinates": [-120.4202565, 37.2662887]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -458,7 +456,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662492, -120.4202583]
+        "coordinates": [-120.4202583, 37.2662492]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -468,7 +466,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662097, -120.4202507]
+        "coordinates": [-120.4202507, 37.2662097]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -478,7 +476,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661717, -120.4202581]
+        "coordinates": [-120.4202581, 37.2661717]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -488,7 +486,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661369, -120.4202572]
+        "coordinates": [-120.4202572, 37.2661369]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -498,7 +496,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266098, -120.4202577]
+        "coordinates": [-120.4202577, 37.266098]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -508,7 +506,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660567, -120.4202555]
+        "coordinates": [-120.4202555, 37.2660567]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -518,7 +516,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660189, -120.4202498]
+        "coordinates": [-120.4202498, 37.2660189]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -528,7 +526,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659808, -120.4202495]
+        "coordinates": [-120.4202495, 37.2659808]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -538,7 +536,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265945, -120.420249]
+        "coordinates": [-120.420249, 37.265945]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -548,7 +546,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659019, -120.4202532]
+        "coordinates": [-120.4202532, 37.2659019]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -558,7 +556,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265866, -120.420251]
+        "coordinates": [-120.420251, 37.265866]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -568,7 +566,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658266, -120.4202484]
+        "coordinates": [-120.4202484, 37.2658266]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -578,7 +576,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657882, -120.4202485]
+        "coordinates": [-120.4202485, 37.2657882]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -588,7 +586,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657741, -120.4202637]
+        "coordinates": [-120.4202637, 37.2657741]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -598,7 +596,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.26577, -120.4202831]
+        "coordinates": [-120.4202831, 37.26577]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -608,7 +606,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657759, -120.4203007]
+        "coordinates": [-120.4203007, 37.2657759]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -618,7 +616,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657947, -120.4203111]
+        "coordinates": [-120.4203111, 37.2657947]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -628,7 +626,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265829, -120.4203052]
+        "coordinates": [-120.4203052, 37.265829]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -638,7 +636,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658745, -120.4203033]
+        "coordinates": [-120.4203033, 37.2658745]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -648,7 +646,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659065, -120.4203044]
+        "coordinates": [-120.4203044, 37.2659065]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -658,7 +656,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265946, -120.4203137]
+        "coordinates": [-120.4203137, 37.265946]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -668,7 +666,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265985, -120.4203119]
+        "coordinates": [-120.4203119, 37.265985]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -678,7 +676,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266022, -120.4203092]
+        "coordinates": [-120.4203092, 37.266022]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -688,7 +686,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266062, -120.4203087]
+        "coordinates": [-120.4203087, 37.266062]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -698,7 +696,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661003, -120.4203035]
+        "coordinates": [-120.4203035, 37.2661003]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -708,7 +706,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661411, -120.4203067]
+        "coordinates": [-120.4203067, 37.2661411]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -718,7 +716,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661778, -120.4203057]
+        "coordinates": [-120.4203057, 37.2661778]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -728,7 +726,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266212, -120.4203042]
+        "coordinates": [-120.4203042, 37.266212]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -738,7 +736,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266218, -120.4203046]
+        "coordinates": [-120.4203046, 37.266218]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -748,7 +746,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662565, -120.420312]
+        "coordinates": [-120.420312, 37.2662565]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -758,7 +756,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662896, -120.4203046]
+        "coordinates": [-120.4203046, 37.2662896]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -768,7 +766,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663355, -120.4203134]
+        "coordinates": [-120.4203134, 37.2663355]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -778,7 +776,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663686, -120.4203091]
+        "coordinates": [-120.4203091, 37.2663686]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -788,7 +786,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664066, -120.4203019]
+        "coordinates": [-120.4203019, 37.2664066]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -798,7 +796,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664487, -120.4203072]
+        "coordinates": [-120.4203072, 37.2664487]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -808,7 +806,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664704, -120.4203125]
+        "coordinates": [-120.4203125, 37.2664704]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -818,7 +816,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664761, -120.4203493]
+        "coordinates": [-120.4203493, 37.2664761]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -828,7 +826,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664386, -120.4203561]
+        "coordinates": [-120.4203561, 37.2664386]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -838,7 +836,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664016, -120.4203523]
+        "coordinates": [-120.4203523, 37.2664016]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -848,7 +846,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663622, -120.4203528]
+        "coordinates": [-120.4203528, 37.2663622]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -858,7 +856,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663296, -120.4203508]
+        "coordinates": [-120.4203508, 37.2663296]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -868,7 +866,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662857, -120.4203545]
+        "coordinates": [-120.4203545, 37.2662857]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -878,7 +876,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662488, -120.4203623]
+        "coordinates": [-120.4203623, 37.2662488]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -888,7 +886,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266212, -120.4203557]
+        "coordinates": [-120.4203557, 37.266212]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -898,7 +896,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661721, -120.4203565]
+        "coordinates": [-120.4203565, 37.2661721]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -908,7 +906,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661305, -120.4203489]
+        "coordinates": [-120.4203489, 37.2661305]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -918,7 +916,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660941, -120.4203486]
+        "coordinates": [-120.4203486, 37.2660941]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -928,7 +926,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660568, -120.4203532]
+        "coordinates": [-120.4203532, 37.2660568]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -938,7 +936,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660156, -120.4203468]
+        "coordinates": [-120.4203468, 37.2660156]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -948,7 +946,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659801, -120.4203512]
+        "coordinates": [-120.4203512, 37.2659801]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -958,7 +956,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659407, -120.4203479]
+        "coordinates": [-120.4203479, 37.2659407]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -968,7 +966,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659019, -120.4203526]
+        "coordinates": [-120.4203526, 37.2659019]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -978,7 +976,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658639, -120.4203529]
+        "coordinates": [-120.4203529, 37.2658639]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -988,7 +986,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658281, -120.4203491]
+        "coordinates": [-120.4203491, 37.2658281]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -998,7 +996,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657865, -120.4203429]
+        "coordinates": [-120.4203429, 37.2657865]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1008,7 +1006,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657733, -120.4203534]
+        "coordinates": [-120.4203534, 37.2657733]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1018,7 +1016,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657677, -120.4203847]
+        "coordinates": [-120.4203847, 37.2657677]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1028,7 +1026,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657899, -120.4203908]
+        "coordinates": [-120.4203908, 37.2657899]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1038,7 +1036,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658302, -120.4204039]
+        "coordinates": [-120.4204039, 37.2658302]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1048,7 +1046,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658713, -120.4204036]
+        "coordinates": [-120.4204036, 37.2658713]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1058,7 +1056,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659042, -120.4204038]
+        "coordinates": [-120.4204038, 37.2659042]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1068,7 +1066,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659484, -120.420404]
+        "coordinates": [-120.420404, 37.2659484]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1078,7 +1076,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659787, -120.4204015]
+        "coordinates": [-120.4204015, 37.2659787]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1088,7 +1086,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660227, -120.4204066]
+        "coordinates": [-120.4204066, 37.2660227]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1098,7 +1096,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660566, -120.4203961]
+        "coordinates": [-120.4203961, 37.2660566]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1108,7 +1106,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661015, -120.4203954]
+        "coordinates": [-120.4203954, 37.2661015]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1118,7 +1116,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661432, -120.4204007]
+        "coordinates": [-120.4204007, 37.2661432]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1128,7 +1126,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266175, -120.4204007]
+        "coordinates": [-120.4204007, 37.266175]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1138,7 +1136,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662185, -120.4203995]
+        "coordinates": [-120.4203995, 37.2662185]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1148,7 +1146,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662553, -120.4203955]
+        "coordinates": [-120.4203955, 37.2662553]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1158,7 +1156,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662959, -120.420397]
+        "coordinates": [-120.420397, 37.2662959]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1168,7 +1166,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663327, -120.4203992]
+        "coordinates": [-120.4203992, 37.2663327]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1178,7 +1176,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663726, -120.4204031]
+        "coordinates": [-120.4204031, 37.2663726]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1188,7 +1186,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664082, -120.4204045]
+        "coordinates": [-120.4204045, 37.2664082]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1198,7 +1196,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664479, -120.4204032]
+        "coordinates": [-120.4204032, 37.2664479]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1208,7 +1206,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664832, -120.4204306]
+        "coordinates": [-120.4204306, 37.2664832]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1218,7 +1216,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664685, -120.4204486]
+        "coordinates": [-120.4204486, 37.2664685]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1228,7 +1226,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664428, -120.4204493]
+        "coordinates": [-120.4204493, 37.2664428]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1238,7 +1236,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664428, -120.4204492]
+        "coordinates": [-120.4204492, 37.2664428]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1248,7 +1246,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664015, -120.4204562]
+        "coordinates": [-120.4204562, 37.2664015]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1258,7 +1256,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663644, -120.4204494]
+        "coordinates": [-120.4204494, 37.2663644]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1268,7 +1266,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663241, -120.4204459]
+        "coordinates": [-120.4204459, 37.2663241]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1278,7 +1276,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266282, -120.4204492]
+        "coordinates": [-120.4204492, 37.266282]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1288,7 +1286,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662508, -120.4204441]
+        "coordinates": [-120.4204441, 37.2662508]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1298,7 +1296,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662094, -120.4204439]
+        "coordinates": [-120.4204439, 37.2662094]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1308,7 +1306,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661735, -120.4204458]
+        "coordinates": [-120.4204458, 37.2661735]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1318,7 +1316,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661314, -120.4204497]
+        "coordinates": [-120.4204497, 37.2661314]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1328,7 +1326,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660933, -120.4204478]
+        "coordinates": [-120.4204478, 37.2660933]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1338,7 +1336,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660545, -120.420452]
+        "coordinates": [-120.420452, 37.2660545]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1348,7 +1346,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660163, -120.4204474]
+        "coordinates": [-120.4204474, 37.2660163]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1358,7 +1356,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659783, -120.4204495]
+        "coordinates": [-120.4204495, 37.2659783]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1368,7 +1366,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659412, -120.4204419]
+        "coordinates": [-120.4204419, 37.2659412]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1378,7 +1376,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659077, -120.4204427]
+        "coordinates": [-120.4204427, 37.2659077]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1388,7 +1386,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265864, -120.4204406]
+        "coordinates": [-120.4204406, 37.265864]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1398,7 +1396,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658229, -120.4204394]
+        "coordinates": [-120.4204394, 37.2658229]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1408,7 +1406,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657853, -120.4204407]
+        "coordinates": [-120.4204407, 37.2657853]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1418,7 +1416,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657667, -120.42046]
+        "coordinates": [-120.42046, 37.2657667]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1428,7 +1426,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657636, -120.4204889]
+        "coordinates": [-120.4204889, 37.2657636]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1438,7 +1436,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265792, -120.4205047]
+        "coordinates": [-120.4205047, 37.265792]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1448,7 +1446,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658329, -120.4205006]
+        "coordinates": [-120.4205006, 37.2658329]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1458,7 +1456,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658694, -120.4204885]
+        "coordinates": [-120.4204885, 37.2658694]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1468,7 +1466,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659101, -120.4204912]
+        "coordinates": [-120.4204912, 37.2659101]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1478,7 +1476,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659461, -120.4204936]
+        "coordinates": [-120.4204936, 37.2659461]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1488,7 +1486,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659897, -120.4204923]
+        "coordinates": [-120.4204923, 37.2659897]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1498,7 +1496,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660229, -120.4205]
+        "coordinates": [-120.4205, 37.2660229]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1508,7 +1506,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660611, -120.4204896]
+        "coordinates": [-120.4204896, 37.2660611]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1518,7 +1516,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661009, -120.420504]
+        "coordinates": [-120.420504, 37.2661009]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1528,7 +1526,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661387, -120.4204947]
+        "coordinates": [-120.4204947, 37.2661387]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1538,7 +1536,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661772, -120.4205033]
+        "coordinates": [-120.4205033, 37.2661772]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1548,7 +1546,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662142, -120.4204997]
+        "coordinates": [-120.4204997, 37.2662142]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1558,7 +1556,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662525, -120.4205035]
+        "coordinates": [-120.4205035, 37.2662525]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1568,7 +1566,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662922, -120.4204925]
+        "coordinates": [-120.4204925, 37.2662922]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1578,7 +1576,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663339, -120.4204977]
+        "coordinates": [-120.4204977, 37.2663339]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1588,7 +1586,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663692, -120.4204966]
+        "coordinates": [-120.4204966, 37.2663692]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1598,7 +1596,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664129, -120.4204986]
+        "coordinates": [-120.4204986, 37.2664129]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1608,7 +1606,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664473, -120.4204943]
+        "coordinates": [-120.4204943, 37.2664473]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1618,7 +1616,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664745, -120.4204931]
+        "coordinates": [-120.4204931, 37.2664745]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1628,7 +1626,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664892, -120.4205162]
+        "coordinates": [-120.4205162, 37.2664892]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1638,7 +1636,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664838, -120.4205447]
+        "coordinates": [-120.4205447, 37.2664838]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1648,7 +1646,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664418, -120.4205485]
+        "coordinates": [-120.4205485, 37.2664418]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1658,7 +1656,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664023, -120.4205342]
+        "coordinates": [-120.4205342, 37.2664023]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1668,7 +1666,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663631, -120.4205368]
+        "coordinates": [-120.4205368, 37.2663631]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1678,7 +1676,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663227, -120.4205375]
+        "coordinates": [-120.4205375, 37.2663227]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1688,7 +1686,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662881, -120.4205467]
+        "coordinates": [-120.4205467, 37.2662881]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1698,7 +1696,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662468, -120.4205388]
+        "coordinates": [-120.4205388, 37.2662468]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1708,7 +1706,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662037, -120.4205443]
+        "coordinates": [-120.4205443, 37.2662037]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1718,7 +1716,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.26617, -120.4205423]
+        "coordinates": [-120.4205423, 37.26617]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1728,7 +1726,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661322, -120.4205422]
+        "coordinates": [-120.4205422, 37.2661322]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1738,7 +1736,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660941, -120.4205354]
+        "coordinates": [-120.4205354, 37.2660941]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1748,7 +1746,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660544, -120.4205435]
+        "coordinates": [-120.4205435, 37.2660544]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1758,7 +1756,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660162, -120.4205438]
+        "coordinates": [-120.4205438, 37.2660162]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1768,7 +1766,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659779, -120.4205445]
+        "coordinates": [-120.4205445, 37.2659779]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1778,7 +1776,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659346, -120.4205439]
+        "coordinates": [-120.4205439, 37.2659346]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1788,7 +1786,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659095, -120.420543]
+        "coordinates": [-120.420543, 37.2659095]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1798,7 +1796,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658624, -120.4205448]
+        "coordinates": [-120.4205448, 37.2658624]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1808,7 +1806,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658226, -120.4205432]
+        "coordinates": [-120.4205432, 37.2658226]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1818,7 +1816,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657895, -120.420541]
+        "coordinates": [-120.420541, 37.2657895]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1828,7 +1826,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657707, -120.4205491]
+        "coordinates": [-120.4205491, 37.2657707]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1838,7 +1836,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657653, -120.4205789]
+        "coordinates": [-120.4205789, 37.2657653]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1848,7 +1846,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657924, -120.4205972]
+        "coordinates": [-120.4205972, 37.2657924]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1858,7 +1856,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658301, -120.4205973]
+        "coordinates": [-120.4205973, 37.2658301]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1868,7 +1866,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658673, -120.4205961]
+        "coordinates": [-120.4205961, 37.2658673]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1878,7 +1876,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265907, -120.4205946]
+        "coordinates": [-120.4205946, 37.265907]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1888,7 +1886,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659465, -120.4205917]
+        "coordinates": [-120.4205917, 37.2659465]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1898,7 +1896,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659823, -120.4206013]
+        "coordinates": [-120.4206013, 37.2659823]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1908,7 +1906,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266022, -120.4205971]
+        "coordinates": [-120.4205971, 37.266022]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1918,7 +1916,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660625, -120.4205991]
+        "coordinates": [-120.4205991, 37.2660625]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1928,7 +1926,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661003, -120.4205977]
+        "coordinates": [-120.4205977, 37.2661003]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1938,7 +1936,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661382, -120.4205987]
+        "coordinates": [-120.4205987, 37.2661382]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1948,7 +1946,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661723, -120.4205885]
+        "coordinates": [-120.4205885, 37.2661723]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1958,7 +1956,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662165, -120.4205969]
+        "coordinates": [-120.4205969, 37.2662165]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1968,7 +1966,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662532, -120.4205884]
+        "coordinates": [-120.4205884, 37.2662532]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1978,7 +1976,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662921, -120.4205903]
+        "coordinates": [-120.4205903, 37.2662921]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1988,7 +1986,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663318, -120.4205966]
+        "coordinates": [-120.4205966, 37.2663318]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -1998,7 +1996,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663698, -120.4205987]
+        "coordinates": [-120.4205987, 37.2663698]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2008,7 +2006,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664075, -120.4205993]
+        "coordinates": [-120.4205993, 37.2664075]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2018,7 +2016,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664444, -120.4205865]
+        "coordinates": [-120.4205865, 37.2664444]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2028,7 +2026,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664794, -120.4205868]
+        "coordinates": [-120.4205868, 37.2664794]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2038,7 +2036,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664794, -120.4205868]
+        "coordinates": [-120.4205868, 37.2664794]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2048,7 +2046,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664803, -120.4206396]
+        "coordinates": [-120.4206396, 37.2664803]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2058,7 +2056,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664434, -120.420646]
+        "coordinates": [-120.420646, 37.2664434]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2068,7 +2066,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663998, -120.4206414]
+        "coordinates": [-120.4206414, 37.2663998]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2078,7 +2076,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663592, -120.4206346]
+        "coordinates": [-120.4206346, 37.2663592]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2088,7 +2086,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663238, -120.4206348]
+        "coordinates": [-120.4206348, 37.2663238]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2098,7 +2096,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266286, -120.420639]
+        "coordinates": [-120.420639, 37.266286]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2108,7 +2106,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662469, -120.4206358]
+        "coordinates": [-120.4206358, 37.2662469]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2118,7 +2116,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662083, -120.4206345]
+        "coordinates": [-120.4206345, 37.2662083]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2128,7 +2126,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661712, -120.4206445]
+        "coordinates": [-120.4206445, 37.2661712]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2138,7 +2136,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661324, -120.4206391]
+        "coordinates": [-120.4206391, 37.2661324]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2148,7 +2146,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660956, -120.4206452]
+        "coordinates": [-120.4206452, 37.2660956]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2158,7 +2156,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660552, -120.4206346]
+        "coordinates": [-120.4206346, 37.2660552]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2168,7 +2166,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660155, -120.4206353]
+        "coordinates": [-120.4206353, 37.2660155]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2178,7 +2176,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659778, -120.4206356]
+        "coordinates": [-120.4206356, 37.2659778]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2188,7 +2186,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659386, -120.4206467]
+        "coordinates": [-120.4206467, 37.2659386]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2198,7 +2196,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658976, -120.4206399]
+        "coordinates": [-120.4206399, 37.2658976]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2208,7 +2206,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658599, -120.4206405]
+        "coordinates": [-120.4206405, 37.2658599]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2218,7 +2216,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658231, -120.4206366]
+        "coordinates": [-120.4206366, 37.2658231]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2228,7 +2226,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657867, -120.4206391]
+        "coordinates": [-120.4206391, 37.2657867]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2238,7 +2236,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657593, -120.4206407]
+        "coordinates": [-120.4206407, 37.2657593]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2248,7 +2246,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657612, -120.4206787]
+        "coordinates": [-120.4206787, 37.2657612]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2258,7 +2256,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265792, -120.4206874]
+        "coordinates": [-120.4206874, 37.265792]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2268,7 +2266,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658395, -120.4206912]
+        "coordinates": [-120.4206912, 37.2658395]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2278,7 +2276,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659077, -120.4206926]
+        "coordinates": [-120.4206926, 37.2659077]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2288,7 +2286,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659469, -120.4206976]
+        "coordinates": [-120.4206976, 37.2659469]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2298,7 +2296,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659864, -120.4206968]
+        "coordinates": [-120.4206968, 37.2659864]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2308,7 +2306,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660236, -120.4206955]
+        "coordinates": [-120.4206955, 37.2660236]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2318,7 +2316,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660624, -120.4206943]
+        "coordinates": [-120.4206943, 37.2660624]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2328,7 +2326,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660995, -120.4206935]
+        "coordinates": [-120.4206935, 37.2660995]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2338,7 +2336,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661387, -120.4206935]
+        "coordinates": [-120.4206935, 37.2661387]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2348,7 +2346,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661786, -120.420695]
+        "coordinates": [-120.420695, 37.2661786]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2358,7 +2356,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662141, -120.4206954]
+        "coordinates": [-120.4206954, 37.2662141]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2368,7 +2366,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662535, -120.4206931]
+        "coordinates": [-120.4206931, 37.2662535]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2378,7 +2376,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662932, -120.4206921]
+        "coordinates": [-120.4206921, 37.2662932]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2388,7 +2386,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663315, -120.4206937]
+        "coordinates": [-120.4206937, 37.2663315]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2398,7 +2396,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663685, -120.4206946]
+        "coordinates": [-120.4206946, 37.2663685]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2408,7 +2406,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664083, -120.4206927]
+        "coordinates": [-120.4206927, 37.2664083]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2418,7 +2416,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664478, -120.4206799]
+        "coordinates": [-120.4206799, 37.2664478]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2428,7 +2426,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664739, -120.420688]
+        "coordinates": [-120.420688, 37.2664739]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2438,7 +2436,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664756, -120.4207415]
+        "coordinates": [-120.4207415, 37.2664756]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2448,7 +2446,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664388, -120.4207357]
+        "coordinates": [-120.4207357, 37.2664388]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2458,7 +2456,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663976, -120.4207318]
+        "coordinates": [-120.4207318, 37.2663976]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2468,7 +2466,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663599, -120.4207309]
+        "coordinates": [-120.4207309, 37.2663599]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2478,7 +2476,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663222, -120.4207291]
+        "coordinates": [-120.4207291, 37.2663222]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2488,7 +2486,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662856, -120.4207314]
+        "coordinates": [-120.4207314, 37.2662856]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2498,7 +2496,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662442, -120.4207338]
+        "coordinates": [-120.4207338, 37.2662442]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2508,7 +2506,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662067, -120.4207362]
+        "coordinates": [-120.4207362, 37.2662067]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2518,7 +2516,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661693, -120.4207344]
+        "coordinates": [-120.4207344, 37.2661693]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2528,7 +2526,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661315, -120.4207366]
+        "coordinates": [-120.4207366, 37.2661315]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2538,7 +2536,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660927, -120.4207366]
+        "coordinates": [-120.4207366, 37.2660927]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2548,7 +2546,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660521, -120.4207342]
+        "coordinates": [-120.4207342, 37.2660521]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2558,7 +2556,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660134, -120.4207292]
+        "coordinates": [-120.4207292, 37.2660134]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2568,7 +2566,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659752, -120.420731]
+        "coordinates": [-120.420731, 37.2659752]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2578,7 +2576,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659378, -120.4207301]
+        "coordinates": [-120.4207301, 37.2659378]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2588,7 +2586,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659001, -120.4207337]
+        "coordinates": [-120.4207337, 37.2659001]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2598,7 +2596,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657848, -120.4207383]
+        "coordinates": [-120.4207383, 37.2657848]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2608,7 +2606,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.26576, -120.4207407]
+        "coordinates": [-120.4207407, 37.26576]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2618,7 +2616,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657582, -120.4207767]
+        "coordinates": [-120.4207767, 37.2657582]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2628,7 +2626,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657895, -120.4207902]
+        "coordinates": [-120.4207902, 37.2657895]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2638,7 +2636,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658297, -120.4207875]
+        "coordinates": [-120.4207875, 37.2658297]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2648,7 +2646,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658684, -120.420794]
+        "coordinates": [-120.420794, 37.2658684]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2658,7 +2656,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659051, -120.4207866]
+        "coordinates": [-120.4207866, 37.2659051]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2668,7 +2666,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659546, -120.4207853]
+        "coordinates": [-120.4207853, 37.2659546]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2678,7 +2676,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660225, -120.4207893]
+        "coordinates": [-120.4207893, 37.2660225]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2688,7 +2686,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660612, -120.4207909]
+        "coordinates": [-120.4207909, 37.2660612]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2698,7 +2696,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660986, -120.4207863]
+        "coordinates": [-120.4207863, 37.2660986]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2708,7 +2706,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661371, -120.4207943]
+        "coordinates": [-120.4207943, 37.2661371]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2718,7 +2716,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662118, -120.4207853]
+        "coordinates": [-120.4207853, 37.2662118]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2728,7 +2726,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662537, -120.4207906]
+        "coordinates": [-120.4207906, 37.2662537]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2738,7 +2736,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662897, -120.4207858]
+        "coordinates": [-120.4207858, 37.2662897]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2748,7 +2746,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663285, -120.4207808]
+        "coordinates": [-120.4207808, 37.2663285]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2758,7 +2756,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663694, -120.4207817]
+        "coordinates": [-120.4207817, 37.2663694]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2768,7 +2766,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664065, -120.4207851]
+        "coordinates": [-120.4207851, 37.2664065]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2778,7 +2776,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664447, -120.4207904]
+        "coordinates": [-120.4207904, 37.2664447]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2788,7 +2786,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664747, -120.4207927]
+        "coordinates": [-120.4207927, 37.2664747]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2798,7 +2796,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664685, -120.4208301]
+        "coordinates": [-120.4208301, 37.2664685]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2808,7 +2806,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664374, -120.4208343]
+        "coordinates": [-120.4208343, 37.2664374]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2818,7 +2816,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663964, -120.4208322]
+        "coordinates": [-120.4208322, 37.2663964]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2828,7 +2826,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663585, -120.4208309]
+        "coordinates": [-120.4208309, 37.2663585]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2838,7 +2836,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663194, -120.4208356]
+        "coordinates": [-120.4208356, 37.2663194]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2848,7 +2846,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662816, -120.4208311]
+        "coordinates": [-120.4208311, 37.2662816]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2858,7 +2856,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662433, -120.4208268]
+        "coordinates": [-120.4208268, 37.2662433]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2868,7 +2866,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662052, -120.4208292]
+        "coordinates": [-120.4208292, 37.2662052]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2878,7 +2876,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661277, -120.4208297]
+        "coordinates": [-120.4208297, 37.2661277]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2888,7 +2886,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660935, -120.4208331]
+        "coordinates": [-120.4208331, 37.2660935]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2898,7 +2896,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2660524, -120.4208323]
+        "coordinates": [-120.4208323, 37.2660524]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2908,7 +2906,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266015, -120.4208303]
+        "coordinates": [-120.4208303, 37.266015]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2918,7 +2916,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659641, -120.4208323]
+        "coordinates": [-120.4208323, 37.2659641]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2928,7 +2926,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658992, -120.4208347]
+        "coordinates": [-120.4208347, 37.2658992]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2938,7 +2936,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658593, -120.4208273]
+        "coordinates": [-120.4208273, 37.2658593]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2948,7 +2946,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658214, -120.4208323]
+        "coordinates": [-120.4208323, 37.2658214]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2958,7 +2956,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657831, -120.4208308]
+        "coordinates": [-120.4208308, 37.2657831]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2968,7 +2966,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2657619, -120.420838]
+        "coordinates": [-120.420838, 37.2657619]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2978,7 +2976,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.265768, -120.4208697]
+        "coordinates": [-120.4208697, 37.265768]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2988,7 +2986,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2658293, -120.4208572]
+        "coordinates": [-120.4208572, 37.2658293]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -2998,7 +2996,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2659034, -120.420857]
+        "coordinates": [-120.420857, 37.2659034]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3008,7 +3006,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.266008, -120.4208541]
+        "coordinates": [-120.4208541, 37.266008]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3018,7 +3016,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2661004, -120.4208539]
+        "coordinates": [-120.4208539, 37.2661004]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3028,7 +3026,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.26621, -120.4208532]
+        "coordinates": [-120.4208532, 37.26621]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3038,7 +3036,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2662892, -120.4208535]
+        "coordinates": [-120.4208535, 37.2662892]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3048,7 +3046,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2663765, -120.4208546]
+        "coordinates": [-120.4208546, 37.2663765]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3058,7 +3056,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664541, -120.4208561]
+        "coordinates": [-120.4208561, 37.2664541]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3068,7 +3066,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664992, -120.4207859]
+        "coordinates": [-120.4207859, 37.2664992]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3078,7 +3076,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664934, -120.4206614]
+        "coordinates": [-120.4206614, 37.2664934]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3088,7 +3086,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664905, -120.4205651]
+        "coordinates": [-120.4205651, 37.2664905]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3098,7 +3096,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664859, -120.4204702]
+        "coordinates": [-120.4204702, 37.2664859]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3108,7 +3106,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664839, -120.4203793]
+        "coordinates": [-120.4203793, 37.2664839]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3118,7 +3116,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664858, -120.4202833]
+        "coordinates": [-120.4202833, 37.2664858]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"
@@ -3128,7 +3126,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [37.2664903, -120.4201915]
+        "coordinates": [-120.4201915, 37.2664903]
       },
       "properties": {
         "marker-symbol": "pistachio-tree"

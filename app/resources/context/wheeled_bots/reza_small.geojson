@@ -1,15 +1,12 @@
 {
-  "_comment" : "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:",
+  "_comment": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:",
   "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
       "geometry": {
-        "type": "Landmark",
-        "coordinates": [
-          37.266444,
-          -120.4201616
-        ]
+        "type": "Point",
+        "coordinates": [-120.4201616, 37.266444]
       },
       "properties": {
         "marker-symbol": "start"
@@ -19,10 +16,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.266406,
-          -120.4201625
-        ]
+        "coordinates": [-120.4201625, 37.266406]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -32,10 +26,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2663688,
-          -120.4201605
-        ]
+        "coordinates": [-120.4201605, 37.2663688]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -45,10 +36,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2663281,
-          -120.4201611
-        ]
+        "coordinates": [-120.4201611, 37.2663281]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -58,10 +46,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2662902,
-          -120.4201626
-        ]
+        "coordinates": [-120.4201626, 37.2662902]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -71,10 +56,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2662552,
-          -120.4201615
-        ]
+        "coordinates": [-120.4201615, 37.2662552]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -84,10 +66,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2662116,
-          -120.4201602
-        ]
+        "coordinates": [-120.4201602, 37.2662116]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -97,10 +76,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.2661725,
-          -120.4201546
-        ]
+        "coordinates": [-120.4201546, 37.2661725]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -110,10 +86,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          37.266139,
-          -120.4201578
-        ]
+        "coordinates": [-120.4201578, 37.266139]
       },
       "properties": {
         "tree-type": "pistachio"
@@ -122,11 +95,8 @@
     {
       "type": "Feature",
       "geometry": {
-        "type": "Landmark",
-        "coordinates": [
-          37.2660953,
-          -120.4201552
-        ]
+        "type": "Point",
+        "coordinates": [-120.4201552, 37.2660953]
       },
       "properties": {
         "marker-symbol": "end"
