@@ -1,41 +1,486 @@
-{"_comment" : "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:"}
-{"type": "Feature", "properties": {"id": 0, "action": 0, "reward": 0.0}, "geometry": {"type": "Point", "coordinates": [-120.42298277318592, 37.36632162352893]}}
-{"type": "Feature", "properties": {"id": 1, "action": 0, "reward": 0.025926231827891333}, "geometry": {"type": "Point", "coordinates": [-120.4230380189676, 37.36626983244727]}}
-{"type": "Feature", "properties": {"id": 2, "action": 0, "reward": 0.5496624778787091}, "geometry": {"type": "Point", "coordinates": [-120.42299114487176, 37.36632936985608]}}
-{"type": "Feature", "properties": {"id": 3, "action": 0, "reward": 0.4353223926182769}, "geometry": {"type": "Point", "coordinates": [-120.42305506066184, 37.36630463543188]}}
-{"type": "Feature", "properties": {"id": 4, "action": 0, "reward": 0.42036780208748903}, "geometry": {"type": "Point", "coordinates": [-120.42302876293382, 37.366314482719545]}}
-{"type": "Feature", "properties": {"id": 5, "action": 0, "reward": 0.3303348210038741}, "geometry": {"type": "Point", "coordinates": [-120.42304508732978, 37.36630702266005]}}
-{"type": "Feature", "properties": {"id": 6, "action": 0, "reward": 0.2046486340378425}, "geometry": {"type": "Point", "coordinates": [-120.42304423725777, 37.36630091310839]}}
-{"type": "Feature", "properties": {"id": 7, "action": 0, "reward": 0.6192709663506637}, "geometry": {"type": "Point", "coordinates": [-120.4230044998709, 37.36631908119189]}}
-{"type": "Feature", "properties": {"id": 8, "action": 0, "reward": 0.29965467367452314}, "geometry": {"type": "Point", "coordinates": [-120.42303084291726, 37.366359790494364]}}
-{"type": "Feature", "properties": {"id": 9, "action": 0, "reward": 0.26682727510286663}, "geometry": {"type": "Point", "coordinates": [-120.4229855450649, 37.366276985436706]}}
-{"type": "Feature", "properties": {"id": 10, "action": 0, "reward": 0.6211338327692949}, "geometry": {"type": "Point", "coordinates": [-120.4230319990526, 37.3662970684462]}}
-{"type": "Feature", "properties": {"id": 11, "action": 0, "reward": 0.5291420942770391}, "geometry": {"type": "Point", "coordinates": [-120.42308603608389, 37.366272424710594]}}
-{"type": "Feature", "properties": {"id": 12, "action": 0, "reward": 0.13457994534493356}, "geometry": {"type": "Point", "coordinates": [-120.42305107490249, 37.3663379244997]}}
-{"type": "Feature", "properties": {"id": 13, "action": 0, "reward": 0.5135781212657464}, "geometry": {"type": "Point", "coordinates": [-120.42299560804746, 37.36632902107656]}}
-{"type": "Feature", "properties": {"id": 14, "action": 0, "reward": 0.18443986564691528}, "geometry": {"type": "Point", "coordinates": [-120.42304818545026, 37.366288040166594]}}
-{"type": "Feature", "properties": {"id": 15, "action": 0, "reward": 0.7853351478166735}, "geometry": {"type": "Point", "coordinates": [-120.42309113035851, 37.36630820220987]}}
-{"type": "Feature", "properties": {"id": 16, "action": 0, "reward": 0.8539752926394888}, "geometry": {"type": "Point", "coordinates": [-120.42306508932236, 37.36632923553123]}}
-{"type": "Feature", "properties": {"id": 17, "action": 0, "reward": 0.4942368373819278}, "geometry": {"type": "Point", "coordinates": [-120.42308574001332, 37.36633136363361]}}
-{"type": "Feature", "properties": {"id": 18, "action": 0, "reward": 0.846561485357468}, "geometry": {"type": "Point", "coordinates": [-120.42298074378746, 37.36628236936976]}}
-{"type": "Feature", "properties": {"id": 19, "action": 0, "reward": 0.079645477009061}, "geometry": {"type": "Point", "coordinates": [-120.42298110714327, 37.366350025496196]}}
-{"type": "Feature", "properties": {"id": 20, "action": 0, "reward": 0.505246090121704}, "geometry": {"type": "Point", "coordinates": [-120.42300103538172, 37.36634060116936]}}
-{"type": "Feature", "properties": {"id": 21, "action": 0, "reward": 0.06528650438687811}, "geometry": {"type": "Point", "coordinates": [-120.42302595591647, 37.366279880958395]}}
-{"type": "Feature", "properties": {"id": 22, "action": 0, "reward": 0.42812232759738944}, "geometry": {"type": "Point", "coordinates": [-120.42300479982794, 37.36634933061211]}}
-{"type": "Feature", "properties": {"id": 23, "action": 0, "reward": 0.09653091566061256}, "geometry": {"type": "Point", "coordinates": [-120.42307371429256, 37.36633940525611]}}
-{"type": "Feature", "properties": {"id": 24, "action": 0, "reward": 0.12715997170127746}, "geometry": {"type": "Point", "coordinates": [-120.42305931257661, 37.36634382907996]}}
-{"type": "Feature", "properties": {"id": 25, "action": 0, "reward": 0.5967453089785958}, "geometry": {"type": "Point", "coordinates": [-120.42303356732576, 37.36631898888213]}}
-{"type": "Feature", "properties": {"id": 26, "action": 0, "reward": 0.22601200060423587}, "geometry": {"type": "Point", "coordinates": [-120.42305387629266, 37.36628875419676]}}
-{"type": "Feature", "properties": {"id": 27, "action": 0, "reward": 0.10694568430998297}, "geometry": {"type": "Point", "coordinates": [-120.42308737313643, 37.36635584336488]}}
-{"type": "Feature", "properties": {"id": 28, "action": 0, "reward": 0.2203062070705597}, "geometry": {"type": "Point", "coordinates": [-120.422980602894, 37.3663224703266]}}
-{"type": "Feature", "properties": {"id": 29, "action": 0, "reward": 0.34982628500329926}, "geometry": {"type": "Point", "coordinates": [-120.42304372234166, 37.36630046108908]}}
-{"type": "Feature", "properties": {"id": 30, "action": 0, "reward": 0.46778748458230024}, "geometry": {"type": "Point", "coordinates": [-120.42303678485052, 37.366292466161596]}}
-{"type": "Feature", "properties": {"id": 31, "action": 0, "reward": 0.20174322626496533}, "geometry": {"type": "Point", "coordinates": [-120.42305542711303, 37.36635471474319]}}
-{"type": "Feature", "properties": {"id": 32, "action": 0, "reward": 0.6404067252149148}, "geometry": {"type": "Point", "coordinates": [-120.42306437275084, 37.36630790251367]}}
-{"type": "Feature", "properties": {"id": 33, "action": 0, "reward": 0.48306983555175165}, "geometry": {"type": "Point", "coordinates": [-120.42304935620417, 37.36631903311863]}}
-{"type": "Feature", "properties": {"id": 34, "action": 0, "reward": 0.5052367200185491}, "geometry": {"type": "Point", "coordinates": [-120.42299793398436, 37.366324404141615]}}
-{"type": "Feature", "properties": {"id": 35, "action": 0, "reward": 0.3868926511185593}, "geometry": {"type": "Point", "coordinates": [-120.42300818376653, 37.366345345848956]}}
-{"type": "Feature", "properties": {"id": 36, "action": 0, "reward": 0.7936374544415771}, "geometry": {"type": "Point", "coordinates": [-120.42304996830886, 37.36632697692077]}}
-{"type": "Feature", "properties": {"id": 37, "action": 0, "reward": 0.5800041788778066}, "geometry": {"type": "Point", "coordinates": [-120.42309354279102, 37.366285421662035]}}
-{"type": "Feature", "properties": {"id": 38, "action": 0, "reward": 0.16229859850231387}, "geometry": {"type": "Point", "coordinates": [-120.4230019710855, 37.36632285751006]}}
-{"type": "Feature", "properties": {"id": 39, "action": 0, "reward": 0.7007523466071562}, "geometry": {"type": "Point", "coordinates": [-120.42306303728103, 37.366314487279475]}}
+{
+  "_comment": "This is the GeoJSON for which you must generate mission plan XML documents. This is our orchard:",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "action": 0,
+        "reward": 0.0
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42298277318592, 37.36632162352893]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "action": 0,
+        "reward": 0.025926231827891333
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4230380189676, 37.36626983244727]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "action": 0,
+        "reward": 0.5496624778787091
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42299114487176, 37.36632936985608]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "action": 0,
+        "reward": 0.4353223926182769
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42305506066184, 37.36630463543188]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "action": 0,
+        "reward": 0.42036780208748903
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42302876293382, 37.366314482719545]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "action": 0,
+        "reward": 0.3303348210038741
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304508732978, 37.36630702266005]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "action": 0,
+        "reward": 0.2046486340378425
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304423725777, 37.36630091310839]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "action": 0,
+        "reward": 0.6192709663506637
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4230044998709, 37.36631908119189]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 8,
+        "action": 0,
+        "reward": 0.29965467367452314
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42303084291726, 37.366359790494364]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 9,
+        "action": 0,
+        "reward": 0.26682727510286663
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4229855450649, 37.366276985436706]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 10,
+        "action": 0,
+        "reward": 0.6211338327692949
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4230319990526, 37.3662970684462]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "action": 0,
+        "reward": 0.5291420942770391
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42308603608389, 37.366272424710594]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "action": 0,
+        "reward": 0.13457994534493356
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42305107490249, 37.3663379244997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "action": 0,
+        "reward": 0.5135781212657464
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42299560804746, 37.36632902107656]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "action": 0,
+        "reward": 0.18443986564691528
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304818545026, 37.366288040166594]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "action": 0,
+        "reward": 0.7853351478166735
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42309113035851, 37.36630820220987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "action": 0,
+        "reward": 0.8539752926394888
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42306508932236, 37.36632923553123]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "action": 0,
+        "reward": 0.4942368373819278
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42308574001332, 37.36633136363361]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "action": 0,
+        "reward": 0.846561485357468
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42298074378746, 37.36628236936976]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "action": 0,
+        "reward": 0.079645477009061
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42298110714327, 37.366350025496196]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "action": 0,
+        "reward": 0.505246090121704
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42300103538172, 37.36634060116936]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "action": 0,
+        "reward": 0.06528650438687811
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42302595591647, 37.366279880958395]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "action": 0,
+        "reward": 0.42812232759738944
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42300479982794, 37.36634933061211]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "action": 0,
+        "reward": 0.09653091566061256
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42307371429256, 37.36633940525611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "action": 0,
+        "reward": 0.12715997170127746
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42305931257661, 37.36634382907996]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "action": 0,
+        "reward": 0.5967453089785958
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42303356732576, 37.36631898888213]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "action": 0,
+        "reward": 0.22601200060423587
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42305387629266, 37.36628875419676]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "action": 0,
+        "reward": 0.10694568430998297
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42308737313643, 37.36635584336488]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "action": 0,
+        "reward": 0.2203062070705597
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.422980602894, 37.3663224703266]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "action": 0,
+        "reward": 0.34982628500329926
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304372234166, 37.36630046108908]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "action": 0,
+        "reward": 0.46778748458230024
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42303678485052, 37.366292466161596]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "action": 0,
+        "reward": 0.20174322626496533
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42305542711303, 37.36635471474319]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "action": 0,
+        "reward": 0.6404067252149148
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42306437275084, 37.36630790251367]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "action": 0,
+        "reward": 0.48306983555175165
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304935620417, 37.36631903311863]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "action": 0,
+        "reward": 0.5052367200185491
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42299793398436, 37.366324404141615]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "action": 0,
+        "reward": 0.3868926511185593
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42300818376653, 37.366345345848956]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "action": 0,
+        "reward": 0.7936374544415771
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42304996830886, 37.36632697692077]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "action": 0,
+        "reward": 0.5800041788778066
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42309354279102, 37.366285421662035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "action": 0,
+        "reward": 0.16229859850231387
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.4230019710855, 37.36632285751006]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 39,
+        "action": 0,
+        "reward": 0.7007523466071562
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-120.42306303728103, 37.366314487279475]
+      }
+    }
+  ]
+}
