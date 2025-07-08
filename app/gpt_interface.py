@@ -1,9 +1,13 @@
 import logging
+import time
 
 from dotenv import load_dotenv
-import aisuite as ai
+import litellm
+from litellm import completion
 
-from context import iros_2025_context, verification_agent_context
+from context import icra_2026_context, verification_agent_context
+
+OPENAI_TEMP: float = 1.0
 
 
 class LLMInterface:
@@ -18,12 +22,8 @@ class LLMInterface:
         self.logger: logging.Logger = logger
         # max number of tokens that GPT will respond with, almost 1:1 with words to token
         self.max_tokens: int = max_tokens
-        # creativity of ChatGPT
-        self.temperature: float = temperature
         # loading in secret API token from your env file
         load_dotenv(token_path)
-        # binding LLM client
-        self.client: ai.Client = ai.Client()
         # which model to use?
         self.model: str = model
         # schema text
@@ -32,6 +32,12 @@ class LLMInterface:
         self.context: list = []
         # input template file provided when wanting spin verification
         self.promela_template: str = ""
+        self.temperature: float = temperature
+        if "openai" in self.model:
+            self.logger.warning(
+                f"Using OpenAI model: {self.model}, which requires temperature {OPENAI_TEMP}"
+            )
+            self.temperature = OPENAI_TEMP
 
     def init_context(self, schema_path: list[str], context_files: list[str]):
         for s in schema_path:
@@ -39,7 +45,7 @@ class LLMInterface:
             self._set_schema(s)
 
         # context can be updated from context.py
-        self.context = iros_2025_context(self.schemas)
+        self.context = icra_2026_context(self.schemas)
 
         # this could be empty
         if context_files is not None:
@@ -84,14 +90,21 @@ class LLMInterface:
 
     # TODO: should we expose OpenAI object or string response?
     def ask_gpt(self, prompt: str, add_context: bool = False) -> str | None:
+        answered: bool = False
         message: list = self.context.copy()
         message.append({"role": "user", "content": prompt})
 
-        completion = self.client.chat.completions.create(
-            model=self.model, messages=message, temperature=self.temperature
-        )
+        while not answered:
+            try:
+                cmp = completion(
+                    model=self.model, messages=message, temperature=self.temperature
+                )
+                answered = True
+            except litellm.exceptions.RateLimitError as e:
+                self.logger.warning(f"Rate limit error: {e}")
+                time.sleep(1)  # wait before retrying
 
-        response: str | None = completion.choices[0].message.content
+        response: str | None = cmp.choices[0].message.content
 
         if add_context:
             self.add_context(prompt, response)
