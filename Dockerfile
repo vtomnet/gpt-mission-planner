@@ -13,6 +13,7 @@ RUN python -m pip install -r /requirements.txt
 
 FROM ${PYTHON_IMAGE} AS base
 
+ARG ENABLE_VERIFICATION
 ARG BUILD_SPOT
 ARG SPOT_VERSION
 ARG SPIN_VERSION
@@ -20,8 +21,9 @@ ARG SPIN_FILE
 
 ENV MAKEFLAGS=-j4
 
+RUN apt update && apt-install byacc flex graphviz
+
 RUN set -e; if test "$ENABLE_VERIFICATION" = true; then \
-  apt install byacc flex graphviz; \
   curl -Lo- https://github.com/nimble-code/Spin/archive/refs/tags/version-${SPIN_VERSION}.tar.gz | \
   tar -xOzf- Spin-version-${SPIN_VERSION}/Bin/${SPIN_FILE}.gz | gunzip >/usr/local/bin/spin; \
   chmod 0755 /usr/local/bin/spin; spin -V; \
