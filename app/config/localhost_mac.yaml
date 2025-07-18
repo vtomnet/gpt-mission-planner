@@ -11,7 +11,7 @@ schema:
   - "schemas/schemas/clearpath_husky.xsd"
 context_files:
   # - "./app/resources/context/wheeled_bots/reza20.geojson"
-  - "./app/resources/context/wheeled_bots/reza_medium.geojson"
+  - "./app/resources/context/wheeled_bots/reza.geojson"
 # who to send this too?
 host: host.docker.internal
 port: 12346
