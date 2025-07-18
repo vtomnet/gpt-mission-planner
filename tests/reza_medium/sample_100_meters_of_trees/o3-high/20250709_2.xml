@@ -1,0 +1,615 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>Pistachio100mPhotoMission</TaskID>
+        <TaskDescription>Ignoring start and end points, visit as many points as you can in 100 meters and take pictures of each tree.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <AtomicTasks>
+        <!-- Tree 01 -->
+        <AtomicTask>
+            <TaskID>MoveToTree01</TaskID>
+            <TaskDescription>Drive to tree 01 located at GPS -120.4201625,37.266406.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.266406</latitude>
+                    <longitude>-120.4201625</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree01</TaskID>
+            <TaskDescription>Take thermal picture of tree 01.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 02 -->
+        <AtomicTask>
+            <TaskID>MoveToTree02</TaskID>
+            <TaskDescription>Drive to tree 02 located at GPS -120.4201605,37.2663688.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2663688</latitude>
+                    <longitude>-120.4201605</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree02</TaskID>
+            <TaskDescription>Take thermal picture of tree 02.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 03 -->
+        <AtomicTask>
+            <TaskID>MoveToTree03</TaskID>
+            <TaskDescription>Drive to tree 03 located at GPS -120.4201611,37.2663281.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2663281</latitude>
+                    <longitude>-120.4201611</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree03</TaskID>
+            <TaskDescription>Take thermal picture of tree 03.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 04 -->
+        <AtomicTask>
+            <TaskID>MoveToTree04</TaskID>
+            <TaskDescription>Drive to tree 04 located at GPS -120.4201626,37.2662902.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662902</latitude>
+                    <longitude>-120.4201626</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree04</TaskID>
+            <TaskDescription>Take thermal picture of tree 04.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 05 -->
+        <AtomicTask>
+            <TaskID>MoveToTree05</TaskID>
+            <TaskDescription>Drive to tree 05 located at GPS -120.4201615,37.2662552.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662552</latitude>
+                    <longitude>-120.4201615</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree05</TaskID>
+            <TaskDescription>Take thermal picture of tree 05.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 06 -->
+        <AtomicTask>
+            <TaskID>MoveToTree06</TaskID>
+            <TaskDescription>Drive to tree 06 located at GPS -120.4201602,37.2662116.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662116</latitude>
+                    <longitude>-120.4201602</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree06</TaskID>
+            <TaskDescription>Take thermal picture of tree 06.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 07 -->
+        <AtomicTask>
+            <TaskID>MoveToTree07</TaskID>
+            <TaskDescription>Drive to tree 07 located at GPS -120.4201546,37.2661725.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661725</latitude>
+                    <longitude>-120.4201546</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree07</TaskID>
+            <TaskDescription>Take thermal picture of tree 07.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 08 -->
+        <AtomicTask>
+            <TaskID>MoveToTree08</TaskID>
+            <TaskDescription>Drive to tree 08 located at GPS -120.4201578,37.266139.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.266139</latitude>
+                    <longitude>-120.4201578</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree08</TaskID>
+            <TaskDescription>Take thermal picture of tree 08.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 09 -->
+        <AtomicTask>
+            <TaskID>MoveToTree09</TaskID>
+            <TaskDescription>Drive to tree 09 located at GPS -120.4201552,37.2660953.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2660953</latitude>
+                    <longitude>-120.4201552</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree09</TaskID>
+            <TaskDescription>Take thermal picture of tree 09.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 10 -->
+        <AtomicTask>
+            <TaskID>MoveToTree10</TaskID>
+            <TaskDescription>Drive to tree 10 located at GPS -120.4201522,37.2660565.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2660565</latitude>
+                    <longitude>-120.4201522</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree10</TaskID>
+            <TaskDescription>Take thermal picture of tree 10.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 11 -->
+        <AtomicTask>
+            <TaskID>MoveToTree11</TaskID>
+            <TaskDescription>Drive to tree 11 located at GPS -120.420153,37.2660204.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2660204</latitude>
+                    <longitude>-120.420153</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree11</TaskID>
+            <TaskDescription>Take thermal picture of tree 11.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 12 -->
+        <AtomicTask>
+            <TaskID>MoveToTree12</TaskID>
+            <TaskDescription>Drive to tree 12 located at GPS -120.4201542,37.2659773.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2659773</latitude>
+                    <longitude>-120.4201542</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree12</TaskID>
+            <TaskDescription>Take thermal picture of tree 12.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 13 -->
+        <AtomicTask>
+            <TaskID>MoveToTree13</TaskID>
+            <TaskDescription>Drive to tree 13 located at GPS -120.4201526,37.265942.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.265942</latitude>
+                    <longitude>-120.4201526</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree13</TaskID>
+            <TaskDescription>Take thermal picture of tree 13.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 14 -->
+        <AtomicTask>
+            <TaskID>MoveToTree14</TaskID>
+            <TaskDescription>Drive to tree 14 located at GPS -120.4201551,37.2658719.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658719</latitude>
+                    <longitude>-120.4201551</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree14</TaskID>
+            <TaskDescription>Take thermal picture of tree 14.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 15 -->
+        <AtomicTask>
+            <TaskID>MoveToTree15</TaskID>
+            <TaskDescription>Drive to tree 15 located at GPS -120.4201553,37.2658251.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658251</latitude>
+                    <longitude>-120.4201553</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree15</TaskID>
+            <TaskDescription>Take thermal picture of tree 15.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 16 -->
+        <AtomicTask>
+            <TaskID>MoveToTree16</TaskID>
+            <TaskDescription>Drive to tree 16 located at GPS -120.4201516,37.2657878.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree16</TaskID>
+            <TaskDescription>Take thermal picture of tree 16.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 17 -->
+        <AtomicTask>
+            <TaskID>MoveToTree17</TaskID>
+            <TaskDescription>Drive to tree 17 located at GPS -120.4201672,37.2657689.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657689</latitude>
+                    <longitude>-120.4201672</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree17</TaskID>
+            <TaskDescription>Take thermal picture of tree 17.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 18 -->
+        <AtomicTask>
+            <TaskID>MoveToTree18</TaskID>
+            <TaskDescription>Drive to tree 18 located at GPS -120.4201975,37.2657668.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657668</latitude>
+                    <longitude>-120.4201975</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree18</TaskID>
+            <TaskDescription>Take thermal picture of tree 18.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 19 -->
+        <AtomicTask>
+            <TaskID>MoveToTree19</TaskID>
+            <TaskDescription>Drive to tree 19 located at GPS -120.4202109,37.265798.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.265798</latitude>
+                    <longitude>-120.4202109</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree19</TaskID>
+            <TaskDescription>Take thermal picture of tree 19.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 20 -->
+        <AtomicTask>
+            <TaskID>MoveToTree20</TaskID>
+            <TaskDescription>Drive to tree 20 located at GPS -120.420208,37.2658315.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658315</latitude>
+                    <longitude>-120.420208</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree20</TaskID>
+            <TaskDescription>Take thermal picture of tree 20.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 21 -->
+        <AtomicTask>
+            <TaskID>MoveToTree21</TaskID>
+            <TaskDescription>Drive to tree 21 located at GPS -120.420205,37.2658724.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658724</latitude>
+                    <longitude>-120.420205</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree21</TaskID>
+            <TaskDescription>Take thermal picture of tree 21.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 22 -->
+        <AtomicTask>
+            <TaskID>MoveToTree22</TaskID>
+            <TaskDescription>Drive to tree 22 located at GPS -120.4202077,37.2659089.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2659089</latitude>
+                    <longitude>-120.4202077</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree22</TaskID>
+            <TaskDescription>Take thermal picture of tree 22.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Tree 23 -->
+        <AtomicTask>
+            <TaskID>MoveToTree23</TaskID>
+            <TaskDescription>Drive to tree 23 located at GPS -120.4202097,37.2659501.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2659501</latitude>
+                    <longitude>-120.4202097</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePictureTree23</TaskID>
+            <TaskDescription>Take thermal picture of tree 23.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>MoveToTree01</TaskID>
+            <TaskID>TakePictureTree01</TaskID>
+
+            <TaskID>MoveToTree02</TaskID>
+            <TaskID>TakePictureTree02</TaskID>
+
+            <TaskID>MoveToTree03</TaskID>
+            <TaskID>TakePictureTree03</TaskID>
+
+            <TaskID>MoveToTree04</TaskID>
+            <TaskID>TakePictureTree04</TaskID>
+
+            <TaskID>MoveToTree05</TaskID>
+            <TaskID>TakePictureTree05</TaskID>
+
+            <TaskID>MoveToTree06</TaskID>
+            <TaskID>TakePictureTree06</TaskID>
+
+            <TaskID>MoveToTree07</TaskID>
+            <TaskID>TakePictureTree07</TaskID>
+
+            <TaskID>MoveToTree08</TaskID>
+            <TaskID>TakePictureTree08</TaskID>
+
+            <TaskID>MoveToTree09</TaskID>
+            <TaskID>TakePictureTree09</TaskID>
+
+            <TaskID>MoveToTree10</TaskID>
+            <TaskID>TakePictureTree10</TaskID>
+
+            <TaskID>MoveToTree11</TaskID>
+            <TaskID>TakePictureTree11</TaskID>
+
+            <TaskID>MoveToTree12</TaskID>
+            <TaskID>TakePictureTree12</TaskID>
+
+            <TaskID>MoveToTree13</TaskID>
+            <TaskID>TakePictureTree13</TaskID>
+
+            <TaskID>MoveToTree14</TaskID>
+            <TaskID>TakePictureTree14</TaskID>
+
+            <TaskID>MoveToTree15</TaskID>
+            <TaskID>TakePictureTree15</TaskID>
+
+            <TaskID>MoveToTree16</TaskID>
+            <TaskID>TakePictureTree16</TaskID>
+
+            <TaskID>MoveToTree17</TaskID>
+            <TaskID>TakePictureTree17</TaskID>
+
+            <TaskID>MoveToTree18</TaskID>
+            <TaskID>TakePictureTree18</TaskID>
+
+            <TaskID>MoveToTree19</TaskID>
+            <TaskID>TakePictureTree19</TaskID>
+
+            <TaskID>MoveToTree20</TaskID>
+            <TaskID>TakePictureTree20</TaskID>
+
+            <TaskID>MoveToTree21</TaskID>
+            <TaskID>TakePictureTree21</TaskID>
+
+            <TaskID>MoveToTree22</TaskID>
+            <TaskID>TakePictureTree22</TaskID>
+
+            <TaskID>MoveToTree23</TaskID>
+            <TaskID>TakePictureTree23</TaskID>
+        </Sequence>
+    </ActionSequence>
+
+</TaskTemplate>

@@ -1,0 +1,106 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>mission_pictures_north_mid_east_001</TaskID>
+        <TaskDescription>Take a picture of the northern most tree. Drive to the middle of the orchard and take another. Drive to the middle of the eastern end and take a picture of two trees next to each other.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <Preconditions>
+        <Precondition>
+            <Condition>atStartingPoint</Condition>
+        </Precondition>
+    </Preconditions>
+
+    <AtomicTasks>
+
+        <!-- 1. Navigate to the northern-most tree -->
+        <AtomicTask>
+            <TaskID>MoveToNorthernMostTree</TaskID>
+            <TaskDescription>Drive Husky to the northern-most pistachio tree located at (37.2664871, -120.4202397).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664871</latitude>
+                    <longitude>-120.4202397</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <!-- 2. Take thermal picture at northern-most tree -->
+        <AtomicTask>
+            <TaskID>TakePictureAtNorthernMostTree</TaskID>
+            <TaskDescription>Capture a thermal image of the northern-most pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- 3. Navigate to the center of the orchard -->
+        <AtomicTask>
+            <TaskID>MoveToMiddleOfOrchard</TaskID>
+            <TaskDescription>Drive Husky to the approximate center of the orchard at (37.2661448, -120.4202106).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661448</latitude>
+                    <longitude>-120.4202106</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <!-- 4. Take thermal picture at orchard center -->
+        <AtomicTask>
+            <TaskID>TakePictureAtMiddleOfOrchard</TaskID>
+            <TaskDescription>Capture a thermal image of the central pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- 5. Navigate to the middle of the eastern row -->
+        <AtomicTask>
+            <TaskID>MoveToEasternMiddleTree</TaskID>
+            <TaskDescription>Drive Husky to the middle of the eastern row at (37.2661305, -120.4203489).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661305</latitude>
+                    <longitude>-120.4203489</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <!-- 6. Take pictures covering two adjacent eastern trees -->
+        <AtomicTask>
+            <TaskID>TakePictureOfTwoAdjacentTrees</TaskID>
+            <TaskDescription>Capture thermal images that include the two adjacent pistachio trees on the eastern side.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>MoveToNorthernMostTree</TaskID>
+            <TaskID>TakePictureAtNorthernMostTree</TaskID>
+            <TaskID>MoveToMiddleOfOrchard</TaskID>
+            <TaskID>TakePictureAtMiddleOfOrchard</TaskID>
+            <TaskID>MoveToEasternMiddleTree</TaskID>
+            <TaskID>TakePictureOfTwoAdjacentTrees</TaskID>
+        </Sequence>
+    </ActionSequence>
+
+</TaskTemplate>

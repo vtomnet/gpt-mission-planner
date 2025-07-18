@@ -1,0 +1,110 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+    <CompositeTaskInformation>
+        <TaskID>PhotographFourCornerTrees</TaskID>
+        <TaskDescription>Viewing this farm as a rectangle, take pictures of trees at the four corners of the farm in any order.</TaskDescription>
+    </CompositeTaskInformation>
+    <AtomicTasks>
+        <!-- Corner 1: Most Northern Tree -->
+        <AtomicTask>
+            <TaskID>MoveToNorthernmostTree</TaskID>
+            <TaskDescription>Navigate to the pistachio tree at the northernmost point of the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664871</latitude>
+                    <longitude>-120.4202397</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakeThermalPictureAtNorthernmostTree</TaskID>
+            <TaskDescription>Take one thermal picture of the northernmost pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- Corner 2: Most Eastern Tree -->
+        <AtomicTask>
+            <TaskID>MoveToEasternmostTree</TaskID>
+            <TaskDescription>Navigate to the pistachio tree at the easternmost point of the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakeThermalPictureAtEasternmostTree</TaskID>
+            <TaskDescription>Take one thermal picture of the easternmost pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- Corner 3: Most Southern Tree -->
+        <AtomicTask>
+            <TaskID>MoveToSouthernmostTree</TaskID>
+            <TaskDescription>Navigate to the pistachio tree at the southernmost point of the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657668</latitude>
+                    <longitude>-120.4201975</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakeThermalPictureAtSouthernmostTree</TaskID>
+            <TaskDescription>Take one thermal picture of the southernmost pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- Corner 4: Most Western Tree -->
+        <AtomicTask>
+            <TaskID>MoveToWesternmostTree</TaskID>
+            <TaskDescription>Navigate to the pistachio tree at the westernmost point of the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662488</latitude>
+                    <longitude>-120.4203623</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakeThermalPictureAtWesternmostTree</TaskID>
+            <TaskDescription>Take one thermal picture of the westernmost pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+    <ActionSequence>
+        <Sequence>
+            <TaskID>MoveToNorthernmostTree</TaskID>
+            <TaskID>TakeThermalPictureAtNorthernmostTree</TaskID>
+            <TaskID>MoveToEasternmostTree</TaskID>
+            <TaskID>TakeThermalPictureAtEasternmostTree</TaskID>
+            <TaskID>MoveToSouthernmostTree</TaskID>
+            <TaskID>TakeThermalPictureAtSouthernmostTree</TaskID>
+            <TaskID>MoveToWesternmostTree</TaskID>
+            <TaskID>TakeThermalPictureAtWesternmostTree</TaskID>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

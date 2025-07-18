@@ -1,0 +1,141 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>Mission_MiddleAndNextTreeSampling</TaskID>
+        <TaskDescription>From the starting point, go to the middle of the field and take a picture of a tree. if its average temperature is below 33 C, take a co2 sample. After, go to another random point 5 trees down and do the same thing.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <Preconditions>
+        <Precondition>
+            <Condition>atStartingPoint</Condition>
+        </Precondition>
+    </Preconditions>
+
+    <AtomicTasks>
+        <!-- Middle tree tasks -->
+        <AtomicTask>
+            <TaskID>MoveToMiddleTree</TaskID>
+            <TaskDescription>Drive to the approximate middle tree (37.2661044, -120.4202116).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661044</latitude>
+                    <longitude>-120.4202116</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeThermalPicturesMiddleTree</TaskID>
+            <TaskDescription>Capture thermal images of the middle tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeAmbientTemperatureMiddleTree</TaskID>
+            <TaskDescription>Measure ambient temperature at the middle tree (5 samples).</TaskDescription>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeCO2ReadingMiddleTree</TaskID>
+            <TaskDescription>Collect CO2 reading at the middle tree if temperature is below threshold.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <!-- Second tree (five trees down) tasks -->
+        <AtomicTask>
+            <TaskID>MoveToSecondTree</TaskID>
+            <TaskDescription>Drive to a tree located five positions south of the middle tree (37.2659501, -120.4202097).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2659501</latitude>
+                    <longitude>-120.4202097</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeThermalPicturesSecondTree</TaskID>
+            <TaskDescription>Capture thermal images of the second tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeAmbientTemperatureSecondTree</TaskID>
+            <TaskDescription>Measure ambient temperature at the second tree (5 samples).</TaskDescription>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>TakeCO2ReadingSecondTree</TaskID>
+            <TaskDescription>Collect CO2 reading at the second tree if temperature is below threshold.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>MoveToMiddleTree</TaskID>
+            <TaskID>TakeThermalPicturesMiddleTree</TaskID>
+            <TaskID>TakeAmbientTemperatureMiddleTree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>33</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>TakeCO2ReadingMiddleTree</TaskID>
+                </Sequence>
+            </ConditionalActions>
+        </Sequence>
+
+        <Sequence>
+            <TaskID>MoveToSecondTree</TaskID>
+            <TaskID>TakeThermalPicturesSecondTree</TaskID>
+            <TaskID>TakeAmbientTemperatureSecondTree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>33</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>TakeCO2ReadingSecondTree</TaskID>
+                </Sequence>
+            </ConditionalActions>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

@@ -1,0 +1,241 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>MissionCO2ThermalTemp</TaskID>
+        <TaskDescription>From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <Preconditions>
+        <Precondition>
+            <Condition>atStartingPoint</Condition>
+        </Precondition>
+    </Preconditions>
+
+    <AtomicTasks>
+
+        <!-- Central tree (Tree A) -->
+        <AtomicTask>
+            <TaskID>AT1</TaskID>
+            <TaskDescription>Move to central pistachio tree for initial CO2 measurement.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661448</latitude>
+                    <longitude>-120.4202106</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT2</TaskID>
+            <TaskDescription>Take CO2 reading at central tree.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>3</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <!-- Nearby trees if CO2 low -->
+        <AtomicTask>
+            <TaskID>AT3</TaskID>
+            <TaskDescription>Move to pistachio tree just north of central tree.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661805</latitude>
+                    <longitude>-120.4202019</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT4</TaskID>
+            <TaskDescription>Capture 2 thermal images of the northern neighbor tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT5</TaskID>
+            <TaskDescription>Move to pistachio tree just south of central tree.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2660664</latitude>
+                    <longitude>-120.4202105</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT6</TaskID>
+            <TaskDescription>Capture 2 thermal images of the southern neighbor tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Far southern tree (Tree B) -->
+        <AtomicTask>
+            <TaskID>AT7</TaskID>
+            <TaskDescription>Navigate to far southern pistachio tree for second CO2 measurement.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT8</TaskID>
+            <TaskDescription>Take CO2 reading at far southern tree.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>3</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <!-- Nearby trees to southern tree if CO2 low -->
+        <AtomicTask>
+            <TaskID>AT9</TaskID>
+            <TaskDescription>Move to pistachio tree east of far southern tree.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657741</latitude>
+                    <longitude>-120.4202637</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT10</TaskID>
+            <TaskDescription>Capture 2 thermal images of the eastern neighbor tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT11</TaskID>
+            <TaskDescription>Move to pistachio tree north-east of far southern tree.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.26577</latitude>
+                    <longitude>-120.4202831</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT12</TaskID>
+            <TaskDescription>Capture 2 thermal images of the north-eastern neighbor tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Northern tree for temperature -->
+        <AtomicTask>
+            <TaskID>AT13</TaskID>
+            <TaskDescription>Navigate to northern pistachio tree for ambient temperature sampling.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664871</latitude>
+                    <longitude>-120.4202397</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT14</TaskID>
+            <TaskDescription>Take ambient temperature samples at northern tree.</TaskDescription>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>3</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <!-- Return to end -->
+        <AtomicTask>
+            <TaskID>AT15</TaskID>
+            <TaskDescription>Return to the designated end point.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657865</latitude>
+                    <longitude>-120.4203429</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>AT1</TaskID>
+            <TaskID>AT2</TaskID>
+
+            <!-- Branch if initial CO2 is low -->
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>AT3</TaskID>
+                    <TaskID>AT4</TaskID>
+                    <TaskID>AT5</TaskID>
+                    <TaskID>AT6</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <TaskID>AT7</TaskID>
+            <TaskID>AT8</TaskID>
+
+            <!-- Branch if second CO2 is low -->
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>AT9</TaskID>
+                    <TaskID>AT10</TaskID>
+                    <TaskID>AT11</TaskID>
+                    <TaskID>AT12</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <TaskID>AT13</TaskID>
+            <TaskID>AT14</TaskID>
+            <TaskID>AT15</TaskID>
+        </Sequence>
+    </ActionSequence>
+
+</TaskTemplate>

@@ -1,0 +1,49 @@
+# 4 corners relative
+
+> Viewing this farm as a rectangle, take pictures of trees at the four corners of the farm in any order.
+
+Should trace the field in a rectangle. The presence of the scattered non-tree points at the ends of the field complicates this.
+
+o3-high handles it pretty well. It doesn't always select the furthest points though.
+
+# 4 corners absolute
+
+> Going clockwise from the north most tree, take a picture of 4 trees. Meaning, go north most, east most, south most, west most. Make sure the pictures are as far a part as possible, locationwise.
+
+The field has no single northmost/eastmost/southmost/westmost points, so the system should ask for clarification. Alternatively, this prompt should be reworded to use NE/SE/NW/SW.
+
+The most reasonable interpretation of this is perhaps a diamond shape. o3-high technically vists each edge, but not in a diamond shape.
+
+# Sample 100 meters of trees
+
+> Ignoring start and end points, visit as many points as you can in 100 meters and take pictures of each tree.
+
+o3-high does this *perfectly*. Makes a path that's ~95m.
+
+# North, center, east samples
+
+> Take a picture of the northern most tree. Drive to the middle of the orchard and take another. Drive to the middle of the eastern end and take a picture of two trees next to each other.
+
+o3-high does this correctly in one of three times. The other two times it interprets the last bit as "take two pictures of one tree".
+
+# Relative conditionals
+
+> From the starting point, go to the middle of the field and take a picture of a tree. if its average temperature is below 33 C, take a co2 sample. After, go to another random point 5 trees down and do the same thing.
+
+Correct solution to this is to pick a point from the third (middle) column, and then pick a coordinate 5 points after it. o3-high succeeds at this one of three times.
+
+# Relative + absolute conditionals
+
+> From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.
+
+o3-high handles this pretty much perfectly.
+
+# 3 pictures in row of 5
+
+# 4 trees, 2 sensors
+
+# Reward shaping
+
+# 5 nested if conditionals
+
+# If-else with nesting

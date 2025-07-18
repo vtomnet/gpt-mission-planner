@@ -1,0 +1,232 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+    <CompositeTaskInformation>
+        <TaskID>Mission001</TaskID>
+        <TaskDescription>From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <AtomicTasks>
+        <!-- Middle tree segment -->
+        <AtomicTask>
+            <TaskID>AT001</TaskID>
+            <TaskDescription>Drive to middle orchard tree at (-120.4202116, 37.2661044)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661044</latitude>
+                    <longitude>-120.4202116</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT002</TaskID>
+            <TaskDescription>Measure CO₂ at middle orchard tree</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT003</TaskID>
+            <TaskDescription>Drive to nearby tree 1 at (-120.4202105, 37.2660664)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2660664</latitude>
+                    <longitude>-120.4202105</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT004</TaskID>
+            <TaskDescription>Take thermal picture of nearby tree 1</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT005</TaskID>
+            <TaskDescription>Drive to nearby tree 2 at (-120.4202572, 37.2661369)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661369</latitude>
+                    <longitude>-120.4202572</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT006</TaskID>
+            <TaskDescription>Take thermal picture of nearby tree 2</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Far tree segment -->
+        <AtomicTask>
+            <TaskID>AT007</TaskID>
+            <TaskDescription>Drive to far orchard tree at (-120.4203007, 37.2657759)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657759</latitude>
+                    <longitude>-120.4203007</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT008</TaskID>
+            <TaskDescription>Measure CO₂ at far orchard tree</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT009</TaskID>
+            <TaskDescription>Drive to nearby tree 3 at (-120.4202637, 37.2657741)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657741</latitude>
+                    <longitude>-120.4202637</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT010</TaskID>
+            <TaskDescription>Take thermal picture of nearby tree 3</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT011</TaskID>
+            <TaskDescription>Drive to nearby tree 4 at (-120.4202485, 37.2657882)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657882</latitude>
+                    <longitude>-120.4202485</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT012</TaskID>
+            <TaskDescription>Take thermal picture of nearby tree 4</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Northern tree temperature -->
+        <AtomicTask>
+            <TaskID>AT013</TaskID>
+            <TaskDescription>Drive to northern tree at (-120.4202397, 37.2664871)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664871</latitude>
+                    <longitude>-120.4202397</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>AT014</TaskID>
+            <TaskDescription>Take ambient temperature at northern tree</TaskDescription>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <!-- Return to end -->
+        <AtomicTask>
+            <TaskID>AT015</TaskID>
+            <TaskDescription>Return to end point (-120.4203429, 37.2657865)</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657865</latitude>
+                    <longitude>-120.4203429</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <!-- Middle tree CO₂ reading -->
+            <TaskID>AT001</TaskID>
+            <TaskID>AT002</TaskID>
+
+            <!-- Conditional picture-taking near middle tree -->
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>300</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>AT003</TaskID>
+                    <TaskID>AT004</TaskID>
+                    <TaskID>AT005</TaskID>
+                    <TaskID>AT006</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <!-- Far tree CO₂ reading -->
+            <TaskID>AT007</TaskID>
+            <TaskID>AT008</TaskID>
+
+            <!-- Conditional picture-taking near far tree -->
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>300</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>AT009</TaskID>
+                    <TaskID>AT010</TaskID>
+                    <TaskID>AT011</TaskID>
+                    <TaskID>AT012</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <!-- Northern temperature and return -->
+            <TaskID>AT013</TaskID>
+            <TaskID>AT014</TaskID>
+            <TaskID>AT015</TaskID>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

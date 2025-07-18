@@ -1,0 +1,245 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>Mission_CO2_Mid_Far_Temp_North</TaskID>
+        <TaskDescription>From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <Preconditions>
+        <Precondition>
+            <Condition>atStartingPoint</Condition>
+        </Precondition>
+    </Preconditions>
+
+    <AtomicTasks>
+        <!-- Middle of Orchard -->
+        <AtomicTask>
+            <TaskID>M1_MoveToMiddleTree</TaskID>
+            <TaskDescription>Navigate to a centrally located pistachio tree (37.2662185, -120.4203995).</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662185</latitude>
+                    <longitude>-120.4203995</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M2_MeasureCO2_MiddleTree</TaskID>
+            <TaskDescription>Collect CO2 samples at the middle tree.</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>3</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M3_MoveToNearbyTreeMiddle</TaskID>
+            <TaskDescription>If CO2 is low, move to a nearby pistachio tree (37.2662959, -120.4203970).</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2662959</latitude>
+                    <longitude>-120.4203970</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M4_TakeThermalPics_NearMiddle</TaskID>
+            <TaskDescription>Capture 2 thermal images of the nearby tree.</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Far Corner of Orchard -->
+        <AtomicTask>
+            <TaskID>M5_MoveToFarTree</TaskID>
+            <TaskDescription>Traverse to a far north-western pistachio tree (37.2664440, -120.4201616).</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664440</latitude>
+                    <longitude>-120.4201616</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M6_MeasureCO2_FarTree</TaskID>
+            <TaskDescription>Measure CO2 at the far tree.</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>3</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M7_MoveToNearbyTreeFar</TaskID>
+            <TaskDescription>If CO2 is low, move to adjacent tree (37.2664432, -120.4202085).</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664432</latitude>
+                    <longitude>-120.4202085</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M8_TakeThermalPics_NearFar</TaskID>
+            <TaskDescription>Take 2 thermal images of the adjacent far-corner tree.</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Northern-most Temperature Reading -->
+        <AtomicTask>
+            <TaskID>M9_MoveToNorthernTree</TaskID>
+            <TaskDescription>Drive to a northern-most pistachio tree (37.2664992, -120.4207859).</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664992</latitude>
+                    <longitude>-120.4207859</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>M10_TakeAmbientTemp_NorthernTree</TaskID>
+            <TaskDescription>Record 5 ambient-temperature samples at the northern tree.</TaskDescription>
+            <StateVariables>
+                <StateVariable>
+                    <VariableName>TreeType</VariableName>
+                    <VariableValue>pistachio-tree</VariableValue>
+                </StateVariable>
+            </StateVariables>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>5</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <!-- Return Home -->
+        <AtomicTask>
+            <TaskID>M11_ReturnToEnd</TaskID>
+            <TaskDescription>Return to designated end point.</TaskDescription>
+            <Action>
+                <ActionType>moveToRelativeLocation</ActionType>
+                <moveToRelativeLocation>
+                    <x>0</x>
+                    <y>0</y>
+                    <roll>0</roll>
+                    <pitch>0</pitch>
+                    <yaw>0</yaw>
+                </moveToRelativeLocation>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>M1_MoveToMiddleTree</TaskID>
+            <TaskID>M2_MeasureCO2_MiddleTree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>M3_MoveToNearbyTreeMiddle</TaskID>
+                    <TaskID>M4_TakeThermalPics_NearMiddle</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <TaskID>M5_MoveToFarTree</TaskID>
+            <TaskID>M6_MeasureCO2_FarTree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>M7_MoveToNearbyTreeFar</TaskID>
+                    <TaskID>M8_TakeThermalPics_NearFar</TaskID>
+                </Sequence>
+            </ConditionalActions>
+
+            <TaskID>M9_MoveToNorthernTree</TaskID>
+            <TaskID>M10_TakeAmbientTemp_NorthernTree</TaskID>
+            <TaskID>M11_ReturnToEnd</TaskID>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

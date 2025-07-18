@@ -1,0 +1,131 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+  <CompositeTaskInformation>
+    <TaskID>Orchard_CO2_Temperature_Mission</TaskID>
+    <TaskDescription>From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.</TaskDescription>
+  </CompositeTaskInformation>
+  <AtomicTasks>
+    <AtomicTask>
+      <TaskID>MoveToMiddleTree</TaskID>
+      <TaskDescription>Drive to a tree in the middle of the orchard</TaskDescription>
+      <Action>
+        <ActionType>moveToGPSLocation</ActionType>
+        <moveToGPSLocation>
+          <latitude>37.2662492</latitude>
+          <longitude>-120.4202583</longitude>
+        </moveToGPSLocation>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>TakeCO2AtMiddleTree</TaskID>
+      <TaskDescription>Measure CO2 at the middle tree</TaskDescription>
+      <Action>
+        <ActionType>takeCO2Reading</ActionType>
+        <takeCO2Reading>
+          <numberOfSamples>3</numberOfSamples>
+        </takeCO2Reading>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>TakeThermalPicturesNearMiddleTree</TaskID>
+      <TaskDescription>Take 2 thermal pictures of nearby trees</TaskDescription>
+      <Action>
+        <ActionType>takeThermalPicture</ActionType>
+        <takeThermalPicture>
+          <numberOfPictures>2</numberOfPictures>
+        </takeThermalPicture>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>MoveToFarthestTree</TaskID>
+      <TaskDescription>Drive to the tree farthest from the middle tree</TaskDescription>
+      <Action>
+        <ActionType>moveToGPSLocation</ActionType>
+        <moveToGPSLocation>
+          <latitude>37.2664756</latitude>
+          <longitude>-120.4207415</longitude>
+        </moveToGPSLocation>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>TakeCO2AtFarthestTree</TaskID>
+      <TaskDescription>Measure CO2 at the farthest tree</TaskDescription>
+      <Action>
+        <ActionType>takeCO2Reading</ActionType>
+        <takeCO2Reading>
+          <numberOfSamples>3</numberOfSamples>
+        </takeCO2Reading>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>TakeThermalPicturesNearFarthestTree</TaskID>
+      <TaskDescription>Take 2 thermal pictures of nearby trees</TaskDescription>
+      <Action>
+        <ActionType>takeThermalPicture</ActionType>
+        <takeThermalPicture>
+          <numberOfPictures>2</numberOfPictures>
+        </takeThermalPicture>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>MoveToNorthernTree</TaskID>
+      <TaskDescription>Drive to one of the northern most trees</TaskDescription>
+      <Action>
+        <ActionType>moveToGPSLocation</ActionType>
+        <moveToGPSLocation>
+          <latitude>37.2664903</latitude>
+          <longitude>-120.4201915</longitude>
+        </moveToGPSLocation>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>TakeAmbientTemperatureAtNorthernTree</TaskID>
+      <TaskDescription>Take ambient temperature reading at the northern tree</TaskDescription>
+      <Action>
+        <ActionType>takeAmbientTemperature</ActionType>
+        <takeAmbientTemperature>
+          <numberOfSamples>1</numberOfSamples>
+        </takeAmbientTemperature>
+      </Action>
+    </AtomicTask>
+    <AtomicTask>
+      <TaskID>ReturnToStart</TaskID>
+      <TaskDescription>Return to the starting point</TaskDescription>
+      <Action>
+        <ActionType>moveToGPSLocation</ActionType>
+        <moveToGPSLocation>
+          <latitude>37.2664440</latitude>
+          <longitude>-120.4201616</longitude>
+        </moveToGPSLocation>
+      </Action>
+    </AtomicTask>
+  </AtomicTasks>
+  <ActionSequence>
+    <Sequence>
+      <TaskID>MoveToMiddleTree</TaskID>
+      <TaskID>TakeCO2AtMiddleTree</TaskID>
+      <ConditionalActions>
+        <Conditional>
+          <Comparator>lt</Comparator>
+          <HardValue>400</HardValue>
+        </Conditional>
+        <Sequence>
+          <TaskID>TakeThermalPicturesNearMiddleTree</TaskID>
+        </Sequence>
+      </ConditionalActions>
+      <TaskID>MoveToFarthestTree</TaskID>
+      <TaskID>TakeCO2AtFarthestTree</TaskID>
+      <ConditionalActions>
+        <Conditional>
+          <Comparator>lt</Comparator>
+          <HardValue>400</HardValue>
+        </Conditional>
+        <Sequence>
+          <TaskID>TakeThermalPicturesNearFarthestTree</TaskID>
+        </Sequence>
+      </ConditionalActions>
+      <TaskID>MoveToNorthernTree</TaskID>
+      <TaskID>TakeAmbientTemperatureAtNorthernTree</TaskID>
+      <TaskID>ReturnToStart</TaskID>
+    </Sequence>
+  </ActionSequence>
+</TaskTemplate>

@@ -1,0 +1,110 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+    <CompositeTaskInformation>
+        <TaskID>FourCornerPhotoMission</TaskID>
+        <TaskDescription>Viewing this farm as a rectangle, take pictures of trees at the four corners of the farm in any order.</TaskDescription>
+    </CompositeTaskInformation>
+    <AtomicTasks>
+        <!-- North-West Corner Tree: The tree with the highest latitude and lowest longitude -->
+        <AtomicTask>
+            <TaskID>MoveToNWCornerTree</TaskID>
+            <TaskDescription>Move to the pistachio tree at the North-West corner of the farm.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664386</latitude>
+                    <longitude>-120.4203561</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePicAtNWCornerTree</TaskID>
+            <TaskDescription>Take one thermal picture of the North-West corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- North-East Corner Tree: The tree with the highest latitude and highest longitude -->
+        <AtomicTask>
+            <TaskID>MoveToNECornerTree</TaskID>
+            <TaskDescription>Move to the pistachio tree at the North-East corner of the farm.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.266406</latitude>
+                    <longitude>-120.4201625</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePicAtNECornerTree</TaskID>
+            <TaskDescription>Take one thermal picture of the North-East corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- South-East Corner Tree: The tree with the lowest latitude and highest longitude -->
+        <AtomicTask>
+            <TaskID>MoveToSECornerTree</TaskID>
+            <TaskDescription>Move to the pistachio tree at the South-East corner of the farm.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePicAtSECornerTree</TaskID>
+            <TaskDescription>Take one thermal picture of the South-East corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <!-- South-West Corner Tree: The tree with the lowest latitude and lowest longitude -->
+        <AtomicTask>
+            <TaskID>MoveToSWCornerTree</TaskID>
+            <TaskDescription>Move to the pistachio tree at the South-West corner of the farm.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658281</latitude>
+                    <longitude>-120.4203491</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>TakePicAtSWCornerTree</TaskID>
+            <TaskDescription>Take one thermal picture of the South-West corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>1</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+    <ActionSequence>
+        <Sequence>
+            <TaskID>MoveToNWCornerTree</TaskID>
+            <TaskID>TakePicAtNWCornerTree</TaskID>
+            <TaskID>MoveToNECornerTree</TaskID>
+            <TaskID>TakePicAtNECornerTree</TaskID>
+            <TaskID>MoveToSECornerTree</TaskID>
+            <TaskID>TakePicAtSECornerTree</TaskID>
+            <TaskID>MoveToSWCornerTree</TaskID>
+            <TaskID>TakePicAtSWCornerTree</TaskID>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

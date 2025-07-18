@@ -1,0 +1,123 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+
+    <CompositeTaskInformation>
+        <TaskID>Corner_Tree_Inspection</TaskID>
+        <TaskDescription>Viewing this farm as a rectangle, take pictures of trees at the four corners of the farm in any order.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <Preconditions/>
+
+    <AtomicTasks>
+        <!-- Northwest Corner -->
+        <AtomicTask>
+            <TaskID>Move_To_NW_Corner_Tree</TaskID>
+            <TaskDescription>Navigate to the northwest corner pistachio tree located at (-120.4203072, 37.2664487).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664487</latitude>
+                    <longitude>-120.4203072</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Capture_Thermal_NW_Corner_Tree</TaskID>
+            <TaskDescription>Capture 3 thermal images of the northwest corner pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Northeast Corner -->
+        <AtomicTask>
+            <TaskID>Move_To_NE_Corner_Tree</TaskID>
+            <TaskDescription>Navigate to the northeast corner pistachio tree located at (-120.4202092, 37.2664720).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664720</latitude>
+                    <longitude>-120.4202092</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Capture_Thermal_NE_Corner_Tree</TaskID>
+            <TaskDescription>Capture 3 thermal images of the northeast corner pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Southeast Corner -->
+        <AtomicTask>
+            <TaskID>Move_To_SE_Corner_Tree</TaskID>
+            <TaskDescription>Navigate to the southeast corner pistachio tree located at (-120.4201516, 37.2657878).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Capture_Thermal_SE_Corner_Tree</TaskID>
+            <TaskDescription>Capture 3 thermal images of the southeast corner pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Southwest Corner -->
+        <AtomicTask>
+            <TaskID>Move_To_SW_Corner_Tree</TaskID>
+            <TaskDescription>Navigate to the southwest corner pistachio tree located at (-120.4203484, 37.2658266).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2658266</latitude>
+                    <longitude>-120.4203484</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Capture_Thermal_SW_Corner_Tree</TaskID>
+            <TaskDescription>Capture 3 thermal images of the southwest corner pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>Move_To_NW_Corner_Tree</TaskID>
+            <TaskID>Capture_Thermal_NW_Corner_Tree</TaskID>
+            <TaskID>Move_To_NE_Corner_Tree</TaskID>
+            <TaskID>Capture_Thermal_NE_Corner_Tree</TaskID>
+            <TaskID>Move_To_SE_Corner_Tree</TaskID>
+            <TaskID>Capture_Thermal_SE_Corner_Tree</TaskID>
+            <TaskID>Move_To_SW_Corner_Tree</TaskID>
+            <TaskID>Capture_Thermal_SW_Corner_Tree</TaskID>
+        </Sequence>
+    </ActionSequence>
+
+</TaskTemplate>

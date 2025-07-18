@@ -1,0 +1,210 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+    <CompositeTaskInformation>
+        <TaskID>Orchard_CO2_Survey_And_Conditional_Imaging</TaskID>
+        <TaskDescription>From the starting point, find a tree somewhere in the middle of the orchard and measure CO2. If low reading, go to and take 2 pictures of nearby trees. From there, measure another tree as far away as possible for CO2 and repeat the same process. Once done, take a temperature reading at any one of the northern most trees. Finally, return to end.</TaskDescription>
+    </CompositeTaskInformation>
+    <AtomicTasks>
+        <!-- Task Set 1: Central Tree CO2 Measurement and Contingency Imaging -->
+        <AtomicTask>
+            <TaskID>Drive_To_Central_Pistachio_Tree</TaskID>
+            <TaskDescription>Drive to a pistachio tree located in the approximate center of the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661369</latitude>
+                    <longitude>-120.4202572</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Measure_CO2_At_Central_Tree</TaskID>
+            <TaskDescription>Take one CO2 sample at the central pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>1</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Drive_To_First_Contingency_Tree_Near_Center</TaskID>
+            <TaskDescription>Drive to the first nearby tree for contingency imaging if CO2 is low.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2661717</latitude>
+                    <longitude>-120.4202581</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Pictures_At_First_Contingency_Tree_Near_Center</TaskID>
+            <TaskDescription>Take 2 thermal pictures at the first nearby tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Drive_To_Second_Contingency_Tree_Near_Center</TaskID>
+            <TaskDescription>Drive to the second nearby tree for contingency imaging if CO2 is low.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.266098</latitude>
+                    <longitude>-120.4202577</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Pictures_At_Second_Contingency_Tree_Near_Center</TaskID>
+            <TaskDescription>Take 2 thermal pictures at the second nearby tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Task Set 2: Faraway Tree CO2 Measurement and Contingency Imaging -->
+        <AtomicTask>
+            <TaskID>Drive_To_Faraway_Pistachio_Tree</TaskID>
+            <TaskDescription>Drive to a pistachio tree located far from the central point, in the northwest area.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.266406</latitude>
+                    <longitude>-120.4201625</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Measure_CO2_At_Faraway_Tree</TaskID>
+            <TaskDescription>Take one CO2 sample at the faraway pistachio tree.</TaskDescription>
+            <Action>
+                <ActionType>takeCO2Reading</ActionType>
+                <takeCO2Reading>
+                    <numberOfSamples>1</numberOfSamples>
+                </takeCO2Reading>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Drive_To_First_Contingency_Tree_Near_Faraway</TaskID>
+            <TaskDescription>Drive to the first nearby tree for contingency imaging if CO2 is low.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2663688</latitude>
+                    <longitude>-120.4201605</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Pictures_At_First_Contingency_Tree_Near_Faraway</TaskID>
+            <TaskDescription>Take 2 thermal pictures at the first nearby tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Drive_To_Second_Contingency_Tree_Near_Faraway</TaskID>
+            <TaskDescription>Drive to the second nearby tree for contingency imaging if CO2 is low.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664114</latitude>
+                    <longitude>-120.42021</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Pictures_At_Second_Contingency_Tree_Near_Faraway</TaskID>
+            <TaskDescription>Take 2 thermal pictures at the second nearby tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>2</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <!-- Task Set 3: Northernmost Tree Temperature Reading -->
+        <AtomicTask>
+            <TaskID>Drive_To_Northernmost_Pistachio_Tree</TaskID>
+            <TaskDescription>Drive to one of the northernmost pistachio trees in the orchard.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664871</latitude>
+                    <longitude>-120.4202397</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Measure_Temperature_At_Northernmost_Tree</TaskID>
+            <TaskDescription>Take one ambient temperature sample at the northernmost tree.</TaskDescription>
+            <Action>
+                <ActionType>takeAmbientTemperature</ActionType>
+                <takeAmbientTemperature>
+                    <numberOfSamples>1</numberOfSamples>
+                </takeAmbientTemperature>
+            </Action>
+        </AtomicTask>
+
+        <!-- Task Set 4: Return to End Point -->
+        <AtomicTask>
+            <TaskID>Drive_To_End_Point</TaskID>
+            <TaskDescription>Drive to the designated end point of the mission.</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657865</latitude>
+                    <longitude>-120.4203429</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+    <ActionSequence>
+        <Sequence>
+            <TaskID>Drive_To_Central_Pistachio_Tree</TaskID>
+            <TaskID>Measure_CO2_At_Central_Tree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400.0</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>Drive_To_First_Contingency_Tree_Near_Center</TaskID>
+                    <TaskID>Take_Pictures_At_First_Contingency_Tree_Near_Center</TaskID>
+                    <TaskID>Drive_To_Second_Contingency_Tree_Near_Center</TaskID>
+                    <TaskID>Take_Pictures_At_Second_Contingency_Tree_Near_Center</TaskID>
+                </Sequence>
+            </ConditionalActions>
+            <TaskID>Drive_To_Faraway_Pistachio_Tree</TaskID>
+            <TaskID>Measure_CO2_At_Faraway_Tree</TaskID>
+            <ConditionalActions>
+                <Conditional>
+                    <Comparator>lt</Comparator>
+                    <HardValue>400.0</HardValue>
+                </Conditional>
+                <Sequence>
+                    <TaskID>Drive_To_First_Contingency_Tree_Near_Faraway</TaskID>
+                    <TaskID>Take_Pictures_At_First_Contingency_Tree_Near_Faraway</TaskID>
+                    <TaskID>Drive_To_Second_Contingency_Tree_Near_Faraway</TaskID>
+                    <TaskID>Take_Pictures_At_Second_Contingency_Tree_Near_Faraway</TaskID>
+                </Sequence>
+            </ConditionalActions>
+            <TaskID>Drive_To_Northernmost_Pistachio_Tree</TaskID>
+            <TaskID>Measure_Temperature_At_Northernmost_Tree</TaskID>
+            <TaskID>Drive_To_End_Point</TaskID>
+        </Sequence>
+    </ActionSequence>
+</TaskTemplate>

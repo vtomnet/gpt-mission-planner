@@ -1,0 +1,115 @@
+<TaskTemplate xmlns="https://robotics.ucmerced.edu/task"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="https://robotics.ucmerced.edu/task schemas/schemas/clearpath_husky.xsd">
+    <CompositeTaskInformation>
+        <TaskID>CornerPictureMission</TaskID>
+        <TaskDescription>Viewing this farm as a rectangle, take pictures of trees at the four corners of the farm in any order.</TaskDescription>
+    </CompositeTaskInformation>
+
+    <AtomicTasks>
+        <AtomicTask>
+            <TaskID>Move_To_NW_Corner_Tree</TaskID>
+            <TaskDescription>Drive to the north-west corner tree located at (-120.4207859, 37.2664992).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664992</latitude>
+                    <longitude>-120.4207859</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Picture_NW_Corner_Tree</TaskID>
+            <TaskDescription>Capture thermal images of the north-west corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Move_To_NE_Corner_Tree</TaskID>
+            <TaskDescription>Drive to the north-east corner tree located at (-120.4201915, 37.2664903).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2664903</latitude>
+                    <longitude>-120.4201915</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Picture_NE_Corner_Tree</TaskID>
+            <TaskDescription>Capture thermal images of the north-east corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Move_To_SE_Corner_Tree</TaskID>
+            <TaskDescription>Drive to the south-east corner tree located at (-120.4201516, 37.2657878).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657878</latitude>
+                    <longitude>-120.4201516</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Picture_SE_Corner_Tree</TaskID>
+            <TaskDescription>Capture thermal images of the south-east corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+
+        <AtomicTask>
+            <TaskID>Move_To_SW_Corner_Tree</TaskID>
+            <TaskDescription>Drive to the south-west corner tree located at (-120.4208697, 37.2657680).</TaskDescription>
+            <Action>
+                <ActionType>moveToGPSLocation</ActionType>
+                <moveToGPSLocation>
+                    <latitude>37.2657680</latitude>
+                    <longitude>-120.4208697</longitude>
+                </moveToGPSLocation>
+            </Action>
+        </AtomicTask>
+        <AtomicTask>
+            <TaskID>Take_Picture_SW_Corner_Tree</TaskID>
+            <TaskDescription>Capture thermal images of the south-west corner tree.</TaskDescription>
+            <Action>
+                <ActionType>takeThermalPicture</ActionType>
+                <takeThermalPicture>
+                    <numberOfPictures>3</numberOfPictures>
+                </takeThermalPicture>
+            </Action>
+        </AtomicTask>
+    </AtomicTasks>
+
+    <ActionSequence>
+        <Sequence>
+            <TaskID>Move_To_NW_Corner_Tree</TaskID>
+            <TaskID>Take_Picture_NW_Corner_Tree</TaskID>
+            <TaskID>Move_To_NE_Corner_Tree</TaskID>
+            <TaskID>Take_Picture_NE_Corner_Tree</TaskID>
+            <TaskID>Move_To_SE_Corner_Tree</TaskID>
+            <TaskID>Take_Picture_SE_Corner_Tree</TaskID>
+            <TaskID>Move_To_SW_Corner_Tree</TaskID>
+            <TaskID>Take_Picture_SW_Corner_Tree</TaskID>
+        </Sequence>
+    </ActionSequence>
+
+    <Outcome>
+        <State>atEndPoint</State>
+    </Outcome>
+</TaskTemplate>
