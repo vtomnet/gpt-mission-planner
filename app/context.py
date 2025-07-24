@@ -93,7 +93,8 @@ def icra_2026_context(schema: str) -> list:
                         Place the original question in the TaskDescription element of the CompositeTaskInformation element for logging. \
                         Please format your answers using XML markdown as such: ```xml answer ```. \
                         Answer only with XML. \
-                        !! Unicode strings with encoding declaration are not supported. Please use bytes input or XML fragments without declaration !! \
+                        Do NOT include a declaration line. \
+                        Do NOT inclcude comments. \
                         Here is the schema that represent that available robot you have to accomplish your mission. \
                         When generating task names in the XML mission, they MUST be descriptive as someone will be reading them. \
                         It is critical that the XML validates against the schema and that the schema location attribute is included in the root tag. \
