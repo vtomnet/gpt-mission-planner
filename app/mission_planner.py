@@ -1,6 +1,7 @@
 import logging
 import os
 from typing import Tuple, Any
+import time
 
 import click
 import yaml
@@ -17,13 +18,16 @@ from utils.xml_utils import (
     validate_output,
     count_xml_tasks,
 )
+from utils.spot_utils import add_init_state, init_state_macro, rename_ltl_macros
+from utils.gps_utils import TreePlacementGenerator
 from promela_compiler import PromelaCompiler
 
 LTL_KEY: str = "ltl"
 PROMELA_TEMPLATE_KEY: str = "promela_template"
 SPIN_PATH_KEY: str = "spin_path"
-OPENAI: str = "openai/o3"
-# ANTHROPIC: str = "claude-3-7-sonnet-20250219"
+OPENAI: str = "openai/gpt-5"
+# OPENAI: str = "openai/gpt-5-mini"
+# ANTHROPIC: str = "claude-opus-4-1-20250805"
 ANTHROPIC: str = "claude-sonnet-4-20250514"
 GEMINI: str = "gemini/gemini-2.5-pro"
 # TODO: remove this
@@ -37,6 +41,7 @@ class MissionPlanner:
         token_path: str,
         schema_paths: list[str],
         context_files: list[str],
+        tpg: TreePlacementGenerator,
         max_retries: int,
         max_tokens: int,
         temperature: float,
@@ -51,9 +56,19 @@ class MissionPlanner:
         # set schema and farm file paths
         self.schema_paths: list[str] = schema_paths
         self.context_files: list[str] = context_files
+        # tree placement generator init
+        if tpg is not None:
+            self.tpg: TreePlacementGenerator = tpg
+            self.tree_points: list[dict[str, Any]] = self.tpg.generate_tree_points()
+        else:
+            self.logger.warning(
+                "No tree placement generator found. Assuming non-orchard environment..."
+            )
+            self.tpg = None
+            self.tree_points = []
         # logging GPT output folder, make if not there
         self.log_directory: str = log_directory
-        os.makedirs(self.log_directory, mode=777, exist_ok=True)
+        os.makedirs(self.log_directory, mode=0o777, exist_ok=True)
         # keeping track of validation status
         self.xml_valid: bool = False
         self.ltl_valid: bool = False
@@ -114,105 +129,125 @@ class MissionPlanner:
         self.ltl_valid = False
 
     def run(self) -> None:
-        while True:
-            ret: bool = False
-            self.reset()
-            # ask user for their mission plan
-            mp_input: str = input("Enter the specifications for your mission plan: ")
-            xml_input: str = mp_input
-            ltl_input: str = mp_input
-            while not ret and self.retry < self.max_retries:
-                # first ask of XML and LTL
-                if not self.xml_valid:
-                    try:
-                        ret, xml_out, xml_task_count = self._generate_xml(
-                            xml_input, True
-                        )
-                    except Exception as e:
-                        self.logger.debug(str(e))
-                        ret = False
-                        xml_input = str(e)
-                        self.retry += 1
-                        continue
-                    if not ret:
-                        xml_input = xml_out
-                        continue
-                    # store file for logs
-                    file_xml_out = write_out_file(self.log_directory, xml_out)
-                    self.logger.debug(f"Wrote out temp XML file: {file_xml_out}")
-                    self.xml_valid = True
-                if not self.ltl_valid and self.ltl:
-                    try:
-                        ltl_out, ltl_task_count = self._generate_ltl(ltl_input)
-                    except Exception as e:
-                        self.logger.debug(str(e))
-                        ret = False
-                        ltl_input = str(e)
-                        self.retry += 1
-                        continue
-                    self.ltl_valid = True
+        ret: bool = False
+        self.reset()
+        # ask user for their mission plan
+        mp_input: str = input("Enter the specifications for your mission plan: ")
+        xml_input: str = mp_input
+        ltl_input: str = mp_input
+        while not ret and self.retry < self.max_retries:
+            # first ask of XML and LTL
+            if not self.xml_valid:
+                try:
+                    ret, xml_out, xml_task_count = self._generate_xml(xml_input, True)
+                except Exception as e:
+                    self.logger.debug(str(e))
+                    ret = False
+                    xml_input = str(e)
+                    self.retry += 1
+                    continue
+                if not ret:
+                    xml_input = xml_out
+                    continue
+                # store file for logs
+                file_xml_out = write_out_file(self.log_directory, xml_out)
+                self.logger.debug(f"Wrote out temp XML file: {file_xml_out}")
+                self.xml_valid = True
+            if not self.ltl_valid and self.ltl:
+                try:
+                    macros, ltl_out, ltl_task_count = self._generate_ltl(ltl_input)
+                except Exception as e:
+                    self.logger.debug(str(e))
+                    ret = False
+                    ltl_input = str(e)
+                    self.retry += 1
+                    continue
+                self.ltl_valid = True
 
-                # if we're formally verifying
-                if self.ltl:
-                    # preliminary check, but can be improved to be more thorough
-                    if ltl_task_count != xml_task_count:
-                        reconsider: str = (
-                            f"You and another agent generated a different number of tasks for this mission. \
-                                If you believe your mission is correct, don't adjust. Otherwise, please adjust your response.\
-                                Answer only with the full XML mission."
-                        )
-                        xml_input = reconsider
-                        self.xml_valid = False
-                        ltl_input = reconsider
-                        self.ltl_valid = False
-                        self.retry += 1
-                        self.logger.warning(
-                            f"Task count mismatch: {xml_task_count} != {ltl_task_count}"
-                        )
-                        ret = False
-                        continue
-
-                    # checking syntax of LTL since promela is manually created
-                    ret, err = self._formal_verification(xml_out, ltl_out)
-                    if not ret:
-                        self.retry += 1
-                        self.pml_gpt.add_context(err)
-                        continue
-                    # does Arbiter LLM or the human agree?
-                    ret, err = self._spot_verification(mp_input)
-                    if not ret:
-                        self.retry += 1
-                        self.pml_gpt.add_context(
-                            "A third party disagrees this is valid because: " + err
-                        )
-                        self.ltl_valid = False
-                        continue
-                    self.ltl_valid = True
-                    # did you generate a trail file?
-                    ret, err = self._evaluate_spin_trail()
-                    if not ret:
-                        xml_input = err
-                        self.retry += 1
-                        # we assume that if claude or human passed the ltl, it's the XML
-                        self.xml_valid = False
-                        continue
-
-                # failure of this will only occur if formal verification was enabled.
-                # otherwise it sends out XML mission via TCP
-                if ret:
-                    # send off mission plan to TCP client
-                    self.nic.send_file(file_xml_out)
-                    self.logger.debug(
-                        f"Sending mission XML {file_xml_out} out to robot over TCP..."
-                    )
-                else:
-                    self.logger.error("Unable to formally verify from your prompt...")
-                    # TODO: do we break here?
-
-            # clear before new query
-            self.gpt.reset_context(self.gpt.initial_context_length)
+            # if we're formally verifying
             if self.ltl:
-                self.pml_gpt.reset_context(self.pml_gpt.initial_context_length)
+                # preliminary check, but can be improved to be more thorough
+                if ltl_task_count != xml_task_count:
+                    more_less: str = (
+                        "more" if ltl_task_count > xml_task_count else "less"
+                    )
+                    reconsider: str = (
+                        f"You have generated {abs(ltl_task_count - xml_task_count)} {more_less} tasks in your mission than your planning agent counterpart. \
+                            Please reconsider how the mission can be interpreted and reformulate, if possible."
+                    )
+                    # NOTE: for now we'll assume XML is correct and LTL is wrong
+                    # xml_input = reconsider
+                    self.xml_valid = True
+                    ltl_input = reconsider
+                    self.ltl_valid = False
+                    self.retry += 1
+                    self.logger.warning(
+                        f"Task count mismatch: {xml_task_count} != {ltl_task_count}"
+                    )
+                    ret = False
+                    continue
+
+                self.logger.info("Generating Promela from mission...")
+                # from the mission output, create an XML tree
+                self.promela.init_xml_tree(xml_out)
+                # generate promela string that defines mission/system
+                promela_string: str = self.promela.parse_code()
+                # rename variables in LTL macros to match those used in XML/tasks
+                macros = rename_ltl_macros(
+                    self.promela.get_task_names(), self.promela.get_globals(), macros
+                )
+
+                # checking syntax of LTL since promela is manually created
+                ret, err = self._formal_verification(promela_string, macros, ltl_out)
+                if not ret:
+                    self.retry += 1
+                    self.pml_gpt.add_context(err)
+                    continue
+                # does Arbiter LLM or the human agree?
+                ret, err = self._spot_verification(mp_input, macros)
+                if not ret:
+                    self.retry += 1
+                    self.pml_gpt.add_context(
+                        "A third party disagrees this is valid because: " + err
+                    )
+                    self.ltl_valid = False
+                    continue
+                self.ltl_valid = True
+                # did you generate a trail file?
+                ret, err = self._evaluate_spin_trail()
+                if not ret:
+                    xml_input = err
+                    self.retry += 1
+                    # we assume that if claude or human passed the ltl, it's the XML
+                    self.xml_valid = False
+                    continue
+
+            if self.tpg is not None:
+                file_xml_out = self.tpg.replace_tree_ids_with_gps(file_xml_out)
+                self.logger.debug(f"Replaced tree IDs with GPS coordinates...")
+                ret, err = self._lint_xml(open(file_xml_out, "r").read())
+                if not ret:
+                    self.logger.error(
+                        f"Failed to lint XML after replacing tree IDs: {err}"
+                    )
+                    continue
+
+            # failure of this will only occur if formal verification was enabled.
+            # otherwise it sends out XML mission via TCP
+            if ret:
+                # send off mission plan to TCP client
+                self.nic.send_file(file_xml_out)
+                self.logger.debug(
+                    f"Sending mission XML {file_xml_out} out to robot over TCP..."
+                )
+            else:
+                self.logger.error("Unable to formally verify from your prompt...")
+                # TODO: do we break here?
+
+        # clear before new query
+        self.gpt.reset_context(self.gpt.initial_context_length)
+        if self.ltl:
+            self.pml_gpt.reset_context(self.pml_gpt.initial_context_length)
 
         # TODO: decide how the reuse flow works
         self.nic.close_socket()
@@ -235,21 +270,24 @@ class MissionPlanner:
 
         return ret, xml, task_count
 
-    def _generate_ltl(self, prompt: str) -> Tuple[str, int]:
+    def _generate_ltl(self, prompt: str) -> Tuple[str, str, int]:
         from utils.spot_utils import count_ltl_tasks
 
         task_count: int = 0
         # use second GPT agent to generate LTL
         ltl_out: str | None = self.pml_gpt.ask_gpt(prompt, True)
-        self.logger.debug(ltl_out)
+        macros: str = parse_code(ltl_out, "promela")
         # parse out LTL statement
         ltl: str = parse_code(ltl_out, "ltl")
+        self.logger.debug(f"Generated Promela macros: {macros}")
+
+        self.logger.debug(f"Generated LTL: {ltl}")
 
         # ask SPOT/Claude to generate automata for arbiter
         self.aut = self._convert_to_spot(ltl)
         task_count = count_ltl_tasks(self.aut)
 
-        return ltl, task_count
+        return macros, ltl, task_count
 
     def _convert_to_spot(self, ltl: str) -> Any:
         import spot
@@ -280,18 +318,16 @@ class MissionPlanner:
 
         return ret, e
 
-    def _formal_verification(self, xml_mp: str, ltl_out: str) -> Tuple[bool, str]:
+    def _formal_verification(
+        self, promela_string: str, macros: str, ltl_out: str
+    ) -> Tuple[bool, str]:
         ret: bool = False
 
-        self.logger.debug("Generating Promela from mission...")
-        # from the mission output, create an XML tree
-        self.promela.init_xml_tree(xml_mp)
-        # generate promela string that defines mission/system
-        promela_string: str = self.promela.parse_code()
-
+        self.logger.info("Performing formal verification of LTL mission plan...")
         # generates the LTL and verifies it with SPIN; retry enabled
-        ret, e = self._ltl_validation(promela_string, ltl_out)
+        ret, e = self._ltl_validation(promela_string, macros, ltl_out)
         if ret:
+            self.logger.info("Successful LTL mission plan generation...")
             self.logger.debug(f"Promela description in file {self.promela_path}.")
         else:
             self.logger.error(
@@ -300,23 +336,18 @@ class MissionPlanner:
 
         return ret, e
 
-    def _ltl_validation(self, promela_string: str, ltl_out: str) -> Tuple[bool, str]:
+    def _ltl_validation(
+        self, promela_string: str, macros: str, ltl_out: str
+    ) -> Tuple[bool, str]:
         ret: bool = False
-        task_names: str = self.promela.get_task_names()
-        globals: str = self.promela.get_globals()
-        # this begins the second phase of the formal verification
-        prompt: str = (
-            "You MUST use these Promela object names when generating the LTL. Otherwise syntax will be incorrect and SPIN will fail: "
-            + "Tasks: \n"
-            + task_names
-            + "\n"
-            + "Sample returns: \n"
-            + globals
-        )
 
-        ltl_out, _ = self._generate_ltl(prompt)
+        macros = init_state_macro(macros)
+        ltl_out = add_init_state(ltl_out)
+        self.logger.debug(f"Promela macros: {macros}")
+        self.logger.debug(f"Promela LTL: {ltl_out}")
+
         # append to promela file
-        new_promela_string: str = promela_string + "\n" + ltl_out
+        new_promela_string: str = promela_string + "\n" + macros + "\n" + ltl_out
         # write pml system and LTL to file
         self.promela_path = write_out_file(self.log_directory, new_promela_string)
         # execute spin verification
@@ -332,7 +363,7 @@ class MissionPlanner:
 
         return ret, e
 
-    def _spot_verification(self, mission_query: str) -> Tuple[bool, str]:
+    def _spot_verification(self, mission_query: str, macros: str) -> Tuple[bool, str]:
         from utils.spot_utils import generate_accepting_run_string
 
         ret: bool = False
@@ -347,7 +378,7 @@ class MissionPlanner:
             resp: str = ""
             while resp != ("y" or "n"):
                 resp = input(
-                    "Here are 3 example executions of your mission: "
+                    "Here are 5 example executions of your mission: "
                     + runs_str
                     + "\nNote, these are just several possible runs. \n\nType y/n."
                 )
@@ -367,8 +398,14 @@ class MissionPlanner:
             ask = (
                 'Please answer this with one word: "Yes" or "No". \
                 Here is a mission plan request along with examples of how this mission would be carried out. \
-                In your opinion, would you say that ALL of these examples are faithful to requested mission?\nMission request: \n'
+                In your opinion, would you say that ALL of these examples are faithful to requested mission? \
+                Don\'t concern yourself with low-level details (such as task parameters), just make sure action sequence is correct. \
+                Mission request: \n'
                 + mission_query
+                + "\nContext:\n"
+                + "".join([open(f).read() for f in self.context_files])
+                + "\nAtomic Proposition definitions:\n"
+                + macros
                 + "\nExample runs:\n"
                 + runs_str
             )
@@ -384,9 +421,13 @@ class MissionPlanner:
             else:
                 self.logger.warning(f"Arbiter disapproves. See example runs: {runs}")
                 e = self.verification_checker.ask_gpt(
-                    "Can you explain why you disagree?", True
+                    "Can you explain why you disagree?"
                 )
                 self.logger.debug(str(e))
+
+            self.verification_checker.reset_context(
+                self.verification_checker.initial_context_length
+            )
 
         self.aut.save("spot.aut", append=False)
 
@@ -451,10 +492,23 @@ def main(config: str):
         logging.getLogger("httpcore").setLevel(logging.CRITICAL)
         logger: logging.Logger = logging.getLogger()
 
+        # you don't necessarily need context
         if "context_files" in config_yaml:
             context_files = config_yaml["context_files"]
         else:
-            logger.info("No additional context files found. Proceeding...")
+            logger.warning("No additional context files found. Proceeding...")
+        if "farm_polygon" in config_yaml:
+            tpg = TreePlacementGenerator(
+                config_yaml["farm_polygon"]["points"],
+                config_yaml["farm_polygon"]["dimensions"],
+            )
+            logger.debug("Farm polygon points defined are: %s", tpg.polygon_coords)
+            logger.debug("Farm dimensions defined are: %s", tpg.dimensions)
+        else:
+            tpg = None
+            logger.warning(
+                "No farm polygon found. Assuming we're not dealing with an orchard grid..."
+            )
 
         # if user specifies config key -> optional keys
         ltl = config_yaml.get(LTL_KEY) or False
@@ -470,6 +524,7 @@ def main(config: str):
             config_yaml["token"],
             config_yaml["schema"],
             context_files,
+            tpg,
             config_yaml["max_retries"],
             config_yaml["max_tokens"],
             config_yaml["temperature"],
@@ -479,11 +534,20 @@ def main(config: str):
             config_yaml["log_directory"],
             logger,
         )
-        mp.configure_network(config_yaml["host"], int(config_yaml["port"]))
     except yaml.YAMLError as exc:
         logger.error(f"Improper YAML config: {exc}")
 
-    mp.run()
+    while True:
+        try:
+            mp.configure_network(config_yaml["host"], int(config_yaml["port"]))
+        except ConnectionRefusedError:
+            logger.error(
+                f"Unable to connect to {config_yaml['host']}:{config_yaml['port']}. Is the server running? Robot could be busy executing a previous mission."
+            )
+            time.sleep(1)
+            continue
+
+        mp.run()
 
 
 if __name__ == "__main__":

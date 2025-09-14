@@ -10,12 +10,29 @@ log_directory: "./app/gpt_outputs/icra"
 schema:
   - "schemas/schemas/clearpath_husky.xsd"
 context_files:
-  # - "./app/resources/context/wheeled_bots/reza20.geojson"
-  - "./app/resources/context/wheeled_bots/reza_medium.geojson"
+  # - "./app/resources/context/wheeled_bots/thompson.txt"
+  - "./app/resources/context/wheeled_bots/reza_medium_polygon.txt"
+  # - "./app/resources/context/wheeled_bots/greece.txt"
+farm_polygon:
+  points:
+    # start from north west corner (as best as possible)
+    - lon: -120.42079453
+      lat: 37.26643908
+    # go clockwise
+    - lon: -120.42012318
+      lat: 37.26644777
+    - lon: -120.42011635
+      lat: 37.26578860
+    - lon: -120.42079999
+      lat: 37.26578751
+  dimensions:
+    # draw this out from top (north) to bottom (south)
+    - row: 18
+      col: 8
 # who to send this too?
 host: 127.0.0.1
 port: 12346
 # LTL generation?
-ltl: True
+ltl: False
 promela_template: "app/resources/context/formal_verification/promela_template.txt"
 spin_path: "spin"

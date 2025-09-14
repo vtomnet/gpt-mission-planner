@@ -89,9 +89,9 @@ class PromelaCompiler:
         promela_code += self.task_names
         promela_code += "\n"
         promela_code += "".join(global_list)
-        promela_code += "\ninit {\n    atomic {\n\n"
+        promela_code += "\ninit {\n    atomic {\n"
         promela_code += "".join(execution_calls)
-        promela_code += "\n    }\n}\n"
+        promela_code += "\n    }\n}"
 
         return promela_code
 
@@ -275,7 +275,7 @@ def main():
     logging.basicConfig(level=logging.DEBUG)
 
     pc: PromelaCompiler = PromelaCompiler(
-        "app/resources/context/wheeled_bots/promela_template.txt", logger
+        "app/resources/context/formal_verification/promela_template.txt", logger
     )
     # this should be the path to the XML mission file
     with open(sys.argv[1]) as fp:
