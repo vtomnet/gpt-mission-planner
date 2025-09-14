@@ -84,3 +84,12 @@ File sent successfully.
 ### Graphical UI
 
 A web+mobile app implementation of this program is under development at https://github.com/thomasm6m6/mpui/.
+
+## Example Queries
+The following queries are used to demonstrate the capabilities of this system:
+
+![Explicit queries](docs/images/explicit.png)
+
+![Implict queries](docs/images/implicit.png)
+
+![Farmer queries](docs/images/farmer.png)
