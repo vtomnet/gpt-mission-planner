@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import litellm
 from litellm import completion
 
-from context import icra_2026_context, verification_agent_context
+from context import rap_2026_context, verification_agent_context
 
 OPENAI_TEMP: float = 1.0
 
@@ -46,7 +46,7 @@ class LLMInterface:
             self._set_schema(s)
 
         # context can be updated from context.py
-        self.context = icra_2026_context(self.schemas)
+        self.context = rap_2026_context(self.schemas)
 
         # this could be empty
         if context_files is not None:
@@ -88,7 +88,6 @@ class LLMInterface:
     def reset_context(self, context_count: int):
         self.context = self.context[0:context_count]
 
-    # TODO: should we expose OpenAI object or string response?
     def ask_gpt(self, prompt: str, add_context: bool = False) -> str | None:
         answered: bool = False
         message: list = self.context.copy()

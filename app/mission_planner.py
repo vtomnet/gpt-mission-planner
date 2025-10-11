@@ -20,17 +20,15 @@ from utils.xml_utils import (
 )
 from utils.spot_utils import add_init_state, init_state_macro, rename_ltl_macros
 from utils.gps_utils import TreePlacementGenerator
-from promela_compiler import PromelaCompiler
 
 LTL_KEY: str = "ltl"
 PROMELA_TEMPLATE_KEY: str = "promela_template"
 SPIN_PATH_KEY: str = "spin_path"
 OPENAI: str = "openai/gpt-5"
-# OPENAI: str = "openai/gpt-5-mini"
+# OPENAI: str = "openai/o3"
 # ANTHROPIC: str = "claude-opus-4-1-20250805"
 ANTHROPIC: str = "claude-sonnet-4-20250514"
 GEMINI: str = "gemini/gemini-2.5-pro"
-# TODO: remove this
 HUMAN_REVIEW: bool = False
 EXAMPLE_RUNS: int = 5
 
@@ -84,6 +82,8 @@ class MissionPlanner:
         # init Promela compiler
         self.ltl: bool = ltl
         if self.ltl:
+            from promela_compiler import PromelaCompiler
+
             self.aut: Any = None
             self.human_review: bool = HUMAN_REVIEW
             # init XML mission gpt interface
@@ -141,12 +141,13 @@ class MissionPlanner:
                 try:
                     ret, xml_out, xml_task_count = self._generate_xml(xml_input, True)
                 except Exception as e:
-                    self.logger.debug(str(e))
+                    self.logger.debug(f"Error generating XML: {e}")
                     ret = False
                     xml_input = str(e)
                     self.retry += 1
                     continue
                 if not ret:
+                    self.logger.debug(f"XML generation failed: {xml_out}")
                     xml_input = xml_out
                     continue
                 # store file for logs
@@ -242,14 +243,12 @@ class MissionPlanner:
                 )
             else:
                 self.logger.error("Unable to formally verify from your prompt...")
-                # TODO: do we break here?
 
         # clear before new query
         self.gpt.reset_context(self.gpt.initial_context_length)
         if self.ltl:
             self.pml_gpt.reset_context(self.pml_gpt.initial_context_length)
 
-        # TODO: decide how the reuse flow works
         self.nic.close_socket()
 
     def _generate_xml(self, prompt: str, count: bool = False) -> Tuple[bool, str, int]:
@@ -265,7 +264,9 @@ class MissionPlanner:
             xml = e
             self.logger.warning(f"Failure to lint XML: {e}")
         else:
+            self.logger.debug(f"Successfully linted XML...")
             if count:
+                self.logger.debug(f"Counting XML tasks...")
                 task_count = count_xml_tasks(xml)
 
         return ret, xml, task_count
@@ -351,7 +352,6 @@ class MissionPlanner:
         # write pml system and LTL to file
         self.promela_path = write_out_file(self.log_directory, new_promela_string)
         # execute spin verification
-        # TODO: this output isn't as useful as trail file, maybe can use later if needed.
         cli_ret, e = execute_shell_cmd(
             [self.spin_path, "-search", "-a", "-O2", self.promela_path]
         )

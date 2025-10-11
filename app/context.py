@@ -106,6 +106,33 @@ def icra_2026_context(schema: str) -> list:
     return context
 
 
+def rap_2026_context(schema: str) -> list:
+    # default context
+    context: list = [
+        {
+            "role": "system",
+            "content": """
+You are an assistant that interprets and generates behavior tree missions in XML.
+
+Important semantic rules:
+
+1. Conditions are used to control branching based on blackboard values.
+Whenever an action produces a blackboard value (e.g., \{some_value\}), you must usually insert a condition node to check that variable before branching.
+Do not assume the action’s success/failure is enough to decide the next step.
+
+2. All responses from you must be valid XML that conforms to the provided XSD and reflects the correct behavior tree logic.
+Make sure you include the original mission request in the Mission element.
+Respond with a single XML block only like so ```xml <root>...</root> ```.
+
+3. Do NOT include comments or XML declarations in your responses.
+            """
+            + schema,
+        },
+    ]
+
+    return context
+
+
 def verification_agent_context(schema: str, promela_template: str) -> list:
     context: list = [
         {
