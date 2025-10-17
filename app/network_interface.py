@@ -19,13 +19,32 @@ class NetworkInterface:
     def send_file(self, file_path) -> None:
         bytes_sent: int = 0
 
-        with open(file_path, "rb") as file:
-            chunk: bytes = file.read(1024)
-            while chunk:
-                bytes_sent += self.client_socket.send(chunk)
-                chunk = file.read(1024)
+        try:
+            with open(file_path, "rb") as file:
+                chunk: bytes = file.read(1024)
+                while chunk:
+                    bytes_sent += self.client_socket.send(chunk)
+                    chunk = file.read(1024)
 
-        self.logger.info("File sent successfully.")
+            # Signal that we're done sending data
+            self.client_socket.shutdown(socket.SHUT_WR)
+            self.logger.info("File sent successfully.")
+        except Exception as e:
+            self.logger.error(f"Error sending file: {e}")
+            try:
+                # Try to shutdown gracefully even on error
+                self.client_socket.shutdown(socket.SHUT_WR)
+            except OSError:
+                # Socket may already be in a bad state
+                pass
+            raise
 
     def close_socket(self) -> None:
-        self.client_socket.close()
+        try:
+            # Shutdown the socket if it hasn't been shutdown already
+            self.client_socket.shutdown(socket.SHUT_RDWR)
+        except OSError:
+            # Socket may already be shutdown or disconnected
+            pass
+        finally:
+            self.client_socket.close()

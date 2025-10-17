@@ -1,7 +1,5 @@
 import random
 
-import spot
-
 import re
 
 
@@ -42,6 +40,7 @@ def init_state_macro(macros: str) -> str:
 
 
 def generate_accepting_run_string(aut) -> str:
+    import spot
     curr = aut.get_init_state_number()
     path = []
     while not aut.state_is_accepting(curr):

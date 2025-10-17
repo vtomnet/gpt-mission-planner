@@ -7,6 +7,10 @@ types-PyYAML==6.0.12.20241230
 docstring-parser==0.16
 litellm==1.73.6
 geopandas==1.1.1
+# HTTP server dependencies
+fastapi==0.115.6
+uvicorn==0.32.1
+python-multipart==0.0.20
 # sandbox
 ipykernel==6.29.5
 # OpenAI issue

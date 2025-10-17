@@ -10,7 +10,7 @@ BUILD_SPOT ?= false
 ifneq (,$(filter $(ARCH),arm64 aarch64))
 	PLATFORM := linux/arm64
 	ENABLE_VERIFICATION := false
-	CONFIG := ./app/config/localhost_mac.yaml
+	CONFIG := ./app/config/localhost.yaml
 endif
 
 repo-init:
@@ -42,6 +42,9 @@ shell:
 
 run:
 	python3 ./app/mission_planner.py --config ${CONFIG}
+
+run-http:
+	python3 ./app/run_server.py
 
 server:
 	nc -lk 0.0.0.0 12346

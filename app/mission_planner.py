@@ -291,15 +291,16 @@ class MissionPlanner:
         return macros, ltl, task_count
 
     def _convert_to_spot(self, ltl: str) -> Any:
-        import spot
-        from utils.spot_utils import regex_spin_to_spot
+        if self.ltl:
+            import spot
+            from utils.spot_utils import regex_spin_to_spot
 
-        """Custom Spot helper function for decoding LTL with error handling"""
-        spot_out: str = regex_spin_to_spot(ltl)
+            """Custom Spot helper function for decoding LTL with error handling"""
+            spot_out: str = regex_spin_to_spot(ltl)
 
-        aut = spot.translate(spot_out)
+            aut = spot.translate(spot_out)
 
-        return aut
+            return aut
 
     def _lint_xml(self, xml_out: str) -> Tuple[bool, str]:
         # path to selected schema based on xsi:schemaLocation
