@@ -5,6 +5,7 @@ import tempfile
 import time
 from typing import Dict, Any, Optional
 import yaml
+import shutil
 
 from fastapi import FastAPI, HTTPException, UploadFile, File, Form, BackgroundTasks
 from fastapi.responses import StreamingResponse
@@ -189,6 +190,9 @@ async def generate_mission_xml(prompt: str, schema_name: str, send_to_robot: boo
 async def startup_event():
     """Initialize the application on startup."""
     try:
+        # Create audio logs directory
+        os.makedirs("logs/audio", exist_ok=True)
+
         await load_config()
         logger.info("HTTP server startup complete")
     except Exception as e:
@@ -306,6 +310,14 @@ async def generate_voice_mission(
                 temp_file_path = temp_file.name
 
             try:
+                # Create permanent audio filename with timestamp
+                logged_audio_filename = f"{int(time.time())}_{os.path.basename(temp_file_path)}"
+                permanent_audio_path = os.path.join("logs", "audio", logged_audio_filename)
+
+                # Copy the audio file to permanent location for preservation
+                shutil.copy2(temp_file_path, permanent_audio_path)
+                logger.info(f"Saved audio file: {permanent_audio_path}")
+
                 # Initialize OpenAI client
                 client = openai.OpenAI()
 
@@ -341,7 +353,7 @@ async def generate_voice_mission(
                         "lat": lat
                     },
                     "response": result,
-                    "audioFile": f"voice_{int(time.time())}.webm"
+                    "audioFile": logged_audio_filename
                 }
 
                 # Write to log file
@@ -353,7 +365,7 @@ async def generate_voice_mission(
                 yield f'{{"result": "{result.replace(chr(10), chr(92) + chr(110)).replace(chr(34), chr(92) + chr(34))}"}}\n'
 
             finally:
-                # Clean up temp file
+                # Clean up temp file (permanent copy has been saved)
                 os.unlink(temp_file_path)
 
         except Exception as e:
