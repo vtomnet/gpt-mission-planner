@@ -1,0 +1,11 @@
+<root BTCPP_format="4" schema_location="schemas/amiga_btcpp.xsd">
+    <Mission>drive the robot to each of the four corners of the field</Mission>
+    <BehaviorTree ID="MainTree">
+        <Sequence>
+            <MoveToGPSLocation name="move_to_top_left_corner" action_name="follow_gps_waypoints" latitude="37.366448999999996" longitude="-120.423065"/>
+            <MoveToGPSLocation name="move_to_top_right_corner" action_name="follow_gps_waypoints" latitude="37.366273" longitude="-120.42286700000001"/>
+            <MoveToGPSLocation name="move_to_bottom_right_corner" action_name="follow_gps_waypoints" latitude="37.366288" longitude="-120.423292"/>
+            <MoveToGPSLocation name="move_to_bottom_left_corner" action_name="follow_gps_waypoints" latitude="37.366118" longitude="-120.42308300000002"/>
+        </Sequence>
+    </BehaviorTree>
+</root>

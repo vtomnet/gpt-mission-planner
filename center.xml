@@ -1,0 +1,8 @@
+<root BTCPP_format="4" schema_location="schemas/amiga_btcpp.xsd">
+    <Mission>drive the robot to the center of the field</Mission>
+    <BehaviorTree ID="MainTree">
+        <Sequence>
+            <MoveToGPSLocation name="move_to_center" action_name="follow_gps_waypoints" latitude="37.36628200009679" longitude="-120.42307674999911"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
