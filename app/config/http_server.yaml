@@ -10,7 +10,7 @@ log_directory: "./app/gpt_outputs/http"
 schema:
   - "schemas/schemas/amiga_btcpp.xsd"
 context_files:
-  - "./app/resources/context/wheeled_bots/reza_medium_polygon.txt"
+  - "./app/resources/context/wheeled_bots/ucm_quad.txt"
 farm_polygon:
   points:
     # start from north west corner (as best as possible)
