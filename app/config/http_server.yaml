@@ -13,20 +13,18 @@ context_files:
   - "./app/resources/context/wheeled_bots/ucm_quad.txt"
 farm_polygon:
   points:
-    # start from north west corner (as best as possible)
-    - lon: -120.42079453
-      lat: 37.26643908
-    # go clockwise
-    - lon: -120.42012318
-      lat: 37.26644777
-    - lon: -120.42011635
-      lat: 37.26578860
-    - lon: -120.42079999
-      lat: 37.26578751
+    - lon: -120.423065
+      lat: 37.366449
+    - lon: -120.422867
+      lat: 37.366273
+    - lon: -120.423292
+      lat: 37.366288
+    - lon: -120.423083
+      lat: 37.366118
   dimensions:
     # draw this out from top (north) to bottom (south)
-    - row: 18
-      col: 8
+    - row: 5
+      col: 5
 # HTTP server configuration
 http_server:
   host: "127.0.0.1"
