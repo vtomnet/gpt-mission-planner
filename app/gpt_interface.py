@@ -1,44 +1,26 @@
 import logging
 import time
 
+
 from dotenv import load_dotenv
 import litellm
 from litellm import completion
 
 from context import rap_2026_context, verification_agent_context
 
-OPENAI_TEMP: float = 1.0
-
+logger = logging.getLogger(__name__)
 
 class LLMInterface:
-    def __init__(
-        self,
-        logger: logging.Logger,
-        token_path: str,
-        model: str = "openai:gpt-4o",
-        max_tokens: int = 2000,
-        temperature: float = 0.2,
-    ):
+    def __init__(self):
         self.logger: logging.Logger = logger
-        # max number of tokens that GPT will respond with, almost 1:1 with words to token
-        self.max_tokens: int = max_tokens
-        # loading in secret API token from your env file
-        load_dotenv(token_path)
-        # which model to use?
-        self.model: str = model
+        load_dotenv()
         # schema text
         self.schemas: str = ""
         # context
-        self.context: list = []
+        self.context = []
         self.initial_context_length: int = 0
         # input template file provided when wanting spin verification
         self.promela_template: str = ""
-        self.temperature: float = temperature
-        if "openai" in self.model:
-            self.logger.warning(
-                f"Using OpenAI model: {self.model}, which requires temperature {OPENAI_TEMP}"
-            )
-            self.temperature = OPENAI_TEMP
 
     def init_context(self, schema_path: list[str], context_files: list[str]):
         for s in schema_path:
@@ -88,15 +70,17 @@ class LLMInterface:
     def reset_context(self, context_count: int):
         self.context = self.context[0:context_count]
 
-    def ask_gpt(self, prompt: str, add_context: bool = False) -> str | None:
-        answered: bool = False
-        message: list = self.context.copy()
-        message.append({"role": "user", "content": prompt})
+    def ask_gpt(self, prompt: str, model: str, add_context: bool = False) -> str | None:
+        answered = False
+        message = self.context.copy() + [{"role": "user", "content": prompt}]
+        print("MODEL:", model)
+        print("MESSAGES:", message)
 
         while not answered:
             try:
                 cmp = completion(
-                    model=self.model, messages=message, temperature=self.temperature
+                    model=model,
+                    messages=message,
                 )
                 answered = True
             except litellm.exceptions.RateLimitError as e:
@@ -117,11 +101,11 @@ class LLMInterface:
 
         self.schemas += "\nThis schema is located at path: " + schema_path
 
-        # deliniate for chatgpt
+        # deliniate for llm
         self.schemas += "\nnext schema: "
 
-    def _add_additional_context_files(self, context_files: list[str]) -> list[dict]:
-        context_list: list[dict] = []
+    def _add_additional_context_files(self, context_files: list[str]):
+        context_list = []
         for c in context_files:
             with open(c, "r") as file:
                 extra = file.read()

@@ -35,22 +35,22 @@ EXAMPLE_RUNS: int = 5
 
 class MissionPlanner:
     def __init__(
-        self,
+        self, *,
         token_path: str,
         schema_paths: list[str],
         context_files: list[str],
         tpg: TreePlacementGenerator,
         max_retries: int,
-        max_tokens: int,
-        temperature: float,
-        ltl: bool,
-        promela_template_path: str,
-        spin_path: str,
-        log_directory: str,
-        logger: logging.Logger,
+        log_directory: str = "logs",
+        max_tokens: int | None = None,
+        temperature: float | None = None,
+        logger: logging.Logger | None = None,
+        ltl: bool = False,
+        promela_template_path: str = "",
+        spin_path: str = "",
     ):
         # logger instance
-        self.logger: logging.Logger = logger
+        self.logger: logging.Logger = logger or logging.getLogger()
         # set schema and farm file paths
         self.schema_paths: list[str] = schema_paths
         self.context_files: list[str] = context_files
@@ -75,9 +75,7 @@ class MissionPlanner:
         # retry count, managed globally to track all failures
         self.retry: int = -1
         # init gpt interface
-        self.gpt: LLMInterface = LLMInterface(
-            self.logger, token_path, ANTHROPIC, max_tokens, temperature=temperature
-        )
+        self.gpt: LLMInterface = LLMInterface()
         self.gpt.init_context(self.schema_paths, self.context_files)
         # init Promela compiler
         self.ltl: bool = ltl
@@ -87,13 +85,9 @@ class MissionPlanner:
             self.aut: Any = None
             self.human_review: bool = HUMAN_REVIEW
             # init XML mission gpt interface
-            self.pml_gpt: LLMInterface = LLMInterface(
-                self.logger, token_path, ANTHROPIC, max_tokens, temperature=temperature
-            )
+            self.pml_gpt: LLMInterface = LLMInterface()
             # Claude human verification substitute
-            self.verification_checker: LLMInterface = LLMInterface(
-                self.logger, token_path, OPENAI, max_tokens, temperature=temperature
-            )
+            self.verification_checker: LLMInterface = LLMInterface()
             # object for compiling Promela from XML
             self.promela: PromelaCompiler = PromelaCompiler(
                 promela_template_path, self.logger
@@ -251,25 +245,18 @@ class MissionPlanner:
 
         self.nic.close_socket()
 
-    def _generate_xml(self, prompt: str, count: bool = False) -> Tuple[bool, str, int]:
+    def _generate_xml(self, prompt: str, model: str, count: bool = False) -> tuple[str, int]:
         task_count: int = 0
         # generate XML mission
-        xml_out: str | None = self.gpt.ask_gpt(prompt, True)
+        xml_out: str | None = self.gpt.ask_gpt(prompt, model, True)
         self.logger.debug(xml_out)
         xml: str = parse_code(xml_out)
         # validate XML output
-        ret, e = self._lint_xml(xml)
-        # check if we have a valid XML
-        if not ret:
-            xml = e
-            self.logger.warning(f"Failure to lint XML: {e}")
-        else:
-            self.logger.debug(f"Successfully linted XML...")
-            if count:
-                self.logger.debug(f"Counting XML tasks...")
-                task_count = count_xml_tasks(xml)
+        # self._lint_xml(xml)
+        if count:
+            task_count = count_xml_tasks(xml)
 
-        return ret, xml, task_count
+        return xml, task_count
 
     def _generate_ltl(self, prompt: str) -> Tuple[str, str, int]:
         from utils.spot_utils import count_ltl_tasks
@@ -302,23 +289,12 @@ class MissionPlanner:
 
             return aut
 
-    def _lint_xml(self, xml_out: str) -> Tuple[bool, str]:
+    def _lint_xml(self, xml_out: str):
         # path to selected schema based on xsi:schemaLocation
         selected_schema: str = parse_schema_location(xml_out)
         self.logger.debug(f"Schema selected by GPT: {selected_schema}")
         # validate mission based on XSD
-        ret, e = validate_output(selected_schema, xml_out)
-
-        # check if we have a valid XML
-        if ret:
-            self.logger.info("Successful XML mission plan generation...")
-        else:
-            self.logger.error(
-                f"Unable to generate mission plan from your prompt... error: {e}"
-            )
-            e = "Error received while validating against schema: " + e
-
-        return ret, e
+        validate_output(selected_schema, xml_out)
 
     def _formal_verification(
         self, promela_string: str, macros: str, ltl_out: str
@@ -486,11 +462,6 @@ def main(config: str):
         # configure logger
         logging.basicConfig(level=logging._nameToLevel[config_yaml["logging"]])
         # OpenAI loggers turned off completely.
-        logging.getLogger("openai").setLevel(logging.CRITICAL)
-        logging.getLogger("anthropic").setLevel(logging.CRITICAL)
-        logging.getLogger("LiteLLM").setLevel(logging.CRITICAL)
-        logging.getLogger("httpx").setLevel(logging.CRITICAL)
-        logging.getLogger("httpcore").setLevel(logging.CRITICAL)
         logger: logging.Logger = logging.getLogger()
 
         # you don't necessarily need context

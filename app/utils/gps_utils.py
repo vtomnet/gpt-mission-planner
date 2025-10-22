@@ -134,17 +134,9 @@ class TreePlacementGenerator:
         )
         return self.tree_points
 
-    def replace_tree_ids_with_gps(self, xml_file: str) -> str:
-        """Replace the id attribute of MoveToTreeID elements with their GPS coordinates.
-
-        Args:
-            xml_file (str): Path to the XML file to modify.
-
-        Returns:
-            str: Path to the modified XML file.
-        """
-        root = etree.parse(xml_file).getroot()
-
+    def replace_tree_ids_with_gps(self, xml_str: str) -> str:
+        """Replace the id attribute of MoveToTreeID elements with their GPS coordinates."""
+        root = etree.fromstring(xml_str)
         for tree_elem in root.findall(".//MoveToTreeID"):
             id = tree_elem.get("id")
             if id is None:
@@ -160,12 +152,9 @@ class TreePlacementGenerator:
                 tree_elem.tag = "MoveToGPSLocation"
 
         etree.indent(root, space="    ")  # 4 spaces indentation
-        with open(xml_file, "w", encoding="utf-8") as f:
-            f.write(etree.tostring(root, pretty_print=True, encoding="unicode"))
+        return etree.tostring(root, pretty_print=True, encoding="unicode")
 
-        return xml_file
-
-    def _make_polygon_array(self, coords: list) -> np.ndarray:
+    def _make_polygon_array(self, coords) -> np.ndarray:
         """Create a 2D array representing the polygon coordinates."""
         coords_array = []
         for p in coords:

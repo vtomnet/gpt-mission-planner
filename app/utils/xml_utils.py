@@ -14,30 +14,25 @@ def parse_schema_location(xml_mp: str) -> str:
 def parse_code(mp_out: str | None, code_type: str = "xml") -> str:
     assert isinstance(mp_out, str)
 
+    if "```" not in mp_out:
+        return mp_out
+
     xml_response: str = mp_out.split("```" + code_type + "\n")[1]
     xml_response = xml_response.split("```")[0]
-
     return xml_response
 
 
-def validate_output(schema_path: str, xml_mp: str) -> Tuple[bool, str]:
-    try:
-        # Parse the XSD file
-        with open(schema_path, "rb") as schema_file:
-            schema_root = etree.XML(schema_file.read())
-        schema = etree.XMLSchema(schema_root)
+def validate_output(schema_path: str, xml_mp: str):
+    # Parse the XSD file
+    with open(schema_path, "rb") as schema_file:
+        schema_root = etree.XML(schema_file.read())
+    schema = etree.XMLSchema(schema_root)
 
-        # Parse the XML file
-        root: etree._Element = etree.fromstring(xml_mp)
+    # Parse the XML file
+    root: etree._Element = etree.fromstring(xml_mp)
 
-        # Validate the XML file against the XSD schema
-        schema.assertValid(root)
-        return True, "XML is valid."
-
-    except etree.XMLSchemaError as e:
-        return False, "XML is invalid: " + str(e)
-    except Exception as e:
-        return False, "An error occurred: " + str(e)
+    # Validate the XML file against the XSD schema
+    schema.assertValid(root)
 
 
 def count_xml_tasks(xml_mp: str):
